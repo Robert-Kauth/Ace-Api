@@ -45,8 +45,28 @@ const seedData = [
         name: "PDFShift",
         url: "https://pdfshift.io/",
         free: false,
-        description: "Stop wasting time implementing and maintaining a third-party software/library. With PDFShift, rely on an up-to-date, high-fidelity conversion API with no maintenance costs.",
+        description: "Stop wasting time implementing and maintaining a third-party software/library. With PDFShift, rely on an up-to-date, high-fidelity conversion API with no maintenance costs. We believe that developers should focus their time on things that matter, not setting up yet another PDF library. Because we eliminate needless complexity and provide an up-to-date service, you can get up and running with PDFShift in just a couple of minutes.",
         logo_url: "https://res.cloudinary.com/dan-purcell-2021/image/upload/v1631914142/aceapi-assets/PDFShift_elrovc.png",
+        tags_id: "5",
+        createdAt: new Date(),
+        updatedAt: new Date()
+    },
+    {
+        name: "Apache Cordova REST API",
+        url: "https://cordova.apache.org/",
+        free: false,
+        description: "Apache Cordova provides device APIs that allow a mobile app developer to access native device functions from JavaScript. This, combined with a UI framework allows a smartphone app to be developed with just HTML, CSS, and JavaScript. The Cordova APIs assist in apps being built without any native code from the app developer. Instead, web technologies are used, and they are hosted in the app itself locally.",
+        logo_url: "https://res.cloudinary.com/dan-purcell-2021/image/upload/v1631918234/aceapi-assets/ApacheCordova-resized_annzsx.png",
+        tags_id: "1",
+        createdAt: new Date(),
+        updatedAt: new Date()
+    },
+    {
+        name: "DialogTech",
+        url: "https://apidocs.dialogtech.com/",
+        free: false,
+        description: "The DialogTech API retrieves conversational intelligence data driven by artificial intelligence. DialogTech API offers REST architecture with XML responses. The interface is accessible via HTTP and compatible with any programming language that makes web-service calls. DialogTech provides solutions for marketing to convert calls into service appointments and support dialogue.",
+        logo_url: "",
         tags_id: "",
         createdAt: new Date(),
         updatedAt: new Date()
@@ -65,52 +85,62 @@ const seedData = [
 
 const tags = [
     {
-        name: "Artificial Intelligence--1",
+        name: "Artificial Intelligence--1", //dan
         createdAt: new Date(),
         updatedAt: new Date()
     },
     {
-        name: "eCommerce--2",
+        name: "eCommerce--2", //rob
         createdAt: new Date(),
         updatedAt: new Date()
     },
     {
-        name: "Chat Technology--3",
+        name: "Chat Technology--3", //dan
         createdAt: new Date(),
         updatedAt: new Date()
     },
     {
-        name: "Web Scraping--4",
+        name: "Data Mining--4", //jack
         createdAt: new Date(),
         updatedAt: new Date()
     },
     {
-        name: "Artificial Intelligence--5",
+        name: "Analytics--5", //max
         createdAt: new Date(),
         updatedAt: new Date()
     },
     {
-        name: "Artificial Intelligence--6",
+        name: "Biometrics--6", //rob
         createdAt: new Date(),
         updatedAt: new Date()
     },
     {
-        name: "Artificial Intelligence--7",
+        name: "Security--7", //max
         createdAt: new Date(),
         updatedAt: new Date()
     },
     {
-        name: "Artificial Intelligence--8",
+        name: "Big Data--8", //dan
         createdAt: new Date(),
         updatedAt: new Date()
     },
     {
-        name: "Artificial Intelligence--9",
+        name: "Sports--9", //jack
         createdAt: new Date(),
         updatedAt: new Date()
     },
     {
-        name: "Artificial Intelligence-10",
+        name: "PLugins-10", //rob
+        createdAt: new Date(),
+        updatedAt: new Date()
+    },
+    {
+        name: "Hacking-11", //jack
+        createdAt: new Date(),
+        updatedAt: new Date()
+    },
+    {
+        name: "Metadata-12", //max
         createdAt: new Date(),
         updatedAt: new Date()
     },
