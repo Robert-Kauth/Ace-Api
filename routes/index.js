@@ -1,6 +1,6 @@
 const express = require('express');
 const db = require('../db/models');
-const { csrfProtection, asyncHandler } = require('./utils');
+const { csrfProtection, asyncHandler } = require('../utils');
 const bcrypt = require('bcryptjs');
 
 const router = express.Router();
@@ -22,21 +22,21 @@ router.get('/signup', csrfProtection, async(req, res, next) => {
 
 router.post('/signup', csrfProtection, asyncHandler (async(req, res, next) => {
   const {
-    firstName,
-    lastName,
+    first_name,
+    last_name,
     email,
     password,
   } = req.body;
 
-  const hashedPassword = await bcrypt.hash(password, 10);
+  const hashed_password = await bcrypt.hash(password, 10);
 
   const user = await db.User.create({
-    firstName,
-    lastName,
+    first_name,
+    last_name,
     email,
-    hashedPassword
+    hashed_password
   });
-  console.log("User created!!!!")
+
   res.redirect('/');
 }));
 

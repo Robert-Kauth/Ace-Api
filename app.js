@@ -22,7 +22,6 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser(sessionSecret));
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(restoreUser)
 
 // set up session middleware
 const store = new SequelizeStore({ db: sequelize });
@@ -34,8 +33,9 @@ app.use(
     saveUninitialized: false,
     resave: false,
   })
-);
+  );
 
+app.use(restoreUser)
 // create Session table if it doesn't already exist
 store.sync();
 

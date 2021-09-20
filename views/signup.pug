@@ -6,15 +6,15 @@ block content
     //- +validationErrorSummary(errors)
     form(action="/signup" method="post")
         input(type='hidden' name='_csrf' value=csrfToken)
-        label(for="firstName") First Name
-        input(type="text" name="firstName" value=user.firstName required)
-        label(for="lastName") Last Name
-        input(type="text" name="lastName" value=user.lastName required)
+        label(for="first_name") First Name
+        input(type="text" name="first_name" value=user.first_name required)
+        label(for="last_name") Last Name
+        input(type="text" name="last_name" value=user.last_name required)
         label(for="email") Email
         input(type="email" name="email" value=user.email required)
         label(for="password") Password
         input(type="password" name="password" required)
-        label(for="passwordConfirm") Confirm Password
-        input(type="password" name="passwordConfirm" required)
+        label(for="password_confirm") Confirm Password
+        input(type="password" name="password_confirm" required)
         button(type="submit") Submit
     p: a(href="/login") Already have an account? Login!

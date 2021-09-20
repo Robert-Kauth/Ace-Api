@@ -1,5 +1,4 @@
-
-const db = require('./db');
+const db = require('./db/models');
 
 
 function loginUser(req, res, user) {
@@ -13,6 +12,7 @@ function logoutUser(req, res, user) {
 }
 
 async function restoreUser(req, res, next) {
+    console.log(req.session)
     if(req.session.auth){
         const { userId } = req.session.auth
 
