@@ -14,4 +14,8 @@ router.get('/signup', csrfProtection, async(req, res, next) => {
   res.render('signup', { csrfToken: req.csrfToken()  });
 });
 
+router.post('/signup', csrfProtection, async(req, res, next) => {
+  res.render('signup', { csrfToken: req.csrfToken()  });
+});
+
 module.exports = router;

@@ -1,0 +1,10 @@
+extends layout.pug
+
+block content
+label(for="email") Email
+        input(type="email" name="email" value=user.email required)
+        label(for="password") Password
+        input(type="password" name="password" required)
+        label(for="passwordConfirm") Confirm Password
+        input(type="password" name="passwordConfirm" required)
+        button(type="submit") Submit
