@@ -105,7 +105,7 @@ router.post(
 					user.hashed_password.toString()
 				);
 				if (password_match) {
-					loginUser(req, res, user);
+					// loginUser(req, res, user);
 					return res.redirect('/');
 				}
 			}
