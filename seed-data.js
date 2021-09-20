@@ -71,7 +71,6 @@ const seedData = [
         createdAt: new Date(),
         updatedAt: new Date()
     },
-
 ]
 
 const tags = [
