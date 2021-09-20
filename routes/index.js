@@ -4,6 +4,7 @@ const { check, validationResult } = require('express-validator');
 
 const { csrfProtection, asyncHandler } = require('../utils');
 const db = require('../db/models');
+const { loginUser, logoutUser } = require('../auth');
 
 const router = express.Router();
 
@@ -76,10 +77,8 @@ router.get('/', async (req, res, next) => {
 
 // GET login page
 router.get('/login', csrfProtection, async (req, res, next) => {
-	const user = db.User.build();
 	res.render('login', {
 		title: 'Ace API - Login',
-		user,
 		csrfToken: req.csrfToken(),
 	});
 });
