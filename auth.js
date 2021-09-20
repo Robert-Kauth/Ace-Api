@@ -33,10 +33,15 @@ async function restoreUser(req, res, next) {
     }
 }
 
-
+function requireAuth(req, res, next) {
+    if (!res.locals.authenticated) {
+        return res.redirect('/login');
+    } else return next()
+}
 
 module.exports = {
     loginUser,
     logoutUser,
-    restoreUser
+    restoreUser,
+    requireAuth
 }
