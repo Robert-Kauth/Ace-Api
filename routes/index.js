@@ -88,7 +88,7 @@ router.post(
 	'/login',
 	csrfProtection,
 	loginValidators,
-	asyncHandler(async (req, res) => {
+	asyncHandler(async (req, res, next) => {
 		const { email, password } = req.body;
 
 		let errors = [];
@@ -98,15 +98,20 @@ router.post(
 		if (validatorErrors.isEmpty()) {
 			const user = await db.User.findOne({ where: { email } });
 
-			console.log(user.hashed_password, '*****************');
 			if (user) {
 				const password_match = await bcrypt.compare(
 					password,
 					user.hashed_password.toString()
 				);
 				if (password_match) {
-					// loginUser(req, res, user);
-					return res.redirect('/');
+					loginUser(req, res, user);
+					return req.session.save((err) => {
+						if (err) {
+							next(err);
+						} else {
+							return res.redirect('/');
+						}
+					});
 				}
 			}
 			errors.push('Login failed for the provided email and password');
