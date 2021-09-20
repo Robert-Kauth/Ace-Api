@@ -72,12 +72,31 @@ const seedData = [
         updatedAt: new Date()
     },
     {
-        name: "",
-        url: "",
+        name: "Animetrics FIMS Cloud API",
+        url: "http://animetrics.com/fims-cloud/",
         free: false,
-        description: "",
-        logo_url: "",
-        tags_id: "",
+        description: "Aimed at the law enforcement, security and military intelligence industries, Animetrics' FaceR Identity Management Solution (FIMS) allows organizations to bring mobile security and video surveillance facial-biometrics applications into the field for use in real time. FIMS Cloud is used to centralize and access a user's cloud based photographic stores using facial recognition. FIMS Cloud organizes, searches and centralizes access to photographic stores using 1:many web service based verification engine.",
+        logo_url: "http://animetrics.com/a_img/animetrics_logo_380_80_black_eyes_clean.png",
+        tags_id: "6",
+        createdAt: new Date(),
+        updatedAt: new Date()
+    },
+    {
+        name: "Fleetbase API ",
+        url: "https://fleetbase.io/docs/api",
+        free: false,
+        description: "Fleetbase offers API-first logistics services. The API enables developers to build logistics applications with methods to manage places, services areas, zones, vendors, drivers, fleets, service rates, orders and much more.",
+        logo_url: "https://fleetbase.io/images/fleetbase-icon.svg",
+        tags_id: "2",
+        createdAt: new Date(),
+        updatedAt: new Date()
+    },{
+        name: "jQuery API",
+        url: "https://api.jquery.com/",
+        free: true,
+        description: "jQuery is a fast, small, and feature-rich JavaScript library. It makes things like HTML document traversal and manipulation, event handling, animation, and Ajax much simpler with an easy-to-use API that works across a multitude of browsers. ",
+        logo_url: "https://jquery.com/jquery-wp-content/themes/jquery/images/logo-jquery.png",
+        tags_id: "10",
         createdAt: new Date(),
         updatedAt: new Date()
     },
