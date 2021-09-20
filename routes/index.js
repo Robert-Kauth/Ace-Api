@@ -1,4 +1,7 @@
 const express = require('express');
+const db = require('../db/models');
+const { csrfProtection, asyncHandler } = require('./utils');
+
 const router = express.Router();
 
 /* GET home page. */
@@ -14,8 +17,9 @@ router.get('/signup', csrfProtection, async(req, res, next) => {
   res.render('signup', { csrfToken: req.csrfToken()  });
 });
 
-router.post('/signup', csrfProtection, async(req, res, next) => {
+router.post('/signup', csrfProtection, asyncHandler (async(req, res, next) => {
+
   res.render('signup', { csrfToken: req.csrfToken()  });
-});
+}));
 
 module.exports = router;
