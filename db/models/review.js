@@ -23,7 +23,7 @@ module.exports = (sequelize, DataTypes) => {
       },
       rating: {
         allowNull: false,
-        type: DataTypes.Numeric(2, 1),
+        type: DataTypes.NUMERIC(2, 1),
       },
     },
     {}
