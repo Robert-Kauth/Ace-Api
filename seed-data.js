@@ -120,12 +120,12 @@ const tags = [
         updatedAt: new Date()
     },
     {
-        name: "PLugins-10", //rob
+        name: "Plugins-10", //rob
         createdAt: new Date(),
         updatedAt: new Date()
     },
     {
-        name: "Hacking-11", //jack
+        name: "Music-11", //jack
         createdAt: new Date(),
         updatedAt: new Date()
     },
