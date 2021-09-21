@@ -1,0 +1,21 @@
+extends layout.pug
+
+block content
+    body
+        h1= toolbox.name
+        table
+            thead
+                th Api
+                th Source
+                th Free or Paid
+                th Api Description
+
+            tbody
+                each api in toolbox.Apis
+                    td= api.name
+                    td= api.url
+                    td= api.free
+                    td= api.description
+                    td
+                        img(src=`${api.logo_url}` alt=`${api.name}`)
+
