@@ -1,6 +1,6 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
-	const Tags = sequelize.define(
+	const Tag = sequelize.define(
 		'Tags',
 		{
 			name: {
@@ -10,8 +10,8 @@ module.exports = (sequelize, DataTypes) => {
 		},
 		{}
 	);
-	Tags.associate = function (models) {
-		// associations can be defined here
+	Tag.associate = function (models) {
+		Tag.hasMany( models.Api, {foreignKey: 'tags_id'} )
 	};
-	return Tags;
+	return Tag;
 };

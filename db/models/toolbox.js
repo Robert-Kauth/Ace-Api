@@ -16,7 +16,13 @@ module.exports = (sequelize, DataTypes) => {
 		{}
 	);
 	Toolbox.associate = function (models) {
-		// associations can be defined here
+		Toolbox.belongsTo( models.User, { foreignKey: 'user_id' })
+		const columnMapping = {
+			through: "Implementation",
+			foreignKey: "toolbox_id",
+			otherKey: "api_id"
+		}
+		Toolbox.belongsToMany(models.Api, columnMapping)
 	};
 	return Toolbox;
 };

@@ -26,6 +26,11 @@ module.exports = {
         allowNull: false,
         type: Sequelize.TEXT
       },
+      tags_id: {
+        allowNull: false,
+        type: Sequelize.INTEGER,
+        references: {model:"Tags"}
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,
