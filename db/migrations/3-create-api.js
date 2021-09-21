@@ -13,10 +13,14 @@ module.exports = {
         type: Sequelize.STRING,
         unique:true
       },
-      url: {
+      website: {
         allowNull: false,
-        type: Sequelize.STRING,
+        type: Sequelize.TEXT,
         unique:true
+      },
+      logo_url: {
+        allowNull: false,
+        type: Sequelize.TEXT,
       },
       free: {
         allowNull: false,

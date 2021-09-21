@@ -1,0 +1,39 @@
+extends layout.pug
+
+block content
+    link(rel='stylesheet' href='/stylesheets/api.css')
+    div(id="api_container")
+        div(id="logoImp_container")
+            img(src=`${api.logo_url}` alt=`${api.name}`)
+            if locals.authenticated
+                form(action="/implementation" method="post")
+                    input(name="api_id" value=`${api.id}` type="hidden")
+                    label(for="toolbox_selection") Add to Toolbox
+                    select(name="toolboxChoice" id="toolbox_selection")
+                        each box in toolboxes
+                            option(value=box.id)=box.name
+                    button Add to Toolbox
+        div(id="api_main")
+            h1(id="api_name")= api.name
+            div(id="api_info")
+                div Average Rating: #{avgRating}/5
+                div Category: #{api.Tag.name}
+                if api.free
+                    div Free to Use
+                else
+                    div Paid
+                div: a(id="ext_website" href=`${api.website}` target="_blank") Website
+            div= api.description
+    div(id="review_container")
+        h2 Reviews
+        if locals.authenticated
+            div(id="add_review"): a(href=`/apis/${api.id}/createreview`) Add a Review
+            each review in reviews
+                div(class="user_review")
+                    p
+                        span(class="user_name") #{review.User.first_name} #{review.User.last_name}
+                        span  rated it a
+                        span(class="user_rating")= review.rating
+                    p(class="review_text")= review.review
+            else
+                p(id="no_reviews") No reviews yet
