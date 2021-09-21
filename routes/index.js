@@ -105,6 +105,7 @@ router.post(
 				);
 				if (password_match) {
 					loginUser(req, res, user);
+					// Race conditions handler
 					return req.session.save((err) => {
 						if (err) {
 							next(err);
