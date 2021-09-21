@@ -1,6 +1,7 @@
 extends layout.pug
 
 block content
+    link(rel='stylesheet' href='/stylesheets/api.css')
     div(id="api_container")
         div(id="logoImp_container")
             img(src=`${api.url}` alt=`${api.name}`)
@@ -11,4 +12,14 @@ block content
                     select(name="toolboxChoice" id="toolbox_selection")
                         each box in toolboxes
                             option(value=box.id)=box.name
-                    button Add
+                    button Add to Toolbox
+        div(id="api_main")
+            h3= api.name
+            div(id="api_info")
+                div Average Rating #{avgRating}
+                div Category #{api.Tag.name}
+                if api.free
+                    div Free to Use
+                else
+                    div Paid
+            div= api.description
