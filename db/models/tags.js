@@ -4,8 +4,8 @@ module.exports = (sequelize, DataTypes) => {
 		'Tags',
 		{
 			name: {
-				type: DataTypes.STRING(25),
 				allowNull: false,
+				type: DataTypes.STRING(25),
 			},
 		},
 		{}
