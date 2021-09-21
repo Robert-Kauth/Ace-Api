@@ -37,7 +37,6 @@ router.get('/:id(\\d+)', asyncHandler( async (req, res, next) => {
         include: { model: db.User }
     })
 
-
     //Render the page if it exists
     //TODO Replace avgRating with actual score
     if (api) {
