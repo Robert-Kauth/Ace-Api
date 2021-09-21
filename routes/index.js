@@ -175,7 +175,7 @@ router.post(
 	})
 );
 
-router.post('/demo', asyncHandler(async (res,req) => {
+router.post('/demo', asyncHandler(async (req,res,next) => {
 	const user  = await db.User.findOne({
 		where: {
 			email:"demo@demo.com"
