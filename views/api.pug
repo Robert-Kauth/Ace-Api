@@ -14,13 +14,13 @@ block content
                             option(value=box.id)=box.name
                     button Add to Toolbox
         div(id="api_main")
-            h3= api.name
+            h3(id="api_name")= api.name
             div(id="api_info")
-                div Average Rating #{avgRating}
-                div Category #{api.Tag.name}
+                div Average Rating: #{avgRating}/5
+                div Category: #{api.Tag.name}
                 if api.free
                     div Free to Use
                 else
                     div Paid
-                a(href=`${api.website}`) Wesbite
+                div: a(id="ext_website" href=`${api.website}`) Website
             div= api.description
