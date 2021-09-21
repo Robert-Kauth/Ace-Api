@@ -8,17 +8,14 @@ const router = express.Router();
 
 /* GET users home page. */
 router.get(
-	'/:id(\\d+)',
+	'/',
 	requireAuth,
-	authorize,
 	asyncHandler(async (req, res, next) => {
-		const user = await User.findByPk(req.params.id);
-		const toolboxes = await Toolbox.findAll();
-		if (user) {
-			res.render('home', { title: 'ACEAPI' });
-		} else {
-			next();
-		}
+		const { userId } = req.session.auth;
+		// console.log(user);
+		const toolboxes = await Toolbox.findAll({ where: { user_id: userId } });
+		console.log(toolboxes);
+		res.render('home', { title: 'ACEAPI', toolboxes });
 	})
 );
 
