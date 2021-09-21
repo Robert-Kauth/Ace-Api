@@ -1,12 +1,18 @@
 mixin validationErrorSummary(errors)
-  if errors
-    div(class='alert alert-danger' role='alert')
-      p The following error(s) occurred:
-      ul
-        each error in errors
-          li= error
+	if errors
+		.alert.alert-danger(role='alert')
+			p The following error(s) occurred:
+			ul
+				each error in errors
+					li= error
 
-mixin field(labelText, fieldName, fieldValue, fieldType = 'text')
-  div(class='form-group')
-    label(for=fieldName)= labelText
-    input(type=fieldType id=fieldName name=fieldName value=fieldValue class='form-control')
+mixin field(labelText, fieldName, fieldValue, fieldType = 'text', required)
+	.form-group
+		label(for=fieldName)= labelText
+		input.form-ctrl(
+			type=fieldType,
+			required,
+			id=fieldName,
+			name=fieldName,
+			value=fieldValue
+		)
