@@ -158,12 +158,9 @@ router.post(
 			const hashed_password = await bcrypt.hash(password, 10);
 			user.hashed_password = hashed_password;
 			await user.save();
-			const wantTo = toolBuilder(user.id, 'Want to Implement');
-			const currently = toolBuilder(user.id, 'Currently Implementing');
-			const implemented = toolBuilder(user.id, 'Implemented');
-			await wantTo.save();
-			await currently.save();
-			await implemented.save();
+			const wantTo = await toolBuilder(user.id,"Want To Implement")
+			const currently = await toolBuilder(user.id,"Currently Implementing")
+			const implemented = await toolBuilder(user.id,"Implemented")
 			loginUser(req, res, user);
 			res.redirect('/');
 		} else {

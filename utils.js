@@ -21,11 +21,9 @@ const handleValidationErrors = (req, res, next) => {
 };
 
 const toolBuilder = async (id, title) => {
-  const toolbox = await Toolbox.build({
-    user_id = id,
-    name = title,
-    createdAt = new Date(),
-    updatedAt = new Date()
+  const toolbox = await db.Toolbox.create({
+    user_id:id,
+    name:title,
   })
   return toolbox;
 }
