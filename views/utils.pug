@@ -16,3 +16,7 @@ mixin field(labelText, fieldName, fieldValue, fieldType = 'text', required)
 			name=fieldName,
 			value=fieldValue
 		)
+
+mixin toolbox_card()
+	each toolbox in toolboxes
+		div: a(href="") #{toolbox.name}

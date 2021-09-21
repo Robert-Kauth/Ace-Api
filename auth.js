@@ -38,9 +38,18 @@ const requireAuth = (req, res, next) => {
 	return next();
 };
 
+const authorize = (req, res, next) => {
+	if (req.session.user) {
+		next();
+	} else {
+		res.redirect('/login');
+	}
+};
+
 module.exports = {
 	loginUser,
 	logoutUser,
 	restoreUser,
+	authorize,
 	requireAuth,
 };

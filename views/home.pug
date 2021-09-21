@@ -1,0 +1,13 @@
+extends layout
+
+include utils
+
+block head
+	title= title
+
+block content
+	span.toolboxes
+		h2 My Toolboxes
+			+toolbox_card()
+	span.api_cards
+		div
