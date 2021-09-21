@@ -2,7 +2,8 @@
 module.exports = (sequelize, DataTypes) => {
   const Api = sequelize.define('Api', {
     name: DataTypes.STRING,
-    url: DataTypes.STRING,
+    website: DataTypes.TEXT,
+    logo_url: DataTypes.TEXT,
     free: DataTypes.BOOLEAN,
     description: DataTypes.TEXT
   }, {});

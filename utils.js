@@ -1,4 +1,5 @@
 const csrf = require('csurf');
+const db = require('./db/models');
 
 const csrfProtection = csrf({ cookie: true });
 
@@ -17,10 +18,19 @@ const handleValidationErrors = (req, res, next) => {
       return next(err);
     }
     next();
-  };
+};
+
+const toolBuilder = async (id, title) => {
+  const toolbox = await db.Toolbox.create({
+    user_id:id,
+    name:title,
+  })
+  return toolbox;
+}
 
 module.exports = {
     csrfProtection,
     asyncHandler,
-    handleValidationErrors
+    handleValidationErrors,
+    toolBuilder
 }

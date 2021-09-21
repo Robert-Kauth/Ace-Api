@@ -2,7 +2,7 @@ const express = require('express');
 const bcrypt = require('bcryptjs');
 const { check, validationResult } = require('express-validator');
 
-const { csrfProtection, asyncHandler } = require('../utils');
+const { csrfProtection, asyncHandler, toolBuilder } = require('../utils');
 const db = require('../db/models');
 const { loginUser, logoutUser } = require('../auth');
 
@@ -158,6 +158,9 @@ router.post(
 			const hashed_password = await bcrypt.hash(password, 10);
 			user.hashed_password = hashed_password;
 			await user.save();
+			const wantTo = await toolBuilder(user.id,"Want To Implement")
+			const currently = await toolBuilder(user.id,"Currently Implementing")
+			const implemented = await toolBuilder(user.id,"Implemented")
 			loginUser(req, res, user);
 			res.redirect('/');
 		} else {
@@ -171,5 +174,15 @@ router.post(
 		}
 	})
 );
+
+router.post('/demo', asyncHandler(async (req,res,next) => {
+	const user  = await db.User.findOne({
+		where: {
+			email:"demo@demo.com"
+		}
+	})
+	loginUser(req, res, user);
+	res.redirect('/');
+}))
 
 module.exports = router;
