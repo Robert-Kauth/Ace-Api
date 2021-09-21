@@ -1,6 +1,6 @@
 const express = require('express');
 
-const { User } = require('../db/models');
+const { User, Toolbox, Implementation, Api } = require('../db/models');
 const { asyncHandler } = require('../utils');
 const { restoreUser, requireAuth, authorize } = require('../auth');
 
@@ -13,11 +13,12 @@ router.get(
 	authorize,
 	asyncHandler(async (req, res, next) => {
 		const user = await User.findByPk(req.params.id);
+		const toolboxes = await Toolbox.findAll();
 		if (user) {
 			res.render('home', { title: 'ACEAPI' });
 		} else {
-      next()
-    }
+			next();
+		}
 	})
 );
 
