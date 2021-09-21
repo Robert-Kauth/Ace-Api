@@ -12,9 +12,7 @@ router.get(
 	requireAuth,
 	asyncHandler(async (req, res, next) => {
 		const { userId } = req.session.auth;
-		// console.log(user);
 		const toolboxes = await Toolbox.findAll({ where: { user_id: userId } });
-		console.log(toolboxes);
 		res.render('home', { title: 'ACEAPI', toolboxes });
 	})
 );
