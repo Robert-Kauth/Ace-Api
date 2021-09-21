@@ -12,7 +12,7 @@ module.exports = (sequelize, DataTypes) => {
 			foreignKey: "api_id",
 			otherKey: "toolbox_id"
 		}
-		Api.belongsToMany(models.ToolBox, columnMapping)
+		Api.belongsToMany(models.Toolbox, columnMapping)
     Api.hasMany(models.Review, { foreignKey: 'api_id' })
     Api.belongsTo(models.Tag, { foreignKey: 'tags_id'})
   };

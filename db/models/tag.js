@@ -1,7 +1,7 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
 	const Tag = sequelize.define(
-		'Tags',
+		'Tag',
 		{
 			name: {
 				allowNull: false,
