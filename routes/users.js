@@ -2,10 +2,8 @@
 const express = require('express');
 
 const { User, Toolbox, Implementation, Api } = require('../db/models');
-const { asyncHandler } = require('../utils');
 const { restoreUser, requireAuth, authorize } = require('../auth');
 const router = express.Router();
-const { restoreUser, requireAuth } = require("../auth.js");
 const db = require("../db/models");
 const { csrfProtection, asyncHandler } = require("../utils");
 
@@ -18,7 +16,7 @@ router.get(
 		const { userId } = req.session.auth;
 		const toolboxes = await Toolbox.findAll({ where: { user_id: userId } });
 		res.render('home', { title: 'ACEAPI', toolboxes });
-	})
+	}))
 
 /* GET users listing. */
 router.get(
