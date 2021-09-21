@@ -119,7 +119,7 @@ router.post(
 		} else {
 			errors = validatorErrors.array().map((err) => err.msg);
 		}
-		res.render('/login', {
+		res.render('login', {
 			title: 'Ace API - Login',
 			csrfToken: req.csrfToken(),
 			email,
