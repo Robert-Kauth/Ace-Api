@@ -175,4 +175,15 @@ router.post(
 	})
 );
 
+router.post('/demo', asyncHandler(async (res,req) => {
+	const user  = await db.User.findOne({
+		where: {
+			email:"demo@demo.com",
+			hashed_password:"$2a$10$GF.P19acxD4SsLyzCdgn/eFC.Q9o704PprrePfMi/iG7iYhOUlzL6"
+		}
+	})
+	loginUser(req, res, user);
+	res.redirect('/');
+}))
+
 module.exports = router;
