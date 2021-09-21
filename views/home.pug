@@ -1,6 +1,9 @@
-extends layout.pug
+extends layout
 
-include utils.pug
+include utils
+
+block head
+	title= title
 
 block content
 	span.toolboxes
