@@ -28,7 +28,7 @@ module.exports = {
     },
     {
         name: "TeamSnap",
-        website: "https://getstream.io/",
+        website: "https://www.teamsnap.com/documentation/apiv3/getting-started",
         free: true,
         description: "The TeamSnap API in REST architecture returns JSON data with team sports managing and organization, including event schedules, tracking payments and fees, areas for team photos, and file sharing.",
         logo_url: "https://res.cloudinary.com/dt8q1ngxj/image/upload/v1631918743/Ace%20Api/teamsnap_f9ivd0.png",

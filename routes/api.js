@@ -29,12 +29,20 @@ router.get('/:id(\\d+)', asyncHandler( async (req, res, next) => {
         toolboxes = [];
     }
 
+    //Get the reviews for the API
+    const reviews = await db.Review.findAll({
+        where: {
+            api_id
+        },
+        include: { model: db.User }
+    })
+
 
     //Render the page if it exists
     //TODO Replace avgRating with actual score
     if (api) {
-        return res.render('api', {title: `Ace API - ${api.name}`, api, toolboxes, avgRating: 5})
-        // res.send(api)
+        return res.render('api', {title: `Ace API - ${api.name}`, api, toolboxes, avgRating: 5, reviews})
+        // res.send(reviews)
     } else {
         next()
     }

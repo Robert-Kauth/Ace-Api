@@ -14,7 +14,7 @@ block content
                             option(value=box.id)=box.name
                     button Add to Toolbox
         div(id="api_main")
-            h3(id="api_name")= api.name
+            h1(id="api_name")= api.name
             div(id="api_info")
                 div Average Rating: #{avgRating}/5
                 div Category: #{api.Tag.name}
@@ -22,5 +22,15 @@ block content
                     div Free to Use
                 else
                     div Paid
-                div: a(id="ext_website" href=`${api.website}`) Website
+                div: a(id="ext_website" href=`${api.website}` target="_blank") Website
             div= api.description
+    div(id="review_container")
+        h2 Reviews
+        if locals.authenticated
+            div: a(href=`/apis/${api.id}/createreview`) Add a Review
+        each review in reviews
+            div(class="user_review")
+                p
+                    span(class="user_name") #{review.User.first_name} #{review.User.last_name}
+                    span  rated it a #{review.rating}
+                p(class="review_text")= review.review
