@@ -1,3 +1,7 @@
-body {
-    background-color: pink;
+#api_container {
+    display: flex;
+}
+
+#api_info {
+    display: flex;
 }

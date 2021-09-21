@@ -13,14 +13,22 @@ router.get('/:id(\\d+)', asyncHandler( async (req, res, next) => {
     //TODO Run a query to find the APIs average rating
 
     //Get the logged in user, if they exist
-    const user_id = req.session.auth.userId;
+    //Else just create an empty array to pass into the render
+    let toolboxes;
 
-    //Get the user's toolboxes
-    const toolboxes = await db.Toolbox.findAll({
-        where: {
-            user_id
-        }
-    })
+    if(req.session.auth) {
+        let user_id = req.session.auth.userId
+
+        //Get the user's toolboxes
+        toolboxes = await db.Toolbox.findAll({
+            where: {
+                user_id
+            }
+        })
+    } else {
+        toolboxes = [];
+    }
+
 
     //Render the page if it exists
     //TODO Replace avgRating with actual score
