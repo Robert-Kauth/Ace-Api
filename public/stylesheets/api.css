@@ -85,3 +85,7 @@ h2 {
     background-color: rgb(156, 156, 156);
     color: rgb(58, 58, 58);
 }
+
+#no_reviews {
+    margin-top: 30px;
+}

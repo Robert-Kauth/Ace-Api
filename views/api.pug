@@ -32,8 +32,8 @@ block content
                 div(class="user_review")
                     p
                         span(class="user_name") #{review.User.first_name} #{review.User.last_name}
-                        span  rated it a 
+                        span  rated it a
                         span(class="user_rating")= review.rating
                     p(class="review_text")= review.review
             else
-                p No reviews yet
+                p(id="no_reviews") No reviews yet
