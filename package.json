@@ -26,7 +26,7 @@
   },
   "devDependencies": {
     "@prettier/plugin-pug": "^1.16.6",
-    "dotenv": "^8.2.0",
+    "dotenv": "^10.0.0",
     "dotenv-cli": "^4.0.0",
     "nodemon": "^2.0.6",
     "prettier": "^2.4.1"

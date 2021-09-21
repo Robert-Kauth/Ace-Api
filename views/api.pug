@@ -1,0 +1,14 @@
+extends layout.pug
+
+block content
+    div(id="api_container")
+        div(id="logoImp_container")
+            img(src=`${api.url}` alt=`${api.name}`)
+            if locals.authenticated
+                form(action="/implementation" method="post")
+                    input(name="api_id" value=`${api.id}` type="hidden")
+                    label(for="toolbox_selection") Add to Toolbox
+                    select(name="toolboxChoice" id="toolbox_selection")
+                        each box in toolboxes
+                            option(value=box.id)=box.name
+                    button Add
