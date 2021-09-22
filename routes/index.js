@@ -202,7 +202,7 @@ router.post(
 
 
 router.post('/demo', asyncHandler(async (req,res,next) => {
-	const user  = await db.User.findOne({
+	const user  = await User.findOne({
 		where: {
 			email:"demo@demo.com"
 		}

@@ -31,9 +31,9 @@ block content
     div(id="review_container")
         h2 Reviews
         if locals.authenticated
-            div(id="add_review"): a(href=`/apis/${api.id}/createreview`) Add a Review
+            div(id="add_review"): a(href=`/apis/${api.id}/create_review`) Add a Review
         each review in reviews
-            div(class="user_review")
+            div(class="user_review" id=`review_${review.id}`)
                 div(class="top_row")
                     p
                         span(class="user_name") #{review.User.first_name} #{review.User.last_name}
@@ -42,7 +42,7 @@ block content
                     if review.User.id === user_id
                         div(class="add_edit_buttons")
                             div(class="edit_buttons"): a(href=`/reviews/${review.id}`) Edit
-                            div(class="delete_buttons" id=`review_${review.id}`) Delete
+                            div(class="delete_buttons" id=`${api.id}_deletereview_${review.id}`) Delete
                 p(class="review_text")= review.review
         else
             p(id="no_reviews") No reviews yet
