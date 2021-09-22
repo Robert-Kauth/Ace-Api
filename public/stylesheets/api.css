@@ -20,7 +20,7 @@
 }
 
 #api_info * {
-    font-size: 20px;
+    font-size: 25px;
 }
 
 #api_info * {
@@ -30,7 +30,7 @@
 }
 
 #api_name {
-    font-size: 50px;
+    font-size: 60px;
 }
 
 img {
@@ -38,8 +38,37 @@ img {
     height: 200px;
 }
 
+#implementation {
+    margin-top: 10px;
+}
+
+#implementation * {
+    margin: 8px;
+}
+
+#addToolbox {
+    background-color: rgb(226, 226, 226);
+    width: fit-content;
+    padding: 5px;
+    margin-top: 15px;
+    border: 1px solid rgba(107, 107, 107, .3);
+    text-decoration: none;
+    font-size: 1rem;
+    cursor: pointer;
+    font-family: "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+#addToolbox:hover {
+    background-color: rgb(156, 156, 156);
+    color: rgb(58, 58, 58);
+}
+
 #ext_website {
     color: blue;
+}
+
+#description {
+    line-height: 25px;
 }
 
 #ext_website:hover {
@@ -65,6 +94,10 @@ img {
     font-weight: 800;
 }
 
+.user_rating {
+    padding-left: 4px;
+}
+
 h2 {
     font-size: 30px;
 }
@@ -88,4 +121,54 @@ h2 {
 
 #no_reviews {
     margin-top: 30px;
+}
+
+.top_row {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: space-between;
+
+}
+
+.add_edit_buttons {
+    display: flex;
+}
+
+.add_edit_buttons * {
+    padding: 0 5px;
+}
+
+.edit_button a {
+    text-decoration: none;
+}
+
+.edit_button {
+    background-color: rgb(226, 226, 226);
+    width: fit-content;
+    padding: 5px;
+    margin-top: 15px;
+    border: 1px solid rgba(107, 107, 107, .3);
+}
+
+.edit_button:hover {
+    background-color: rgb(156, 156, 156);
+    color: rgb(58, 58, 58);
+}
+
+.delete_button {
+    background-color: rgb(226, 226, 226);
+    width: fit-content;
+    padding: 5px;
+    margin-top: 15px;
+    border: 1px solid rgba(107, 107, 107, .3);
+    text-decoration: none;
+    font-size: 1rem;
+    cursor: pointer;
+    font-family: "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+.delete_button:hover {
+    background-color: rgb(156, 156, 156);
+    color: rgb(58, 58, 58);
 }

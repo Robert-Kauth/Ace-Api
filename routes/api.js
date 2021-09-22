@@ -16,8 +16,9 @@ router.get('/:id(\\d+)', asyncHandler( async (req, res, next) => {
     //Else just create an empty array to pass into the render
     let toolboxes;
 
+    let user_id;
     if(req.session.auth) {
-        let user_id = req.session.auth.userId
+        user_id = req.session.auth.userId
 
         //Get the user's toolboxes
         toolboxes = await db.Toolbox.findAll({
@@ -40,7 +41,7 @@ router.get('/:id(\\d+)', asyncHandler( async (req, res, next) => {
     //Render the page if it exists
     //TODO Replace avgRating with actual score
     if (api) {
-        return res.render('api', {title: `Ace API - ${api.name}`, api, toolboxes, avgRating: 5, reviews})
+        return res.render('api', {title: `Ace API - ${api.name}`, api, toolboxes, avgRating: 5, reviews, user_id})
         // res.send(reviews)
     } else {
         next()
