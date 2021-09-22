@@ -11,8 +11,6 @@ router.get('/:id(\\d+)', asyncHandler( async (req, res, next) => {
     //Search for the specific API
     const api = await db.Api.findByPk(api_id, {include: { model: db.Tag }});
 
-    //TODO Run a query to find the APIs average rating
-
     //Get the logged in user, if they exist
     //Else just create an empty array to pass into the render
     let toolboxes;
@@ -58,7 +56,6 @@ router.get('/:id(\\d+)', asyncHandler( async (req, res, next) => {
     const avgNumber = parseFloat(review_avg.avgRating).toFixed(1)
 
     //Render the page if it exists
-    //TODO Replace avgRating with actual score
     if (api) {
         return res.render('api', {title: `Ace API - ${api.name}`, api, toolboxes, avgRating: avgNumber, reviews, user_id})
         // res.send(rounded)
