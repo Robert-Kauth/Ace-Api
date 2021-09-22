@@ -64,8 +64,8 @@ router.get('/:id(\\d+)', asyncHandler( async (req, res, next) => {
     }
 }))
 
-router.get('/:id(\\d+)/create_reviews', csrfProtection, asyncHandler( async (req,res,next) => {
-    res.render('/reviews')
+router.get('/:id(\\d+)/create_review', csrfProtection, asyncHandler( async (req,res,next) => {
+    res.render('reviews')
 }))
 
 

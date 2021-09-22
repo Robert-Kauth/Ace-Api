@@ -26,7 +26,7 @@ router.post('/', asyncHandler(async (req,res,next) => {
         review,
         rating
     });
-    res.render('api/:id')
+    res.redirect(`/apis/${api_id}`)
 }))
 
 router.delete('/:id(\\d+)', asyncHandler(async (req,res,next) => {

@@ -31,7 +31,7 @@ block content
     div(id="review_container")
         h2 Reviews
         if locals.authenticated
-            div(id="add_review"): a(href=`/apis/${api.id}/createreview`) Add a Review
+            div(id="add_review"): a(href=`/apis/${api.id}/create_review`) Add a Review
         each review in reviews
             div(class="user_review")
                 div(class="top_row")
