@@ -17,7 +17,7 @@ router.post('/', csrfProtection, asyncHandler(async (req,res,next) => {
         review,
         rating
     });
-    res.render(`/apis/${api_id}`)
+    res.redirect(`/apis/${api_id}`)
 }))
 
 router.delete('/:id(\\d+)', asyncHandler(async (req,res,next) => {
