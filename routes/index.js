@@ -185,4 +185,9 @@ router.post('/demo', asyncHandler(async (req,res,next) => {
 	res.redirect('/');
 }))
 
+router.post('/logout', (req, res) => {
+	logoutUser(req, res);
+	res.redirect('/login');
+  });
+
 module.exports = router;
