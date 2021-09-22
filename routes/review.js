@@ -8,15 +8,6 @@ const { loginUser, logoutUser } = require('../auth');
 
 const router = express.Router();
 
-// router.get('/', csrfProtection, asyncHandler(async (req,res,next) => {
-//     const { userId } = req.session.auth;
-//     if(userId){
-//         res.render('reviews', { title:"AceAPI Submit Review", csrfToken: req.csrfToken() })
-//     } else {
-//         return res.render('login')
-//     }
-// }));
-
 router.post('/', csrfProtection, asyncHandler(async (req,res,next) => {
     const { api_id, review, rating } = req.body;
     const { userId } = req.session.auth;
@@ -26,9 +17,17 @@ router.post('/', csrfProtection, asyncHandler(async (req,res,next) => {
         review,
         rating
     });
-    res.redirect(`/apis/${api_id}`)
+    res.render(`/apis/${api_id}`)
 }))
 
-
+router.delete('/:id(\\d+)', asyncHandler(async (req,res,next) => {
+    const findReview = await db.Review.findByPk(req.params.id);
+    if (findReview) {
+        const review = await findReview.destroy();
+        res.status(204).end();
+      } else {
+        next();
+      }
+}))
 
 module.exports = router;

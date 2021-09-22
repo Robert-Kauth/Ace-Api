@@ -140,36 +140,21 @@ h2 {
     padding: 0 5px;
 }
 
-.edit_button a {
+.edit_buttons a {
     text-decoration: none;
 }
 
-.edit_button {
+.edit_buttons, .delete_buttons {
     background-color: rgb(226, 226, 226);
     width: fit-content;
     padding: 5px;
     margin-top: 15px;
     border: 1px solid rgba(107, 107, 107, .3);
+    margin-left: 5px;
 }
 
-.edit_button:hover {
+.edit_buttons:hover, .delete_buttons:hover {
     background-color: rgb(156, 156, 156);
     color: rgb(58, 58, 58);
-}
-
-.delete_button {
-    background-color: rgb(226, 226, 226);
-    width: fit-content;
-    padding: 5px;
-    margin-top: 15px;
-    border: 1px solid rgba(107, 107, 107, .3);
-    text-decoration: none;
-    font-size: 1rem;
     cursor: pointer;
-    font-family: "Lucida Grande", Helvetica, Arial, sans-serif;
-}
-
-.delete_button:hover {
-    background-color: rgb(156, 156, 156);
-    color: rgb(58, 58, 58);
 }
