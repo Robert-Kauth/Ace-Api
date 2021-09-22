@@ -1,0 +1,10 @@
+extends layout
+
+include utils
+
+block content
+    link(rel='stylesheet' href='/stylesheets/404.css')
+    div(id="sad_face")
+        img(id="sad_computer" src="https://res.cloudinary.com/dt8q1ngxj/image/upload/v1632350090/Ace%20Api/sadcomputer_nj8qmd.webp" alt="404 Page Not Found")
+    div(id="not_found") Page Not Found!
+    div(id="go_home"): a(href="/") Click to Go Home!
