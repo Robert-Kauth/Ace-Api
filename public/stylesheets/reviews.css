@@ -1,0 +1,44 @@
+*{
+    margin: 0;
+    padding: 0;
+
+}
+#reviews {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+#rate {
+    display: flex;
+    width: 400px;
+    height: 25%;
+    justify-content: center;
+    padding: 10px 20px;
+    margin: 20px 20px;
+    align-items: center;
+}
+#reviewArea{
+    border-color: rgba(255, 255, 255, 0);
+}
+#yourRating {
+    background-color: black;
+    color: white;
+    border-radius: 5px;
+    padding: 5px 5px 5px;
+}
+#yourReview {
+    background-color: black;
+    color: white;
+    border-radius: 5px;
+    padding: 5px 5px 5px;
+}
+#submit{
+    align-items: flex-end;
+    padding: 10px 10px;
+    margin: 10px 10px;
+    color: white;
+    background-color: black;
+    border-radius: 5px;
+    font-size: large;
+}
