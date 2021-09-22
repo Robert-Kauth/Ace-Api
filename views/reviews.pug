@@ -1,0 +1,9 @@
+extends layout
+
+block content
+    form(action="/review" method='post')
+        label(name="rating") Rating
+        option(type="stars")
+        label(name="review") Your Review
+        textarea(name="review", cols="30", rows="10")
+        button(type="subtmit") Submit

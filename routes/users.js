@@ -1,6 +1,4 @@
-
 const express = require('express');
-
 const { User, Toolbox, Implementation, Api } = require('../db/models');
 const { restoreUser, requireAuth, authorize } = require('../auth');
 const router = express.Router();
