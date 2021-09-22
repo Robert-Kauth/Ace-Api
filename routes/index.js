@@ -200,17 +200,34 @@ router.post(
   })
 );
 
-router.post(
-  "/demo",
-  asyncHandler(async (req, res, next) => {
-    const user = await User.findOne({
-      where: {
-        email: "demo@demo.com",
-      },
-    });
-    loginUser(req, res, user);
-    res.redirect("/");
-  })
-);
+
+router.post('/demo', asyncHandler(async (req,res,next) => {
+	const user  = await db.User.findOne({
+		where: {
+			email:"demo@demo.com"
+		}
+	})
+	loginUser(req, res, user);
+	// Race conditions handler
+	return req.session.save((err) => {
+		if (err) {
+			next(err);
+		} else {
+			return res.redirect('/');
+		}
+	});
+}))
+
+router.post('/logout', (req, res) => {
+	logoutUser(req, res);
+	// Race conditions handler
+	return req.session.save((err) => {
+		if (err) {
+			next(err);
+		} else {
+			return res.redirect('/login');
+		}
+	});
+  });
 
 module.exports = router;
