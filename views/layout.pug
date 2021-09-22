@@ -4,16 +4,21 @@ html
       block head
         title= title
         link(rel='stylesheet' href='/stylesheets/index.css')
-  body
-    nav
-      div(id="logo") Ace API
-      a(href="/") Home
-      a(href="/") My Toolboxes
-      if locals.authenticated
-          span Welcome #{user.first_name}!
-          form(class='form-inline pr-4' action='/logout' method='post')
-            button(class='btn btn-sm btn-warning' type='submit') Logout
-      else
-          a(href='/login') Login
-          a(href='/signup') Sign Up
-    block content
+  div(id="body_container")
+    div(id="body_content")
+      body
+        nav
+          a(href="/") Ace API
+          a(href="/") Home
+          a(href="/") My Toolboxes
+          if locals.authenticated
+              span Welcome #{user.first_name}!
+              form(class='form-inline pr-4' action='/logout' method='post')
+                button(class='btn btn-sm btn-warning' type='submit') Logout
+          else
+              a(href='/login') Login
+              a(href='/signup') Sign Up
+        block content
+    div(id="footer")
+      div(class="dev_container")
+        p Robert Kauth

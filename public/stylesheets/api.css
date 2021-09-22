@@ -20,7 +20,7 @@
 }
 
 #api_info * {
-    font-size: 25px;
+    font-size: px;
 }
 
 #api_info * {
@@ -77,7 +77,8 @@ img {
 
 #review_container {
     width: 70%;
-    margin: auto;
+    margin: 20px auto;
+
 }
 
 .review_text {

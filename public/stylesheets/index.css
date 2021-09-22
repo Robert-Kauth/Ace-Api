@@ -16,3 +16,35 @@ body, header {
     font-weight: normal;
 }
 
+#body_container {
+    position: relative;
+    min-height: 100vh;
+}
+
+#body_content {
+    padding-bottom: 2.5rem;
+}
+
+nav {
+    display: flex;
+    background-color: #dfd9c2;
+}
+
+nav a {
+    text-decoration: none;
+    color: #3d2413;
+}
+
+nav * {
+    margin: 20px;
+}
+
+#footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 2.5rem;
+    margin-top: 20px;
+    background-color: #dfd9c2;
+
+}
