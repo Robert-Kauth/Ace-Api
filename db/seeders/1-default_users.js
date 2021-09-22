@@ -3,6 +3,7 @@ const bcrypt = require("bcryptjs")
 
 module.exports = {
   up: (queryInterface, Sequelize) => {
+    console.log("inside users seeder")
 
    return queryInterface.bulkInsert('Users', [
      {

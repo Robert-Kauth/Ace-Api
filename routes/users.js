@@ -12,8 +12,15 @@ router.get(
 	requireAuth,
 	asyncHandler(async (req, res, next) => {
 		const { userId } = req.session.auth;
-		const toolboxes = await Toolbox.findAll({ where: { user_id: userId } });
-		res.render('home', { title: 'ACEAPI', toolboxes });
+		const userToolboxes = await Toolbox.findAll({ where: { user_id: userId } });
+    const apis = await Api.findAll({ order: [['rating', 'DESC']]});
+
+		res.render('home', {
+      title: 'All APIs',
+      userToolboxes,
+      userId,
+      apis
+    });
 	}))
 
 /* GET users listing. */
@@ -30,5 +37,7 @@ router.get(
     res.render("toolbox", {toolbox})
   })
 );
+
+
 
 module.exports = router;

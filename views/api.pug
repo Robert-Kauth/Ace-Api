@@ -4,36 +4,44 @@ block content
     link(rel='stylesheet' href='/stylesheets/api.css')
     div(id="api_container")
         div(id="logoImp_container")
-            img(src=`${api.logo_url}` alt=`${api.name}`)
+            img(id="logo" src=`${api.logo_url}` alt=`${api.name}`)
             if locals.authenticated
-                form(action="/implementation" method="post")
+                form(action="/implementation" method="post" id="implementation")
                     input(name="api_id" value=`${api.id}` type="hidden")
-                    label(for="toolbox_selection") Add to Toolbox
+                    label(for="toolbox_selection") Toolbox Selection
                     select(name="toolboxChoice" id="toolbox_selection")
                         each box in toolboxes
                             option(value=box.id)=box.name
-                    button Add to Toolbox
+                    button(id="addToolbox") Add to Toolbox
         div(id="api_main")
             h1(id="api_name")= api.name
             div(id="api_info")
-                div Average Rating: #{avgRating}/5
+                if avgRating > 0
+                    div Average Rating: #{avgRating}
+                else
+                    div Average Rating: No Rating
                 div Category: #{api.Tag.name}
                 if api.free
                     div Free to Use
                 else
                     div Paid
                 div: a(id="ext_website" href=`${api.website}` target="_blank") Website
-            div= api.description
+            div(id="description")= api.description
     div(id="review_container")
         h2 Reviews
         if locals.authenticated
             div(id="add_review"): a(href=`/apis/${api.id}/createreview`) Add a Review
-            each review in reviews
-                div(class="user_review")
+        each review in reviews
+            div(class="user_review")
+                div(class="top_row")
                     p
                         span(class="user_name") #{review.User.first_name} #{review.User.last_name}
                         span  rated it a
                         span(class="user_rating")= review.rating
-                    p(class="review_text")= review.review
-            else
-                p(id="no_reviews") No reviews yet
+                    if review.User.id === user_id
+                        div(class="add_edit_buttons")
+                            div(class="edit_buttons"): a(href=`/reviews/${review.id}`) Edit
+                            div(class="edit_buttons") Delete
+                p(class="review_text")= review.review
+        else
+            p(id="no_reviews") No reviews yet
