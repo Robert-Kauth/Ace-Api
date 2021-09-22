@@ -2,6 +2,7 @@ extends layout.pug
 
 block content
     link(rel='stylesheet' href='/stylesheets/api.css')
+    script()
     div(id="api_container")
         div(id="logoImp_container")
             img(id="logo" src=`${api.logo_url}` alt=`${api.name}`)
@@ -41,7 +42,8 @@ block content
                     if review.User.id === user_id
                         div(class="add_edit_buttons")
                             div(class="edit_buttons"): a(href=`/reviews/${review.id}`) Edit
-                            div(class="edit_buttons") Delete
+                            div(class="delete_buttons" id=`review_${review.id}`) Delete
                 p(class="review_text")= review.review
         else
             p(id="no_reviews") No reviews yet
+    script(src="/javascripts/api.js" type="module" defer)

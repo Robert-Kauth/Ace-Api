@@ -144,7 +144,7 @@ h2 {
     text-decoration: none;
 }
 
-.edit_buttons {
+.edit_buttons, .delete_buttons {
     background-color: rgb(226, 226, 226);
     width: fit-content;
     padding: 5px;
@@ -153,7 +153,8 @@ h2 {
     margin-left: 5px;
 }
 
-.edit_buttons:hover {
+.edit_buttons:hover, .delete_buttons:hover {
     background-color: rgb(156, 156, 156);
     color: rgb(58, 58, 58);
+    cursor: pointer;
 }
