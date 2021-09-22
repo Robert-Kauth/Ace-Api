@@ -33,7 +33,7 @@ block content
         if locals.authenticated
             div(id="add_review"): a(href=`/apis/${api.id}/create_review`) Add a Review
         each review in reviews
-            div(class="user_review")
+            div(class="user_review" id=`review_${review.id}`)
                 div(class="top_row")
                     p
                         span(class="user_name") #{review.User.first_name} #{review.User.last_name}

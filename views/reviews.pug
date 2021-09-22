@@ -2,13 +2,9 @@ extends layout
 include utils
 
 block content
-<<<<<<< HEAD
-    form(action="/review" method='POST')
-=======
     form(action="/reviews" method='post')
         input(type="hidden" name="_csrf" value=csrfToken)
         input(type="hidden" name="api_id" value=api.id)
->>>>>>> main
         label(name="rating") Rating
         select(name="rating")
             option(type="number")
