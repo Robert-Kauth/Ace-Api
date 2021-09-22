@@ -25,10 +25,7 @@ a, body, header {
 }
 
 nav {
-    /* display: flex; */
     background-color: #dfd9c2;
-    /* align-items: center;
-    justify-content: space-between; */
 }
 
 #nav_container {
