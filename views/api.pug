@@ -4,7 +4,7 @@ block content
     link(rel='stylesheet' href='/stylesheets/api.css')
     div(id="api_container")
         div(id="logoImp_container")
-            img(src=`${api.logo_url}` alt=`${api.name}`)
+            img(id="logo" src=`${api.logo_url}` alt=`${api.name}`)
             if locals.authenticated
                 form(action="/implementation" method="post" id="implementation")
                     input(name="api_id" value=`${api.id}` type="hidden")
