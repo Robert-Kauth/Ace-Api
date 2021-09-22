@@ -182,7 +182,26 @@ router.post('/demo', asyncHandler(async (req,res,next) => {
 		}
 	})
 	loginUser(req, res, user);
-	res.redirect('/');
+	// Race conditions handler
+	return req.session.save((err) => {
+		if (err) {
+			next(err);
+		} else {
+			return res.redirect('/');
+		}
+	});
 }))
+
+router.post('/logout', (req, res) => {
+	logoutUser(req, res);
+	// Race conditions handler
+	return req.session.save((err) => {
+		if (err) {
+			next(err);
+		} else {
+			return res.redirect('/login');
+		}
+	});
+  });
 
 module.exports = router;
