@@ -23,17 +23,23 @@ block content
                 else
                     div Paid
                 div: a(id="ext_website" href=`${api.website}` target="_blank") Website
-            div= api.description
+            div(id="description")= api.description
     div(id="review_container")
         h2 Reviews
         if locals.authenticated
             div(id="add_review"): a(href=`/apis/${api.id}/createreview`) Add a Review
-            each review in reviews
-                div(class="user_review")
+        each review in reviews
+            div(class="user_review")
+                div(class="top_row")
                     p
                         span(class="user_name") #{review.User.first_name} #{review.User.last_name}
                         span  rated it a
                         span(class="user_rating")= review.rating
-                    p(class="review_text")= review.review
-            else
-                p(id="no_reviews") No reviews yet
+                    if review.User.id === user_id
+                        div(class="add_edit_buttons")
+                            div(class="edit_button"): a(href=`/reviews/${review.id}`) Edit
+                            form(action=`/reviews/${review.id}` method='delete')
+                                button(class="delete_button") Delete
+                p(class="review_text")= review.review
+        else
+            p(id="no_reviews") No reviews yet
