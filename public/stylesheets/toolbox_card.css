@@ -6,6 +6,8 @@
 	background-color: blanchedalmond;
 	border-radius: 10px;
 	box-shadow: 5px 5px lightgray;
+	height: fit-content;
+	padding: 20px;
 }
 
 .tbc_head {

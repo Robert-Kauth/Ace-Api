@@ -1,7 +1,7 @@
 const express = require('express');
 const db = require('../db/models');
 const Sequelize = require("sequelize");
-const { asyncHandler } = require('../utils');
+const { csrfProtection, asyncHandler } = require('../utils');
 const router = express.Router();
 
 router.get('/:id(\\d+)', asyncHandler( async (req, res, next) => {
@@ -61,6 +61,17 @@ router.get('/:id(\\d+)', asyncHandler( async (req, res, next) => {
         // res.send(rounded)
     } else {
         next()
+    }
+}))
+
+router.get('/:id(\\d+)/create_reviews', csrfProtection, asyncHandler( async (req,res,next) => {
+    const api = await db.Api.findByPk(req.params.id)
+    let user_id = req.session.auth
+    if(user_id){
+        console.log(api.id)
+        res.render('reviews', { title:"AceAPI Submit Review", csrfToken: req.csrfToken(), api })
+    } else {
+        return res.render('login')
     }
 }))
 
