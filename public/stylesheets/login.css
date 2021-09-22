@@ -1,0 +1,75 @@
+#login_body {
+    background-image: url("https://res.cloudinary.com/dt8q1ngxj/image/upload/v1632341978/Ace%20Api/apisplash_pivkps.png");;
+    background-size: contain;
+    background-position: center center;
+    background-repeat: no-repeat;
+    height: 700px;
+    width: 70%;
+    margin: 2.5rem auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#login_form {
+    width: fit-content;
+    margin: 0 auto;
+    background-color: #f0efec;
+    border-radius: 5%;
+    padding: 10px;
+}
+
+h1 {
+    text-align: center;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    margin: 5px;
+}
+
+.form-group label, h1 {
+    color: #3d2413;
+}
+
+.form-group label {
+    font-size: 20px;
+    font-weight: 500;
+}
+
+
+#loginButton, #demoLogin {
+    margin: 5px;
+    padding: 3px;
+    background-color: rgb(226, 226, 226);
+    border: 1px solid rgba(107, 107, 107, .3);
+    font-size: 17px;
+}
+
+#loginButton {
+    margin-top: 15px;
+}
+
+#loginButton:hover, #demoLogin:hover {
+    background-color: rgb(156, 156, 156);
+    color: rgb(58, 58, 58);
+    cursor: pointer;
+}
+
+.alert p, .alert ul li {
+    color: rgb(221, 0, 0);
+}
+
+.btn-ctrl a {
+    text-decoration: none;
+}
+
+.btn-ctrl a:hover {
+    text-decoration: underline;
+}
+
+.btn-ctrl {
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
