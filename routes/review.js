@@ -26,7 +26,7 @@ router.post('/', csrfProtection, asyncHandler(async (req,res,next) => {
         review,
         rating
     });
-    res.redirect('/')
+    res.redirect(`/apis/${api_id}`)
 }))
 
 
