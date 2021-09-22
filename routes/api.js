@@ -1,6 +1,6 @@
 const express = require('express');
 const db = require('../db/models');
-const { asyncHandler } = require('../utils');
+const { csrfProtection, asyncHandler } = require('../utils');
 const router = express.Router();
 
 router.get('/:id(\\d+)', asyncHandler( async (req, res, next) => {
@@ -45,6 +45,10 @@ router.get('/:id(\\d+)', asyncHandler( async (req, res, next) => {
     } else {
         next()
     }
+}))
+
+router.get('/:id(\\d+)/create_reviews', csrfProtection, asyncHandler( async (req,res,next) => {
+    res.render('/reviews')
 }))
 
 
