@@ -8,25 +8,16 @@ const { loginUser, logoutUser } = require('../auth');
 
 const router = express.Router();
 
-// router.get('/', csrfProtection, asyncHandler(async (req,res,next) => {
-//     const { userId } = req.session.auth;
-//     if(userId){
-//         res.render('reviews', { title:"AceAPI Submit Review", csrfToken: req.csrfToken() })
-//     } else {
-//         return res.render('login')
-//     }
-// }));
-
-router.post('/', asyncHandler(async (req,res,next) => {
+router.post('/', csrfProtection, asyncHandler(async (req,res,next) => {
     const { api_id, review, rating } = req.body;
     const { userId } = req.session.auth;
-    const newReview = await review.create({
+    const newReview = await db.Review.create({
         api_id,
         user_id:userId,
         review,
         rating
     });
-    res.render('api/:id')
+    res.render(`/apis/${api_id}`)
 }))
 
 router.delete('/:id(\\d+)', asyncHandler(async (req,res,next) => {
