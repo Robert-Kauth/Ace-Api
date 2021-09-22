@@ -2,6 +2,7 @@ const express = require('express');
 const db = require('../db/models');
 const { csrfProtection, asyncHandler } = require('../utils');
 const Sequelize = require("sequelize");
+const { requireAuth } = require('../auth');
 const router = express.Router();
 
 router.get('/:id(\\d+)', asyncHandler( async (req, res, next) => {
@@ -64,7 +65,7 @@ router.get('/:id(\\d+)', asyncHandler( async (req, res, next) => {
     }
 }))
 
-router.get('/:id(\\d+)/create_review', csrfProtection, asyncHandler( async (req,res,next) => {
+router.get('/:id(\\d+)/create_review', requireAuth, csrfProtection, asyncHandler( async (req,res,next) => {
     const api = await db.Api.findByPk(req.params.id)
     let user_id = req.session.auth
     if(user_id){

@@ -42,7 +42,7 @@ block content
                     if review.User.id === user_id
                         div(class="add_edit_buttons")
                             div(class="edit_buttons"): a(href=`/reviews/${review.id}`) Edit
-                            div(class="delete_buttons" id=`review_${review.id}`) Delete
+                            div(class="delete_buttons" id=`deletereview_${review.id}`) Delete
                 p(class="review_text")= review.review
         else
             p(id="no_reviews") No reviews yet
