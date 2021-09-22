@@ -23,10 +23,12 @@ mixin toolbox_card
 
 mixin api_card(api, toolboxes)
 	div
-		section.logo_container
-			img(src=`${api.logo_url}` alt=`${api.name}`).logo_img
+		a(href=`/apis/${api.id}`)
+			div.logo_container
+				img(src=`${api.logo_url}` alt=`${api.name}`).logo_img
 		section
-			h4= api.name
+			a(href=`/apis/${api.id}`)
+				h2= api.name
 			span Implement this API
 			select
 				each toolbox in toolboxes
@@ -38,7 +40,8 @@ mixin api_card_concat(api, toolboxes)
 	div
 		div(id="logoImp_container")
 			img(id="logo" src=`${api.logo_url}` alt=`${api.name}`)
-		div(id="api_name")= api.name
+		a(href=`/apis/${api.id}`)
+			h2(id="api_name")= api.name
 		div Category: #{api.Tag.name}
 		if api.free
 			div Free to Use
