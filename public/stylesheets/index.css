@@ -104,6 +104,10 @@ nav a {
     margin-right: 5px;
 }
 
+#welcome {
+    cursor: default;
+}
+
 #logout_button:hover {
     cursor: pointer;
     background-color: #3d2413;
