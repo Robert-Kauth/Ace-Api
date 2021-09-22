@@ -1,5 +1,6 @@
 const express = require('express');
 const db = require('../db/models');
+const Sequelize = require("sequelize");
 const { asyncHandler } = require('../utils');
 const router = express.Router();
 
@@ -9,8 +10,6 @@ router.get('/:id(\\d+)', asyncHandler( async (req, res, next) => {
 
     //Search for the specific API
     const api = await db.Api.findByPk(api_id, {include: { model: db.Tag }});
-
-    //TODO Run a query to find the APIs average rating
 
     //Get the logged in user, if they exist
     //Else just create an empty array to pass into the render
@@ -38,11 +37,28 @@ router.get('/:id(\\d+)', asyncHandler( async (req, res, next) => {
         include: { model: db.User }
     })
 
+    //Get the Average Rating- sum of ratings / count
+    //Get count
+    let review_avg = await db.Review.findAll({
+        where: {
+            api_id
+        },
+        attributes: [
+            [Sequelize.fn('AVG', Sequelize.col('rating')), 'avgRating'],
+          ],
+    })
+    // console.log("**************")
+    review_avg = review_avg[0]
+    review_avg = JSON.stringify(review_avg)
+    review_avg = JSON.parse(review_avg)
+
+    //Trim decimals
+    const avgNumber = parseFloat(review_avg.avgRating).toFixed(1)
+
     //Render the page if it exists
-    //TODO Replace avgRating with actual score
     if (api) {
-        return res.render('api', {title: `Ace API - ${api.name}`, api, toolboxes, avgRating: 5, reviews, user_id})
-        // res.send(reviews)
+        return res.render('api', {title: `Ace API - ${api.name}`, api, toolboxes, avgRating: avgNumber, reviews, user_id})
+        // res.send(rounded)
     } else {
         next()
     }
