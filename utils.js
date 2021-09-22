@@ -1,5 +1,6 @@
 const csrf = require('csurf');
 const db = require('./db/models');
+const Sequelize = require("sequelize");
 
 const csrfProtection = csrf({ cookie: true });
 
@@ -28,9 +29,30 @@ const toolBuilder = async (id, title) => {
   return toolbox;
 }
 
+const reviewAvgRating = async (api_id) => {
+  let review_avg = await db.Review.findAll({
+    where: {
+        api_id
+    },
+    attributes: [
+        [Sequelize.fn('AVG', Sequelize.col('rating')), 'avgRating'],
+      ],
+  })
+
+  review_avg = review_avg[0]
+  review_avg = JSON.stringify(review_avg)
+  review_avg = JSON.parse(review_avg)
+
+  //Trim decimals
+  const avgNumber = parseFloat(review_avg.avgRating).toFixed(1)
+
+  return avgNumber;
+}
+
 module.exports = {
     csrfProtection,
     asyncHandler,
     handleValidationErrors,
-    toolBuilder
+    toolBuilder,
+    reviewAvgRating
 }

@@ -4,8 +4,8 @@ document.addEventListener("DOMContentLoaded", (event)=>{
     deleteButtons.addEventListener("click", async (e) => {
         if (e.target.classList.contains("delete_buttons")) {
             let reviewId = e.target.id;
-            const reviewNumber = reviewId.split("deletereview_")[1]
-
+            const reviewNumber = reviewId.split("_deletereview_")[1]
+            console.log(reviewNumber)
             try {
                 const res = await fetch(`/reviews/${reviewNumber}`, {
                     method: "DELETE"
@@ -21,10 +21,6 @@ document.addEventListener("DOMContentLoaded", (event)=>{
             } catch (err) {
                 alert("Error Occured. Refresh the page and try again")
             }
-
         }
     });
-
-
-
 });

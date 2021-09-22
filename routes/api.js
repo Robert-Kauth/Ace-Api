@@ -1,6 +1,6 @@
 const express = require('express');
 const db = require('../db/models');
-const { csrfProtection, asyncHandler } = require('../utils');
+const { csrfProtection, asyncHandler, reviewAvgRating } = require('../utils');
 const Sequelize = require("sequelize");
 const { requireAuth } = require('../auth');
 const router = express.Router();
@@ -38,23 +38,8 @@ router.get('/:id(\\d+)', asyncHandler( async (req, res, next) => {
         include: { model: db.User }
     })
 
-    //Get the Average Rating- sum of ratings / count
-    //Get count
-    let review_avg = await db.Review.findAll({
-        where: {
-            api_id
-        },
-        attributes: [
-            [Sequelize.fn('AVG', Sequelize.col('rating')), 'avgRating'],
-          ],
-    })
-    // console.log("**************")
-    review_avg = review_avg[0]
-    review_avg = JSON.stringify(review_avg)
-    review_avg = JSON.parse(review_avg)
-
-    //Trim decimals
-    const avgNumber = parseFloat(review_avg.avgRating).toFixed(1)
+    //Get the Average Rating
+    const avgNumber = await reviewAvgRating(api_id);
 
     //Render the page if it exists
     if (api) {
