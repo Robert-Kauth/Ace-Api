@@ -2,17 +2,20 @@ extends layout
 include utils
 
 block content
-    form(action="/reviews" method='post')
+    link(rel='stylesheet' href='/stylesheets/reviews.css')
+    script()
+    h1(id="title") Submit Your Review
+    form(action="/reviews" method='post' id="reviews")
         input(type="hidden" name="_csrf" value=csrfToken)
         input(type="hidden" name="api_id" value=api.id)
-        label(name="rating") Rating
-        select(name="rating")
-            option(type="number")
-            option(type="number") 1
-            option(type="number") 2
-            option(type="number") 3
-            option(type="number") 4
-            option(type="number") 5
-        label(name="review") Your Review
-        textarea(name="review", cols="30", rows="10")
-        button(type="submit") Submit
+        fieldset(name="ratings" id="rate")
+            legend(name="rating" id="yourRating") Your Rating
+            input(type="radio" id="rating1" name="rating" value="1")
+            input(type="radio" id="rating2" name="rating" value="2")
+            input(type="radio" id="rating3" name="rating" value="3")
+            input(type="radio" id="rating4" name="rating" value="4")
+            input(type="radio" id="rating5" name="rating" value="5")
+        fieldset(name="review" id="textReview")
+            legend(name="text" id="yourReview") Your Review
+            textarea(name="review", cols="70", rows="20" id="reviewArea")
+        button(type="submit" id="submit") Submit
