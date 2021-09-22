@@ -1,5 +1,6 @@
 const express = require('express');
 const db = require('../db/models');
+
 const { csrfProtection, asyncHandler, reviewAvgRating } = require('../utils');
 const Sequelize = require("sequelize");
 const { requireAuth } = require('../auth');
@@ -49,6 +50,7 @@ router.get('/:id(\\d+)', asyncHandler( async (req, res, next) => {
         next()
     }
 }))
+
 
 router.get('/:id(\\d+)/create_review', requireAuth, csrfProtection, asyncHandler( async (req,res,next) => {
     const api = await db.Api.findByPk(req.params.id)
