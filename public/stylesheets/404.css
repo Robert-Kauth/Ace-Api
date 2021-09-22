@@ -1,0 +1,22 @@
+#not_found, #sad_face, #go_home {
+    width: fit-content;
+    margin: auto;
+}
+
+#not_found {
+    font-size: 30px;
+    font-family: "Roboto", Helvetica, Arial, sans-serif;
+}
+
+#go_home {
+    margin-top: 30px;
+}
+
+#go_home a {
+    text-decoration: none;
+    font-size: 20px;
+}
+
+#go_home a:hover {
+    text-decoration: underline;
+}
