@@ -20,3 +20,16 @@ mixin field(labelText, fieldName, fieldValue, fieldType = 'text', required)
 mixin toolbox_card()
 	each toolbox in toolboxes
 		div: a(href="") #{toolbox.name}
+
+mixin api_card(api)
+	div
+		section
+			img(src=`${api.logo_url}` alt=`${api.name}`)
+		section
+			p= api.description
+		section
+			h4= api.name
+			span Rating
+			select
+				each toolbox in toolboxes
+					option(value=toolbox.id) toolbox.name
