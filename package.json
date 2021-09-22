@@ -16,6 +16,8 @@
     "express": "~4.16.1",
     "express-session": "^1.17.1",
     "express-validator": "^6.12.1",
+    "heroku": "^7.2.0",
+    "heroku-cli": "^6.15.31",
     "http-errors": "~1.6.3",
     "morgan": "~1.9.1",
     "per-env": "^1.0.2",

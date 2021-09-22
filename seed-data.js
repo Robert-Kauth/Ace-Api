@@ -66,8 +66,8 @@ const seedData = [
         url: "https://apidocs.dialogtech.com/",
         free: false,
         description: "The DialogTech API retrieves conversational intelligence data driven by artificial intelligence. DialogTech API offers REST architecture with XML responses. The interface is accessible via HTTP and compatible with any programming language that makes web-service calls. DialogTech provides solutions for marketing to convert calls into service appointments and support dialogue.",
-        logo_url: "",
-        tags_id: "",
+        logo_url: "https://res.cloudinary.com/dan-purcell-2021/image/upload/v1632341761/aceapi-assets/DialogTechAPI-resized_iihg9v.png",
+        tags_id: 1,
         createdAt: new Date(),
         updatedAt: new Date()
     },
