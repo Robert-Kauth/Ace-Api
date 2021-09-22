@@ -84,7 +84,7 @@ router.get(
     const { userId } = req.session.auth;
       const userToolboxes = await Toolbox.findAll({ where: { user_id: userId } });
       res.render("home", {
-        title: "All APIs",
+        title: "ACE API",
         userToolboxes,
         userId,
         toolboxes,
@@ -92,7 +92,7 @@ router.get(
       });
     } else {
       res.render("home", {
-        title: "All APIs",
+        title: "ACE API",
         toolboxes,
         apis,
       });
