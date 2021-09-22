@@ -48,7 +48,9 @@ router.get('/:id(\\d+)', asyncHandler( async (req, res, next) => {
 }))
 
 router.get('/:id(\\d+)/create_reviews', csrfProtection, asyncHandler( async (req,res,next) => {
-    res.render('/reviews')
+    console.log(req.params.id)
+    console.log(req.session.auth)
+    res.render('reviews', { title:"AceAPI Submit Review", csrfToken: req.csrfToken() })
 }))
 
 

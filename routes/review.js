@@ -17,16 +17,20 @@ const router = express.Router();
 //     }
 // }));
 
-router.post('/', asyncHandler(async (req,res,next) => {
-    const { api_id, review, rating } = req.body;
-    const { userId } = req.session.auth;
-    const newReview = await review.create({
-        api_id,
-        user_id:userId,
-        review,
-        rating
-    });
-    res.render('api/:id')
+router.post('/', csrfProtection, asyncHandler(async (req,res,next) => {
+    // const { review, rating } = req.body;
+    // console.log(req.body)
+    // const { userId } = req.session.auth;
+    // const api_id = req.params.id;
+    // console.log(userId)
+    // console.log(api_id)
+    // const newReview = await Review.create({
+    //     // api_id,
+    //     // user_id:userId,
+    //     review,
+    //     rating
+    // });
+    res.redirect('/apis')
 }))
 
 
