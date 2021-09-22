@@ -17,9 +17,9 @@ mixin field(labelText, fieldName, fieldValue, fieldType = 'text', required)
 			value=fieldValue
 		)
 
-mixin toolbox_card()
-	each toolbox in toolboxes
-		div: a(href="") #{toolbox.name}
+mixin toolbox_card
+	each toolbox in toolboxes  
+		.tbc_ctrl: a(href=`/users/${toolbox.id}`) #{toolbox.name}
 
 mixin api_card(api, toolboxes)
 	div
