@@ -74,14 +74,16 @@ const loginValidators = [
 router.get(
   "/",
   asyncHandler(async (req, res, next) => {
-    const { userId } = req.session.auth;
-    const userToolboxes = await Toolbox.findAll({ where: { user_id: userId } });
+    // const { userId } = req.session.auth;
+    // const userToolboxes = await Toolbox.findAll({ where: { user_id: userId } });
+    const toolboxes = await Toolbox.findAll();
     const apis = await Api.findAll();
-	console.log("inside home router")
+    console.log("inside home router");
     res.render("home", {
       title: "ACEAPI",
-      userToolboxes,
-      userId,
+      //   userToolboxes,
+      //   userId,
+      toolboxes,
       apis,
     });
   })

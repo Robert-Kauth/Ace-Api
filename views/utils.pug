@@ -21,7 +21,7 @@ mixin toolbox_card()
 	each toolbox in toolboxes
 		div: a(href="") #{toolbox.name}
 
-mixin api_card(api)
+mixin api_card(api, toolboxes)
 	div
 		section
 			img(src=`${api.logo_url}` alt=`${api.name}`)
@@ -29,7 +29,7 @@ mixin api_card(api)
 			p= api.description
 		section
 			h4= api.name
-			span Rating
+			span Implement
 			select
 				each toolbox in toolboxes
 					option(value=toolbox.id) toolbox.name

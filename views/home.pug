@@ -8,11 +8,21 @@ block head
 block content
 
 	span.toolboxes
-		if userId
-			h2 My Toolboxes
-			each toolbox in userToolboxes
-				+toolbox_card(toolbox)
+		ul
+			li
+				a(href="") All
+
+			each toolbox in toolboxes
+				li
+					a(href="")= toolbox.name
+			div
+				form
+					button(type="submit" action="/create-toolbox" method="get")
+		//- if userId
+		//- 	h2 My Toolboxes
+		//- 	each toolbox in userToolboxes
+		//- 		+toolbox_card(toolbox)
 	span.api_cards
 		each api in apis
 			div.card_container
-				+api_card(api)
+				+api_card(api, toolboxes)
