@@ -187,7 +187,15 @@ router.post(
       const currently = await toolBuilder(user.id, "Currently Implementing");
       const implemented = await toolBuilder(user.id, "Implemented");
       loginUser(req, res, user);
-      res.redirect("/");
+
+      //Race condition handler
+      return req.session.save((err) => {
+        if (err) {
+          next(err);
+        } else {
+          return res.redirect('/');
+        }
+      });
     } else {
       const errors = validatorErrors.array().map((error) => error.msg);
       res.render("signup", {
