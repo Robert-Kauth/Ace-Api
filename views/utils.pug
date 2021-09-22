@@ -17,6 +17,19 @@ mixin field(labelText, fieldName, fieldValue, fieldType = 'text', required)
 			value=fieldValue
 		)
 
-mixin toolbox_card()
+mixin toolbox_card
 	each toolbox in toolboxes
-		div: a(href="") #{toolbox.name}
+		.tbc_ctrl: a(href=`/users/${toolbox.id}`) #{toolbox.name}
+
+mixin api_card(api, toolboxes)
+	div
+		section.logo_container
+			img(src=`${api.logo_url}` alt=`${api.name}`).logo_img
+		section
+			h4= api.name
+			span Implement this API
+			select
+				each toolbox in toolboxes
+					option(value=toolbox.id)= toolbox.name
+		section
+			p= api.description

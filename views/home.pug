@@ -4,10 +4,15 @@ include utils
 
 block head
 	title= title
+	link(rel='stylesheet' href='/stylesheets/home.css')
+	link(rel='stylesheet' href='/stylesheets/toolbox_card.css')
 
 block content
-	span.toolboxes
-		h2 My Toolboxes
-			+toolbox_card()
+	.tbc_ctrl_group
+		p.tbc_head My Toolboxes
+		+toolbox_card
+		
 	span.api_cards
-		div
+		each api in apis
+			div.card_container
+				+api_card(api, toolboxes)
