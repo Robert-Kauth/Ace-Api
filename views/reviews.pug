@@ -1,9 +1,18 @@
 extends layout
+include utils
 
 block content
-    form(action="/review" method='post')
+    form(action="/reviews" method='post')
+        input(type="hidden" name="_csrf" value=csrfToken)
+        input(type="hidden" name="api_id" value=api.id)
         label(name="rating") Rating
-        option(type="stars")
+        select(name="rating")
+            option(type="number")
+            option(type="number") 1
+            option(type="number") 2
+            option(type="number") 3
+            option(type="number") 4
+            option(type="number") 5
         label(name="review") Your Review
         textarea(name="review", cols="30", rows="10")
-        button(type="subtmit") Submit
+        button(type="submit") Submit

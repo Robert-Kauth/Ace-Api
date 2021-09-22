@@ -48,9 +48,14 @@ router.get('/:id(\\d+)', asyncHandler( async (req, res, next) => {
 }))
 
 router.get('/:id(\\d+)/create_reviews', csrfProtection, asyncHandler( async (req,res,next) => {
-    console.log(req.params.id)
-    console.log(req.session.auth)
-    res.render('reviews', { title:"AceAPI Submit Review", csrfToken: req.csrfToken() })
+    const api = await db.Api.findByPk(req.params.id)
+    let user_id = req.session.auth
+    if(user_id){
+        console.log(api.id)
+        res.render('reviews', { title:"AceAPI Submit Review", csrfToken: req.csrfToken(), api })
+    } else {
+        return res.render('login')
+    }
 }))
 
 
