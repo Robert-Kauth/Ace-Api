@@ -18,7 +18,7 @@ mixin field(labelText, fieldName, fieldValue, fieldType = 'text', required)
 		)
 
 mixin toolbox_card
-	each toolbox in toolboxes  
+	each toolbox in toolboxes
 		.tbc_ctrl: a(href=`/users/${toolbox.id}`) #{toolbox.name}
 
 mixin api_card(api, toolboxes)
@@ -33,3 +33,15 @@ mixin api_card(api, toolboxes)
 					option(value=toolbox.id)= toolbox.name
 		section
 			p= api.description
+
+mixin api_card_concat(api, toolboxes)
+	div
+		div(id="logoImp_container")
+			img(id="logo" src=`${api.logo_url}` alt=`${api.name}`)
+		div(id="api_name")= api.name
+		div Category: #{api.Tag.name}
+		if api.free
+			div Free to Use
+		else
+			div Paid
+		div: a(id="ext_website" href=`${api.website}` target="_blank") Website

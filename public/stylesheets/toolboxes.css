@@ -1,0 +1,10 @@
+#my_toolboxes {
+    margin: auto;
+    width: fit-content;
+}
+
+#myToolboxes_container {
+    display: flex;
+    width: fit-content;
+    margin: auto;
+}
