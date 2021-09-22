@@ -1,7 +1,7 @@
 const express = require("express");
 const bcrypt = require("bcryptjs");
 const { check, validationResult } = require("express-validator");
-
+const { Op } = require("sequelize");
 const { csrfProtection, asyncHandler, toolBuilder } = require("../utils");
 const { User, Toolbox, Implementation, Api } = require("../db/models");
 const { loginUser, logoutUser } = require("../auth");
@@ -74,11 +74,14 @@ const loginValidators = [
 router.get(
   "/",
   asyncHandler(async (req, res, next) => {
-    const toolboxes = await Toolbox.findAll();
-    const apis = await Api.findAll();
 
-    if (req.session.auth) {
-      const { userId } = req.session.auth;
+  const apis = await Api.findAll();
+  const toolboxes = await Toolbox.findAll({
+    where: { id: { [Op.lt]: 4 } }
+  });
+
+  if (req.session.auth) {
+    const { userId } = req.session.auth;
       const userToolboxes = await Toolbox.findAll({ where: { user_id: userId } });
       res.render("home", {
         title: "All APIs",

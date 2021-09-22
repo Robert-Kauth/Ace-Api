@@ -1,0 +1,29 @@
+.tbc_ctrl_group {
+	display: inline-flex;
+	flex-direction: column;
+	align-items: center;
+	border: 1px solid black;
+	background-color: blanchedalmond;
+	border-radius: 10px;
+	box-shadow: 5px 5px lightgray;
+}
+
+.tbc_head {
+	font-size: x-large;
+	margin: 10px auto;
+}
+
+.tbc_ctrl {
+	margin: 5px 10px;
+	font-size: large;
+}
+
+a {
+	color: black;
+	font-size: medium;
+	text-decoration: none;
+}
+
+a:visited {
+	color: black;
+}
