@@ -20,7 +20,7 @@
 }
 
 #api_info * {
-    font-size: 20px;
+    font-size: 25px;
 }
 
 #api_info * {
@@ -30,12 +30,37 @@
 }
 
 #api_name {
-    font-size: 50px;
+    font-size: 60px;
 }
 
 img {
     width: 200px;
     height: 200px;
+}
+
+#implementation {
+    margin-top: 10px;
+}
+
+#implementation * {
+    margin: 8px;
+}
+
+#addToolbox {
+    background-color: rgb(226, 226, 226);
+    width: fit-content;
+    padding: 5px;
+    margin-top: 15px;
+    border: 1px solid rgba(107, 107, 107, .3);
+    text-decoration: none;
+    font-size: 1rem;
+    cursor: pointer;
+    font-family: "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+#addToolbox:hover {
+    background-color: rgb(156, 156, 156);
+    color: rgb(58, 58, 58);
 }
 
 #ext_website {
