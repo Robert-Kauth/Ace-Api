@@ -18,7 +18,7 @@ router.get(
     const apis = await Api.findAll({ order: [['rating', 'DESC']]});
 
 		res.render('home', {
-      title: 'ACEAPI',
+      title: 'All APIs',
       userToolboxes,
       userId,
       apis

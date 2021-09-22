@@ -23,13 +23,13 @@ mixin toolbox_card()
 
 mixin api_card(api, toolboxes)
 	div
-		section
-			img(src=`${api.logo_url}` alt=`${api.name}`)
-		section
-			p= api.description
+		section.logo_container
+			img(src=`${api.logo_url}` alt=`${api.name}`).logo_img
 		section
 			h4= api.name
 			span Implement
 			select
 				each toolbox in toolboxes
 					option(value=toolbox.id) toolbox.name
+		section
+			p= api.description
