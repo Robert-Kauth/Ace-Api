@@ -8,19 +8,23 @@ html
     div(id="body_content")
       body
         nav
-          a(href="/" )
-            div(id="logo_div")
-              img(id="logo" src="https://res.cloudinary.com/dt8q1ngxj/image/upload/v1632286717/Ace%20Api/ace_eobkk1.png")
-              p Ace API
-          a(href="/") Home
-          if locals.authenticated
-            a(href="/") My Toolboxes
-            span Welcome #{user.first_name}!
-            form(class='form-inline pr-4' action='/logout' method='post')
-              button(id='logout_button' type='submit') Logout
-          else
-              a(href='/login') Login
-              a(href='/signup') Sign Up
+          div(id="nav_container")
+            div(id="left_nav")
+              a(href="/" )
+                div(id="logo_div")
+                  img(id="ace_logo" src="https://res.cloudinary.com/dt8q1ngxj/image/upload/v1632286717/Ace%20Api/ace_eobkk1.png")
+                  span(id="ace_api") Ace API
+              a(class="nav_link" href="/") Home
+              if locals.authenticated
+                a(class="nav_link" href="/") My Toolboxes
+            div(id="right_nav")
+              if locals.authenticated
+                span(id="welcome") Welcome #{user.first_name}!
+                form(class='form-inline pr-4' action='/logout' method='post')
+                  button(id='logout_button' type='submit') Logout
+              else
+                  a(class="nav_link" href='/login') Login
+                  a(class="nav_link" href='/signup') Sign Up
         block content
     div(id="footer")
       div(class="dev_container")

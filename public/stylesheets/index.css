@@ -25,9 +25,37 @@ a, body, header {
 }
 
 nav {
-    display: flex;
+    /* display: flex; */
     background-color: #dfd9c2;
+    /* align-items: center;
+    justify-content: space-between; */
+}
+
+#nav_container {
+    display: flex;
     align-items: center;
+    justify-content: space-between;
+    width: 90%;
+    margin: auto;
+}
+
+#left_nav, #right_nav {
+    display: flex;
+    align-items: center;
+}
+
+#left_nav a {
+    margin-right: 40px;
+}
+
+.nav_link {
+    font-size: 1.25rem;
+    padding: 7px;
+}
+
+.nav_link:hover {
+    background-color: #3d2413;
+    color: rgb(255, 251, 249);
 }
 
 nav a {
@@ -67,14 +95,22 @@ nav a {
     margin: 0;
     background-color: transparent;
     border: none;
-    font-size: 1rem;
+    font-size: 1.25rem;
+    padding: 7px;
+}
+
+#welcome {
+    font-size: 1.25rem;
+    margin-right: 5px;
 }
 
 #logout_button:hover {
     cursor: pointer;
+    background-color: #3d2413;
+    color: rgb(255, 251, 249);
 }
 
-#logo {
+#ace_logo {
     width: 100px;
 }
 
@@ -83,4 +119,8 @@ nav a {
     align-items: center;
     margin: 0;
     padding-right: 0;
+}
+
+#ace_api {
+    font-size: 2em;
 }
