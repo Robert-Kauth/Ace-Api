@@ -40,7 +40,7 @@ router.get("/",
 
   }));
 
-router.get("/",
+router.get("/:id",
  requireAuth,
   csrfProtection,
    asyncHandler(async (req, res, next) => {
