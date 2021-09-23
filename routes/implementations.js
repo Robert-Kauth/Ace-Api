@@ -8,23 +8,8 @@ const { restoreUser, requireAuth, authorize } = require('../auth');
 
 const router = express.Router();
 
-// router.post("/", asyncHandler(async (req, res, next) => {
-//     const { api_id, toolbox_id } = req.body;
-
-
-//     const impStatus = await db.Implementation.create( {
-//       api_id, toolbox_id
-//     })
-
-//     res.json({ impStatus })
-//   })
-// );
-
 router.post("/", asyncHandler(async (req, res, next) => {
     const { api_id, toolbox_id, old_toolbox } = req.body;
-    console.log("Api id", api_id)
-    console.log("toolbox", toolbox_id)
-    console.log("old toolbox", old_toolbox)
 
     if (old_toolbox) {
       //Check if there is an existing one

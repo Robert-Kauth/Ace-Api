@@ -158,3 +158,12 @@ h2 {
     color: rgb(58, 58, 58);
     cursor: pointer;
 }
+
+#update_implementation {
+    /* background-color: blue; */
+    margin-top: 10px;
+}
+
+#toolbox_selection {
+    margin-top: 10px;
+}

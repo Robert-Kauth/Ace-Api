@@ -31,13 +31,12 @@ document.addEventListener("DOMContentLoaded", (event)=>{
         const formData = new FormData(addForm);
         const api_id = formData.get("api_id");
         const old_toolbox = formData.get("old_toolbox");
-        console.log(old_toolbox)
         let toolbox = formData.get("toolbox_id");
         toolbox = toolbox.split("_");
         const toolbox_id = toolbox[0];
         const toolbox_name = toolbox[1];
+
         const body = { api_id, toolbox_id, old_toolbox }
-        console.log(body)
 
         try {
             const res = await fetch("/implementations", {
@@ -59,8 +58,7 @@ document.addEventListener("DOMContentLoaded", (event)=>{
                 }
             }
         } catch (err) {
-            console.log(err)
-            // alert("Error Occured. Refresh the page and try again");
+            alert("Error Occured. Refresh the page and try again");
         }
 
     })
