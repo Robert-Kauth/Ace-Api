@@ -21,6 +21,7 @@ block content
                     a(href="/create-toolbox") Create a Toolbox
                 div.main_api_container
                     each toolbox in toolboxes
+                        h2= toolbox.name
                         div.api_cards
                             each api in toolbox.Apis
                                 div.card_container

@@ -75,6 +75,8 @@ router.get(
   "/",
   asyncHandler(async (req, res, next) => {
 
+  console.log("INSIDE / ROUTER")
+
   const apis = await Api.findAll();
   const toolboxes = await Toolbox.findAll({
     where: { id: { [Op.lt]: 4 } }
@@ -102,6 +104,9 @@ router.get(
 
 // GET login page
 router.get("/login", csrfProtection, async (req, res, next) => {
+
+  console.log("INSIDE /login ROUTER")
+
   res.render("login", {
     title: "Ace API - Login",
     csrfToken: req.csrfToken(),
@@ -114,6 +119,9 @@ router.post(
   csrfProtection,
   loginValidators,
   asyncHandler(async (req, res, next) => {
+
+    console.log("INSIDE post /login ROUTER")
+
     const { email, password } = req.body;
 
     let errors = [];
@@ -155,6 +163,9 @@ router.post(
 
 // GET signup page
 router.get("/signup", csrfProtection, async (req, res, next) => {
+
+  console.log("INSIDE /signup ROUTER")
+
   const user = User.build();
   res.render("signup", {
     title: "Ace API - Sign Up",
@@ -169,6 +180,9 @@ router.post(
   csrfProtection,
   userValidators,
   asyncHandler(async (req, res, next) => {
+
+    console.log("INSIDE post /signup ROUTER")
+
     const { first_name, last_name, email, password } = req.body;
 
     const validatorErrors = validationResult(req);
@@ -210,6 +224,9 @@ router.post(
 
 
 router.post('/demo', asyncHandler(async (req,res,next) => {
+
+  console.log("INSIDE /demo ROUTER")
+
 	const user  = await User.findOne({
 		where: {
 			email:"demo@demo.com"
@@ -227,6 +244,9 @@ router.post('/demo', asyncHandler(async (req,res,next) => {
 }))
 
 router.post('/logout', (req, res) => {
+
+  console.log("INSIDE post /logout ROUTER")
+
 	logoutUser(req, res);
 	// Race conditions handler
 	return req.session.save((err) => {

@@ -20,8 +20,7 @@ block content
                     +toolbox_card
                     a(href="/create-toolbox") Create a Toolbox
                 div.main_api_container
-                    each toolbox in toolboxes
-                        div.api_cards
-                            each api in toolbox.Apis
-                                div.card_container
-                                    +api_card_concat(api, toolboxes)
+                    div.api_cards
+                        each api in toolbox.Apis
+                            div.card_container
+                                +api_card_concat(api, toolboxes)

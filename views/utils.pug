@@ -19,7 +19,7 @@ mixin field(labelText, fieldName, fieldValue, fieldType = 'text', required)
 
 mixin toolbox_card
 	each toolbox in toolboxes
-		.tbc_ctrl: a(href=`/users/${toolbox.id}`) #{toolbox.name}
+		.tbc_ctrl: a(href=`/toolboxes/${toolbox.id}`) #{toolbox.name}
 
 mixin api_card(api, toolboxes)
 	div
@@ -37,14 +37,13 @@ mixin api_card(api, toolboxes)
 			p= api.description
 
 mixin api_card_concat(api, toolboxes)
-	div
-		div(id="logoImp_container")
-			img(id="logo" src=`${api.logo_url}` alt=`${api.name}`)
-		a(href=`/apis/${api.id}`)
-			h2(id="api_name")= api.name
-		div Category: #{api.Tag.name}
-		if api.free
-			div Free to Use
-		else
-			div Paid
-		div: a(id="ext_website" href=`${api.website}` target="_blank") Website
+	div(id="logoImp_container")
+		img(id="logo" src=`${api.logo_url}` alt=`${api.name}`)
+	a(href=`/apis/${api.id}`)
+		h2(id="api_name")= api.name
+	div Category: #{api.Tag.name}
+	if api.free
+		div Free to Use
+	else
+		div Paid
+	div: a(id="ext_website" href=`${api.website}` target="_blank") Website
