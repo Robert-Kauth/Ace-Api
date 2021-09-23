@@ -23,4 +23,32 @@ document.addEventListener("DOMContentLoaded", (event)=>{
             }
         }
     });
+
+    const addForm = document.getElementById("implementation")
+
+    addForm.addEventListener("submit", async (e) => {
+        e.preventDefault();
+        const formData = new FormData(addForm);
+        const api_id = formData.get("api_id");
+        const toolbox_id = formData.get("toolbox_id");
+        const body = { api_id, toolbox_id }
+
+        try {
+            const res = await fetch("/implementations", {
+                method: "POST",
+                body: JSON.stringify(body),
+                headers: {
+                    "Content-Type": "application/json"
+                }
+            })
+
+            if (!res.ok) {
+                throw res;
+            }
+        } catch (err) {
+            alert("Error Occured. Refresh the page and try again");
+        }
+
+    })
+
 });

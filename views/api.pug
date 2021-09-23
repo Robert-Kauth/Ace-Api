@@ -7,10 +7,10 @@ block content
         div(id="logoImp_container")
             img(id="logo" src=`${api.logo_url}` alt=`${api.name}`)
             if locals.authenticated
-                form(action="/implementation" method="post" id="implementation")
+                form(action="/implementations" method="post" id="implementation")
                     input(name="api_id" value=`${api.id}` type="hidden")
                     label(for="toolbox_selection") Toolbox Selection
-                    select(name="toolboxChoice" id="toolbox_selection")
+                    select(name="toolbox_id" id="toolbox_selection")
                         each box in toolboxes
                             option(value=box.id)=box.name
                     button(id="addToolbox") Add to Toolbox

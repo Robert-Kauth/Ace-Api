@@ -25,11 +25,14 @@ router.get('/:id(\\d+)', asyncHandler( async (req, res, next) => {
         toolboxes = await db.Toolbox.findAll({
             where: {
                 user_id
-            }
+            },
+            include: Implementation
         })
     } else {
         toolboxes = [];
     }
+
+    
 
     //Get the reviews for the API
     const reviews = await db.Review.findAll({
