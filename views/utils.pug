@@ -19,20 +19,24 @@ mixin field(labelText, fieldName, fieldValue, fieldType = 'text', required)
 
 mixin toolbox_card
 	each toolbox in toolboxes
-		.tbc_ctrl: a(href=`/toolboxes/${toolbox.id}`) #{toolbox.name}
-	.tbc_ctrl: a#tbc_link(href="/toolboxes/create-toolbox") Create a Toolbox
+		.tbc_ctrl: a#tbc_link(href=`/toolboxes/${toolbox.id}`) #{ toolbox.name }
+	.tbc_ctrl: a#tbc_link(href='/toolboxes/create-toolbox') Create a Toolbox
 
-	span(id='create_button') Create a Toolbox AJAX Test
-		form(action="/toolboxes/create-toolbox" method="post" style="display:none" id="create-toolbox-test-form")
+	span#create_button Create a Toolbox AJAX Test
+		form#create-toolbox-test-form(
+			action='/toolboxes/create-toolbox',
+			method='post',
+			style='display: none'
+		)
 			input(type='hidden', name='_csrf', value=csrfToken)
-			label(for="new_toolbox") New Toolbox Name:
-			input(type="text" name="new_toolbox")
-			button(type="submit" id="create-toolbox-submit") Add New Toolbox
+			label(for='new_toolbox') New Toolbox Name:
+			input(type='text', name='new_toolbox')
+			button#create-toolbox-submit(type='submit') Add New Toolbox
 			button cancel
 
 mixin api_card(api, toolboxes)
 	div
-		div.api_card_top
+		.api_card_top
 			span.card_logo_container
 				a(href=`/apis/${api.id}`)
 					img.card_logo_img(src=`${api.logo_url}`, alt=`${api.name}`)
