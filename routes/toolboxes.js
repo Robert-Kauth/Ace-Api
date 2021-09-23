@@ -31,18 +31,6 @@ router.get(
           user_id: user_id,
         },
         include: {
-<<<<<<< HEAD
-            model: Api,
-            include: Tag
-        }
-    })
-    // console.log(toolboxes)
-    res.render("my_toolboxes", {
-      title: "Ace API - My Toolboxes",
-      csrfToken: req.csrfToken(),
-      toolboxes
-    });
-=======
           model: Api,
           include: [Tag, Review]
         },
@@ -53,7 +41,6 @@ router.get(
         csrfToken: req.csrfToken(),
         toolboxes,
       });
->>>>>>> main
     } else {
       res.redirect("/login", { csrfToken: req.csrfToken() });
     }
@@ -96,25 +83,8 @@ router.get("/create-toolbox",
   csrfProtection,
    asyncHandler(async (req, res, next) => {
 
-<<<<<<< HEAD
-    if(req.session.auth) {
-    const user_id = req.session.auth.userId
-    const toolboxes = await Toolbox.findAll({
-        where: {
-            user_id: user_id,
-        },
-        include: {
-            model: Api,
-            include: Tag
-        }
-    })
-    // console.log(toolboxes)
-    res.render("my_toolboxes", {
-      title: "Ace API - My Toolboxes",
-=======
     res.render("create-toolbox", {
       title: "Ace API - Create Toolbox",
->>>>>>> main
       csrfToken: req.csrfToken(),
     });
 
@@ -138,7 +108,7 @@ router.post("/create-toolbox",
       res.redirect("/toolboxes");
       // next()
 
-      
+
     } catch (err) {
       next(err)
     }
