@@ -25,16 +25,17 @@ router.get(`/:id(\\d+)/update`, requireAuth, asyncHandler( async (req, res, next
   const reviewId = req.params.id;
   const review = await db.Review.findByPk(reviewId, {include: { model: db.Api }});
 
-  //TODO- render the page only if the Reviews User ID is equal to the logged in user
-
-
-  //Render the page if it exists
   if (review) {
-    // res.render('review', {title: `Ace API - ${api.name}`, api, toolboxes, avgRating: avgNumber, reviews, user_id})
-    res.send(review)
-} else {
-    next()
-}
+    //Check if the review owner is the same as the logged in user
+    //Redirect to home page if not
+      if (review.user_id === req.session.auth.userId) {
+        res.render('edit_reviews', {title: "Ace API - Edit Review", review})
+      } else {
+        res.redirect("/")
+      }
+  } else {
+    res.next();
+  }
 
 }));
 
