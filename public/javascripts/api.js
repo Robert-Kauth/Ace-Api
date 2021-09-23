@@ -24,14 +24,20 @@ document.addEventListener("DOMContentLoaded", (event)=>{
         }
     });
 
-    const addForm = document.getElementById("implementation")
+    const addForm = document.getElementById("update_implementation")
 
     addForm.addEventListener("submit", async (e) => {
         e.preventDefault();
         const formData = new FormData(addForm);
         const api_id = formData.get("api_id");
-        const toolbox_id = formData.get("toolbox_id");
-        const body = { api_id, toolbox_id }
+        const old_toolbox = formData.get("old_toolbox");
+        console.log(old_toolbox)
+        let toolbox = formData.get("toolbox_id");
+        toolbox = toolbox.split("_");
+        const toolbox_id = toolbox[0];
+        const toolbox_name = toolbox[1];
+        const body = { api_id, toolbox_id, old_toolbox }
+        console.log(body)
 
         try {
             const res = await fetch("/implementations", {
@@ -44,11 +50,18 @@ document.addEventListener("DOMContentLoaded", (event)=>{
 
             if (!res.ok) {
                 throw res;
+            } else {
+                const implementationSection = document.getElementById("update_implementation");
+                if (old_toolbox) {
+                    implementationSection.innerHTML = `<p>Updated to ${toolbox_name} Toolbox</p>`
+                } else {
+                    implementationSection.innerHTML = `<p>Added to ${toolbox_name} Toolbox</p>`
+                }
             }
         } catch (err) {
-            alert("Error Occured. Refresh the page and try again");
+            console.log(err)
+            // alert("Error Occured. Refresh the page and try again");
         }
 
     })
-
 });

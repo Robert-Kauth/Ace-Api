@@ -7,24 +7,22 @@ block content
         div(id="logoImp_container")
             img(id="logo" src=`${api.logo_url}` alt=`${api.name}`)
             if locals.authenticated
-                if toolboxInfo.inToolbox
-                    form(action="/implementations/update" method="post" id="implementation")
-                        input(type='hidden', name='_csrf', value=csrfToken)
-                        input(name="api_id" value=`${api.id}` type="hidden")
+                form(action="/implementations/update" method="post" id="update_implementation")
+                    input(type='hidden', name='_csrf', value=csrfToken)
+                    input(type='hidden', name="old_toolbox" value=toolboxInfo.toolboxId)
+                    input(name="api_id" value=`${api.id}` type="hidden")
+                    if toolboxInfo.inToolbox
                         label(for="toolbox_selection") Current Toolbox:
-                        select(name="toolbox_id" id="toolbox_selection")
-                            each box in toolboxes
-                                option(value=box.id selected=(box.id === toolboxInfo.toolboxId))=box.name
+                    else
+                        label(for="toolbox_selection") Not in any Toolbox:
+                    select(name="toolbox_id" id="toolbox_selection")
+                        each box in toolboxes
+                            option(value=`${box.id}_${box.name}` id=box.name selected=(box.id === toolboxInfo.toolboxId))=box.name
+                    if toolboxInfo.inToolbox
                         button(id="addToolbox") Update Toolbox
-                else
-                    form(action="/implementations" method="post" id="implementation")
-                        input(type='hidden', name='_csrf', value=csrfToken)
-                        input(name="api_id" value=`${api.id}` type="hidden")
-                        label(for="toolbox_selection") Not
-                        select(name="toolbox_id" id="toolbox_selection")
-                            each box in toolboxes
-                                option(value=box.id)=box.name
+                    else
                         button(id="addToolbox") Add to Toolbox
+
         div(id="api_main")
             h1(id="api_name")= api.name
             div(id="api_info")
