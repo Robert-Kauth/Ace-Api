@@ -25,11 +25,38 @@ router.get('/:id(\\d+)', asyncHandler( async (req, res, next) => {
         toolboxes = await db.Toolbox.findAll({
             where: {
                 user_id
-            }
+            },
+            include: db.Api
         })
     } else {
         toolboxes = [];
     }
+
+    let inToolbox = false;
+    let toolboxId;
+    let toolboxName;
+    //Search through the users toolboxes
+    //Find if the api is already in a toolbox
+    //If so, we pass that to pug to render an update form
+    //Instead of an add form
+
+    for (const box of toolboxes) {
+        if (!inToolbox) {
+            const apis = box.Apis
+            for (const api of apis) {
+                if (!inToolbox) {
+                    if (api.id === Number(api_id)) {
+                        inToolbox = true;
+                        toolboxId = box.id
+                        toolboxName = box.name;
+                        break;
+                    }
+                }
+            }
+        }
+    }
+
+    const toolboxInfo = {inToolbox, toolboxId, toolboxName}
 
     //Get the reviews for the API
     const reviews = await db.Review.findAll({
@@ -44,7 +71,8 @@ router.get('/:id(\\d+)', asyncHandler( async (req, res, next) => {
 
     //Render the page if it exists
     if (api) {
-        return res.render('api', {title: `Ace API - ${api.name}`, api, toolboxes, avgRating: avgNumber, reviews, user_id})
+        return res.render('api', {title: `Ace API - ${api.name}`, api, toolboxes, avgRating: avgNumber, reviews, user_id, toolboxInfo})
+        // res.send(toolboxes)
     } else {
         next()
     }

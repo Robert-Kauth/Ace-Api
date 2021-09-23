@@ -158,3 +158,31 @@ h2 {
     color: rgb(58, 58, 58);
     cursor: pointer;
 }
+
+#update_implementation {
+    margin-top: 10px;
+}
+
+#toolbox_selection {
+    margin-top: 20px;
+    max-width: 160px;
+}
+
+#addToolbox {
+   margin-top: 5px;
+}
+
+#toolbox_div {
+    font-weight: bold;
+    font-size: 20px;
+    margin-top: 10px;
+}
+
+#updated_status {
+
+}
+
+#toolbox_div_2 {
+    font-weight: bold;
+    font-size: 20px;
+}

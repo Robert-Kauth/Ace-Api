@@ -1,0 +1,16 @@
+#create-toolbox {
+    margin: 20px;
+}
+#toolbox-name {
+    margin: 20px;
+    display: flex;
+    flex-direction: column;
+}
+#submit {
+    width: 70px;
+    margin: 10px 0px;
+    border-radius: 5px;
+}
+#implementation{
+    width: 200px;
+}

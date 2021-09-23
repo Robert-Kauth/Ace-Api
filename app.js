@@ -13,7 +13,8 @@ const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 const apiRouter = require('./routes/api');
 const reviewRouter = require('./routes/review')
-const implementationRouter = require('./routes/implementation');
+const createToolboxRouter = require('./routes/implementation');
+const implementationRouter = require('./routes/implementations');
 const toolboxesRouter = require('./routes/toolboxes');
 const searchRouter = require('./routes/search')
 const { sessionSecret } = require('./config');
@@ -52,7 +53,8 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/apis', apiRouter);
 app.use('/reviews', reviewRouter);
-app.use('/create-toolbox', implementationRouter);
+app.use('/create-toolbox', createToolboxRouter);
+app.use('/implementations', implementationRouter);
 app.use('/toolboxes', toolboxesRouter);
 app.use('/search', searchRouter)
 

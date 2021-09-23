@@ -7,11 +7,12 @@
 #rate {
     display: flex;
     width: 400px;
-    height: 25%;
+    height: 10%;
     justify-content: center;
-    padding: 10px 20px;
+    padding: 0px 0px 15px 0px;
     margin: 20px 20px;
     align-items: center;
+    flex-direction: column;
 }
 #reviewArea{
     border-color: rgba(255, 255, 255, 0);
@@ -39,4 +40,16 @@
 }
 h1 {
     margin: 15px;
+}
+.innerRating{
+    border-color: rgba(255, 255, 255, 0);
+    padding: 0 0px 0 0px;
+}
+.ratings{
+    position: sticky;
+    padding: 0 6px 0 6px;
+}
+#textReview{
+    padding: 0px;
+    margin: 1px;
 }

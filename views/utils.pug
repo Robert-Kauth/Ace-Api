@@ -19,32 +19,33 @@ mixin field(labelText, fieldName, fieldValue, fieldType = 'text', required)
 
 mixin toolbox_card
 	each toolbox in toolboxes
-		.tbc_ctrl: a(href=`/users/${toolbox.id}`) #{toolbox.name}
+		.tbc_ctrl: a#tbc_link(href=`/users/${toolbox.id}`) #{ toolbox.name }
 
 mixin api_card(api, toolboxes)
 	div
-		a(href=`/apis/${api.id}`)
-			div.logo_container
-				img(src=`${api.logo_url}` alt=`${api.name}`).logo_img
-		section
-			a(href=`/apis/${api.id}`)
-				h2= api.name
-			span Implement this API
-			select
-				each toolbox in toolboxes
-					option(value=toolbox.id)= toolbox.name
-		section
+		div.api_card_top
+			span.card_logo_container
+				a(href=`/apis/${api.id}`)
+					img.card_logo_img(src=`${api.logo_url}`, alt=`${api.name}`)
+			span.api_card_content
+				a(href=`/apis/${api.id}`)
+					h2= api.name
+				span Implement this API
+				select
+					each toolbox in toolboxes
+						option(value=toolbox.id)= toolbox.name
+		section.api_description
 			p= api.description
 
 mixin api_card_concat(api, toolboxes)
 	div
-		div(id="logoImp_container")
-			img(id="logo" src=`${api.logo_url}` alt=`${api.name}`)
+		#logoImp_container
+			img#logo(src=`${api.logo_url}`, alt=`${api.name}`)
 		a(href=`/apis/${api.id}`)
-			h2(id="api_name")= api.name
-		div Category: #{api.Tag.name}
+			h2#api_name= api.name
+		div Category: #{ api.Tag.name }
 		if api.free
 			div Free to Use
 		else
 			div Paid
-		div: a(id="ext_website" href=`${api.website}` target="_blank") Website
+		div: a#ext_website(href=`${api.website}`, target='_blank') Website
