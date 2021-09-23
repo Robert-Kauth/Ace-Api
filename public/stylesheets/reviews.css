@@ -39,7 +39,8 @@
     font-size: large;
 }
 h1 {
-    margin: 15px;
+    margin: 10px auto;
+    width: fit-content
 }
 .innerRating{
     border-color: rgba(255, 255, 255, 0);
@@ -52,4 +53,13 @@ h1 {
 #textReview{
     padding: 0px;
     margin: 1px;
+}
+
+.alert p, .alert ul li {
+    color: rgb(221, 0, 0);
+}
+
+.alert {
+    width: fit-content;
+    margin: auto;
 }
