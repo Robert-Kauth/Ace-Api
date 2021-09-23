@@ -60,7 +60,7 @@ nav {
 
 nav a {
 	text-decoration: none;
-	color: #3d2413;
+	color: black;
 }
 
 #footer {
@@ -110,7 +110,7 @@ nav a {
 
 #logout_button:hover {
 	cursor: pointer;
-	background-color: #3d2413;
+	background-color: black;
 	color: rgb(255, 251, 249);
 }
 
@@ -129,22 +129,21 @@ nav a {
 	font-size: 2em;
 }
 
-#search_nav{
+#search_nav {
 	display: flex;
 	width: 300px;
 	padding: 10px 10px 10px;
 }
-#search_bar{
+#search_bar {
 	width: fit-content;
 }
-#search_box{
+#search_box {
 	width: 240px;
 	height: fit-content;
-    background-color: #f6efd4;
+	background-color: #f6efd4;
 	border-radius: 5px;
-
 }
-#search_button{
+#search_button {
 	padding: 2px 2px 2px 2px;
 	background-color: rgba(255, 255, 255, 0);
 	border-color: rgba(255, 255, 255, 0);
