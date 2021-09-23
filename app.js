@@ -10,10 +10,8 @@ const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
 // Local imports
 const indexRouter = require('./routes/index');
-const usersRouter = require('./routes/users');
 const apiRouter = require('./routes/api');
 const reviewRouter = require('./routes/review')
-const createToolboxRouter = require('./routes/implementation');
 const implementationRouter = require('./routes/implementations');
 const toolboxesRouter = require('./routes/toolboxes');
 const searchRouter = require('./routes/search')
@@ -50,29 +48,33 @@ store.sync();
 app.use(restoreUser);
 // Routers
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
 app.use('/apis', apiRouter);
 app.use('/reviews', reviewRouter);
-app.use('/create-toolbox', createToolboxRouter);
 app.use('/implementations', implementationRouter);
 app.use('/toolboxes', toolboxesRouter);
 app.use('/search', searchRouter)
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
-	next(createError(404));
+	// next(createError(404));
+	next()
 });
 
 // error handler
 app.use(function (err, req, res, next) {
+
+	console.log("INSIDE **error handler** ")
+
 	// set locals, only providing error in development
 	res.locals.message = err.message;
 	res.locals.error = req.app.get('env') === 'development' ? err : {};
 
 	// render the error page
 	res.status(err.status || 500);
+
 	// res.render('404');
 	res.render("error")
+
 });
 
 module.exports = app;

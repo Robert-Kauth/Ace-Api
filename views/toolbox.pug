@@ -1,20 +1,25 @@
-extends layout.pug
+extends layout
+
+include utils
+
+block head
+    title= title
+    link(rel='stylesheet' href='/stylesheets/home.css')
+    link(rel='stylesheet' href='/stylesheets/toolbox_card.css')
+    link(rel='stylesheet' href='/stylesheets/index.css')
+    link(rel='stylesheet' href='/stylesheets/toolboxes.css')
 
 block content
-    body
-        h1= toolbox.name
-        table
-            thead
-                th Api
-                th Source
-                th Free or Paid
-                th Api Description
-
-            tbody
-                each api in toolbox.Apis
-                    td= api.name
-                    td= api.url
-                    td= api.free
-                    td= api.description
-                    td
-                        img(src=`${api.logo_url}` alt=`${api.name}`)
+    div
+        h1(id='my_toolboxes')= toolbox.name
+        div(id='myToolboxes_container')
+            main.page_style
+                .tbc_ctrl_group
+                    p.tbc_head
+                        a(href="/toolboxes") My Toolboxes
+                    +toolbox_card
+                div.main_api_container
+                    div.api_cards
+                        each api in toolbox.Apis
+                            div.card_container
+                                +api_card_concat(api, toolboxes)
