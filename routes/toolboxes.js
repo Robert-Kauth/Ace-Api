@@ -22,7 +22,7 @@ router.get(
   csrfProtection,
   asyncHandler(async (req, res, next) => {
 
-    console.log("INSIDE toolboxes/ ROUTER");
+    // console.log("INSIDE toolboxes/ ROUTER");
 
     if (req.session.auth) {
       const user_id = req.session.auth.userId;
@@ -52,7 +52,7 @@ router.get(
   requireAuth,
   csrfProtection,
   asyncHandler(async (req, res, next) => {
-    console.log("INSIDE toolboxes/:toolboxId ROUTER");
+    // console.log("INSIDE toolboxes/:toolboxId ROUTER");
 
     if (req.session.auth) {
 
@@ -99,7 +99,7 @@ router.post("/create-toolbox",
 
     const validatorErrors = validationResult(req);
 
-    console.log("INSIDE post /toolboxes/create-toolbox")
+    // console.log("INSIDE post /toolboxes/create-toolbox")
     try {
 
       const { implementation } = req.body

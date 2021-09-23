@@ -9,7 +9,6 @@ const router = express.Router();
 
 
 router.get('/', async (req, res) => {
-    // console.log("########################################################")
     let apis;
     const toolboxes = await db.Toolbox.findAll({
       where: { id: { [Op.lt]: 4 } }
@@ -20,7 +19,6 @@ router.get('/', async (req, res) => {
       console.error(e);
       error = `An error ocurred that reads "${e.message}". Check the console for more details.`;
     }
-    console.log(apis)
     res.render('search',{
         toolboxes,
         apis,

@@ -20,7 +20,7 @@ router.get("/",
       csrfToken: req.csrfToken(),
     });
 
-  }));
+}));
 
 
 router.post("/",
@@ -32,12 +32,11 @@ router.post("/",
     const user_id = req.session.auth.userId
     const toolbox = await toolBuilder(user_id, implementation)
 
-    // console.log("inside create toolbox post, toolbox: ", toolbox.toJSON())
 
     res.redirect(`/toolboxes/${toolbox.id}`, {
       title: `Ace API - ${toolbox.name}`,
     });
 
-  }));
+}));
 
 module.exports = router;
