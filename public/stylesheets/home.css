@@ -45,3 +45,12 @@
 .api_description {
 	margin: 0 10px;
 }
+.api_card_text {
+	padding: 5px 0;
+	font-family: 'Spectral SC', serif;
+	font-size: large;
+}
+#ext_website {
+	font-family: 'Spectral SC', serif;
+	font-size: large;
+}
