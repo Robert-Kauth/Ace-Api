@@ -22,6 +22,14 @@ mixin toolbox_card
 		.tbc_ctrl: a(href=`/toolboxes/${toolbox.id}`) #{toolbox.name}
 	a(href="/toolboxes/create-toolbox") Create a Toolbox
 
+	span(id='create_button') Create a Toolbox AJAX Test
+		form(action="/toolboxes/create-toolbox" method="post" style="display:none" id="create-toolbox-test-form")
+			input(type='hidden', name='_csrf', value=csrfToken)
+			label(for="new_toolbox") New Toolbox Name:
+			input(type="text" name="new_toolbox")
+			button(type="submit" id="create-toolbox-submit") Add New Toolbox
+			button cancel
+
 mixin api_card(api, toolboxes)
 	div
 		a(href=`/apis/${api.id}`)

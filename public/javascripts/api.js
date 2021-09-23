@@ -23,11 +23,4 @@ document.addEventListener("DOMContentLoaded", (event)=>{
             }
         }
     });
-
-    // const tbc_ctrl_group = document.querySelector(".tbc_ctrl_group")
-    // tbc_ctrl_group.addEventListener("click", async (event) => {
-    //     if (event.target === ) {
-
-    //     }
-    // })
 });

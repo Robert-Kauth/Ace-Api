@@ -73,27 +73,29 @@ const loginValidators = [
 // GET home page.
 router.get(
   "/",
+  csrfProtection,
   asyncHandler(async (req, res, next) => {
 
   console.log("INSIDE / ROUTER")
 
   const apis = await Api.findAll();
-  const toolboxes = await Toolbox.findAll({
+  let toolboxes = await Toolbox.findAll({
     where: { id: { [Op.lt]: 4 } }
   });
 
   if (req.session.auth) {
     const { userId } = req.session.auth;
-      const userToolboxes = await Toolbox.findAll({ where: { user_id: userId } });
+      toolboxes = await Toolbox.findAll({ where: { user_id: userId } });
       res.render("home", {
+        csrfToken: req.csrfToken(),
         title: "ACE API",
-        userToolboxes,
         userId,
         toolboxes,
         apis,
       });
     } else {
       res.render("home", {
+        csrfToken: req.csrfToken(),
         title: "ACE API",
         toolboxes,
         apis,

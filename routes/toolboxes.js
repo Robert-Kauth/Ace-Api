@@ -2,12 +2,18 @@ const express = require("express");
 const { check, validationResult } = require("express-validator");
 const { Op } = require("sequelize");
 const { csrfProtection, asyncHandler, toolBuilder } = require("../utils");
-const { User, Toolbox, Implementation, Api, Tag } = require("../db/models");
+const { User, Toolbox, Implementation, Api, Tag, Review } = require("../db/models");
 const { loginUser, logoutUser } = require("../auth");
 const { restoreUser, requireAuth, authorize } = require("../auth");
 
 const router = express.Router();
 
+
+const toolboxValidators = [
+  check("new_toolbox")
+    .exists({ checkFalsy: true })
+    .withMessage("Please provide a value for Toolbox Name")
+];
 
 
 router.get(
@@ -26,7 +32,7 @@ router.get(
         },
         include: {
           model: Api,
-          include: Tag,
+          include: [Tag, Review]
         },
       });
 
@@ -44,6 +50,7 @@ router.get(
 router.get(
   "/:toolboxId(\\d+)",
   requireAuth,
+  csrfProtection,
   asyncHandler(async (req, res, next) => {
     console.log("INSIDE toolboxes/:toolboxId ROUTER");
 
@@ -54,13 +61,14 @@ router.get(
         where: { user_id: req.session.auth.userId },
         include: {
           model: Api,
-          include: Tag,
+          include: [Tag, Review]
         },
       });
 
       const toolboxes = await Toolbox.findAll({ where: { user_id: userId } });
 
       res.render("toolbox", {
+        csrfToken: req.csrfToken(),
         toolbox,
         toolboxes,
       });
@@ -83,17 +91,31 @@ router.get("/create-toolbox",
   }));
 
 router.post("/create-toolbox",
-requireAuth,
+  requireAuth,
   csrfProtection,
+  toolboxValidators,
   asyncHandler(async (req, res, next) => {
 
     console.log("INSIDE post /toolboxes/create-toolbox")
 
-    const { new_toolbox } = req.body
-    const user_id = req.session.auth.userId
-    const toolbox = await toolBuilder(user_id, new_toolbox)
+    const validatorErrors = validationResult(req);
 
-    res.redirect("/toolboxes");
+    try {
+      if (validatorErrors.isEmpty()) {
+
+      const { new_toolbox } = req.body
+      const user_id = req.session.auth.userId
+      const toolbox = await toolBuilder(user_id, new_toolbox)
+      res.redirect("/toolboxes");
+      // next()
+
+      } else {
+        const errors = validatorErrors.array().map((err) => err.msg);
+        next(errors)
+      }
+    } catch (err) {
+      next(err)
+    }
 
   }));
 
