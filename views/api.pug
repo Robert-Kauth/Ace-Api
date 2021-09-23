@@ -12,9 +12,11 @@ block content
                     input(type='hidden', name="old_toolbox" value=toolboxInfo.toolboxId)
                     input(name="api_id" value=`${api.id}` type="hidden")
                     if toolboxInfo.inToolbox
-                        label(for="toolbox_selection") Current Toolbox: 
+                        label(for="toolbox_selection") Current Toolbox:
+                        div(id="toolbox_div")=toolboxInfo.toolboxName
                     else
-                        label(for="toolbox_selection") Current Toolbox: None
+                        label(for="toolbox_selection") Current Toolbox:
+                        div(id="toolbox_div") None
                     select(name="toolbox_id" id="toolbox_selection")
                         each box in toolboxes
                             option(value=`${box.id}_${box.name}` id=box.name selected=(box.id === toolboxInfo.toolboxId))=box.name
