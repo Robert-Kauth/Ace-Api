@@ -8,12 +8,8 @@
 	box-shadow: 5px 5px lightgray;
 	height: fit-content;
 	padding: 20px;
-	margin-top: 10px;
-	transition: box-shadow 0.5s;
-}
-
-.tbc_ctrl_group:hover {
-	box-shadow: 5px 5px lightseagreen;
+	margin: 10px 10px;
+	box-sizing: content-box;
 }
 
 .tbc_head {
@@ -24,9 +20,28 @@
 	font-size: x-large;
 }
 
+#tbc_head_title:hover {
+	background-color: black;
+	padding: 0 5px;
+	color: white;
+}
+
 .tbc_ctrl {
-	margin: 5px 10px;
-	font-size: large;
+	margin: 5px 20px;
+	font-size: x-large;
+}
+
+#tbc_ctrl:hover {
+	background-color: black;
+	margin: 0;
+	color: white;
+}
+#tbc_link {
+	padding: 0 5px;
+}
+#tbc_link:hover {
+	background-color: black;
+	color: white;
 }
 
 a {

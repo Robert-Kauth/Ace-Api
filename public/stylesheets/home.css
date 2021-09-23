@@ -21,6 +21,7 @@
 
 .api_cards {
 	width: 900px;
+	padding: 0 10px;
 }
 .api_card_top {
 	display: flex;
