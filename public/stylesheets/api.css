@@ -160,7 +160,6 @@ h2 {
 }
 
 #update_implementation {
-    /* background-color: blue; */
     margin-top: 10px;
 }
 
@@ -177,4 +176,13 @@ h2 {
     font-weight: bold;
     font-size: 20px;
     margin-top: 10px;
+}
+
+#updated_status {
+
+}
+
+#toolbox_div_2 {
+    font-weight: bold;
+    font-size: 20px;
 }

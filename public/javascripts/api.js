@@ -52,9 +52,9 @@ document.addEventListener("DOMContentLoaded", (event)=>{
             } else {
                 const implementationSection = document.getElementById("update_implementation");
                 if (old_toolbox) {
-                    implementationSection.innerHTML = `<p>Updated to ${toolbox_name} Toolbox</p>`
+                    implementationSection.innerHTML = `<p id="updated_status">Updated to: <div id="toolbox_div_2"> ${toolbox_name}</span></p>`
                 } else {
-                    implementationSection.innerHTML = `<p>Added to ${toolbox_name} Toolbox</p>`
+                    implementationSection.innerHTML = `<p id="updated_status">Added to: <div id="toolbox_div_2"> ${toolbox_name}</span></p>`
                 }
             }
         } catch (err) {
