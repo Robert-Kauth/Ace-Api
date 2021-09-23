@@ -128,3 +128,24 @@ nav a {
 #ace_api {
 	font-size: 2em;
 }
+
+#search_nav{
+	display: flex;
+	width: 300px;
+	padding: 10px 10px 10px;
+}
+#search_bar{
+	width: fit-content;
+}
+#search_box{
+	width: 240px;
+	height: fit-content;
+    background-color: #f6efd4;
+	border-radius: 5px;
+
+}
+#search_button{
+	padding: 2px 2px 2px 2px;
+	background-color: rgba(255, 255, 255, 0);
+	border-color: rgba(255, 255, 255, 0);
+}

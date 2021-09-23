@@ -1,6 +1,7 @@
 const csrf = require('csurf');
 const db = require('./db/models');
 const Sequelize = require("sequelize");
+const {Op} = require("sequelize")
 
 const csrfProtection = csrf({ cookie: true });
 
@@ -49,10 +50,22 @@ const reviewAvgRating = async (api_id) => {
   return avgNumber;
 }
 
+async function searchApis(box) {
+  const results = await db.Api.findAll({
+    where: {
+      name : {
+        [Op.iLike]:`%${box}%`
+      }
+    }
+  })
+  return results;
+}
+
 module.exports = {
     csrfProtection,
     asyncHandler,
     handleValidationErrors,
     toolBuilder,
-    reviewAvgRating
+    reviewAvgRating,
+    searchApis
 }
