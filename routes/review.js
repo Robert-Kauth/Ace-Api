@@ -5,7 +5,6 @@ const { requireAuth } = require('../auth');
 
 const { csrfProtection, asyncHandler } = require('../utils');
 const db = require('../db/models');
-const { loginUser, logoutUser } = require('../auth');
 
 const router = express.Router();
 
@@ -39,15 +38,15 @@ router.post('/', csrfProtection, errorValidators, asyncHandler(async (req,res,ne
   })
 );
 
-router.get(`/:id(\\d+)/update`, requireAuth, asyncHandler( async (req, res, next) => {
+router.get(`/:id(\\d+)/update`, csrfProtection, requireAuth, asyncHandler( async (req, res, next) => {
   const reviewId = req.params.id;
-  const review = await db.Review.findByPk(reviewId, {include: { model: db.Api }});
+  const editedReview = await db.Review.findByPk(reviewId, {include: { model: db.Api }});
 
-  if (review) {
+  if (editedReview) {
     //Check if the review owner is the same as the logged in user
     //Redirect to home page if not
-      if (review.user_id === req.session.auth.userId) {
-        res.render('edit_reviews', {title: "Ace API - Edit Review", review})
+      if (editedReview.user_id === req.session.auth.userId) {
+        res.render('edit_reviews', {title: "Ace API - Edit Review", csrfToken: req.csrfToken(), editedReview})
       } else {
         res.redirect("/")
       }
@@ -56,20 +55,28 @@ router.get(`/:id(\\d+)/update`, requireAuth, asyncHandler( async (req, res, next
   }
 }));
 
-router.post(`/:id(\\d+)/update`, requireAuth, asyncHandler( async (req, res, next) => {
+router.post(`/:id(\\d+)/update`, csrfProtection, requireAuth, errorValidators, asyncHandler( async (req, res, next) => {
   const { api_id, review, rating } = req.body;
-  console.log("************", rating);
-  console.log("************", review);
 
   const reviewId = req.params.id;
   const editedReview = await db.Review.findByPk(reviewId);
 
-  editedReview.review = review;
-  editedReview.rating = rating;
 
-  await editedReview.save();
+  const validatorErrors = validationResult(req);
+  if (validatorErrors.isEmpty()) {
 
-  res.redirect(`/apis/${api_id}`);
+    editedReview.review = review;
+    editedReview.rating = rating;
+
+    await editedReview.save();
+
+    return res.redirect(`/apis/${api_id}`);
+  } else {
+    const api = await db.Api.findByPk(api_id);
+    const errors = validatorErrors.array().map((error) => error.msg);
+    res.render("reviews", { title:"AceAPI Submit Review", csrfToken: req.csrfToken(), api, errors, editedReview })
+  }
+
 
 }));
 
