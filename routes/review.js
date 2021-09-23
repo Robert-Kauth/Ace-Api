@@ -9,17 +9,35 @@ const { loginUser, logoutUser } = require('../auth');
 
 const router = express.Router();
 
-router.post('/', csrfProtection, asyncHandler(async (req,res,next) => {
+const errorValidators = [
+  check("rating")
+    .exists({ checkFalsy: true })
+    .withMessage("Please add a Rating"),
+  check("review")
+    .exists({ checkFalsy: true })
+    .withMessage("Please add a Review"),
+]
+
+router.post('/', csrfProtection, errorValidators, asyncHandler(async (req,res,next) => {
     const { api_id, review, rating } = req.body;
     const { userId } = req.session.auth;
-    const newReview = await db.Review.create({
-        api_id,
-        user_id:userId,
-        review,
-        rating
-    });
-    res.redirect(`/apis/${api_id}`)
-}))
+
+    const validatorErrors = validationResult(req);
+    if (validatorErrors.isEmpty()) {
+      const newReview = await db.Review.create({
+          api_id,
+          user_id:userId,
+          review,
+          rating
+      });
+      return res.redirect(`/apis/${api_id}`)
+    } else {
+      const api = await db.Api.findByPk(api_id);
+      const errors = validatorErrors.array().map((error) => error.msg);
+      res.render("reviews", { title:"AceAPI Submit Review", csrfToken: req.csrfToken(), api, errors })
+    }
+  })
+);
 
 router.get(`/:id(\\d+)/update`, requireAuth, asyncHandler( async (req, res, next) => {
   const reviewId = req.params.id;
@@ -42,7 +60,7 @@ router.post(`/:id(\\d+)/update`, requireAuth, asyncHandler( async (req, res, nex
   const { api_id, review, rating } = req.body;
   console.log("************", rating);
   console.log("************", review);
-  
+
   const reviewId = req.params.id;
   const editedReview = await db.Review.findByPk(reviewId);
 

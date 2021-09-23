@@ -6,6 +6,7 @@ block content
     link(rel='stylesheet' href='/stylesheets/reviews.css')
     script()
     h1(id="title")= `Create Your Review for ${api.name}`
+    +validationErrorSummary(errors)
     form(action="/reviews" method='post' id="reviews")
         input(type="hidden" name="_csrf" value=csrfToken)
         input(type="hidden" name="api_id" value=api.id)
