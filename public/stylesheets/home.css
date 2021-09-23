@@ -51,6 +51,11 @@
 	font-size: large;
 }
 #ext_website {
+	color: blue;
 	font-family: 'Spectral SC', serif;
 	font-size: large;
+}
+
+#ext_website:hover {
+	font-weight: bold;
 }

@@ -1,188 +1,198 @@
 #api_container {
-    display: flex;
-    width: 70%;
-    margin: auto;
-    margin-top: 20px;
-    margin-bottom: 40px;
-    padding-bottom: 40px;
-    border-bottom: 1px solid rgba(107, 107, 107, .3);
+	display: flex;
+	width: 70%;
+	margin: auto;
+	margin-top: 20px;
+	margin-bottom: 40px;
+	padding-bottom: 40px;
+	border-bottom: 1px solid rgba(107, 107, 107, 0.3);
 }
 
 #api_info {
-    display: flex;
+	display: flex;
 }
 
 #api_main {
-    padding-left: 30px;
-    justify-content: space-between;
-    display: flex;
-    flex-direction: column;
+	padding-left: 30px;
+	justify-content: space-between;
+	display: flex;
+	flex-direction: column;
 }
 
 #api_info * {
-    font-size: px;
+	font-size: px;
 }
 
 #api_info * {
-    margin-right: 60px;
-    margin-top: 30px;
-    margin-bottom: 30px;
+	margin-right: 60px;
+	margin-top: 30px;
+	margin-bottom: 30px;
+	font-family: 'Spectral SC', serif;
+	font-size: large;
 }
 
 #api_name {
-    font-size: 60px;
+	font-size: 60px;
+}
+
+#logoImp_container {
+	margin: 40px 0;
 }
 
 #logo {
-    width: 300px;
-    height: 200px;
+	width: 350px;
+	height: auto;
 }
 
 #implementation {
-    margin-top: 10px;
+	margin-top: 10px;
 }
 
 #implementation * {
-    margin: 8px;
+	margin: 8px;
 }
 
 #addToolbox {
-    background-color: rgb(226, 226, 226);
-    width: fit-content;
-    padding: 5px;
-    margin-top: 15px;
-    border: 1px solid rgba(107, 107, 107, .3);
-    text-decoration: none;
-    font-size: 1rem;
-    cursor: pointer;
-    font-family: "Lucida Grande", Helvetica, Arial, sans-serif;
+	background-color: rgb(226, 226, 226);
+	width: fit-content;
+	padding: 5px;
+	margin-top: 15px;
+	border: 1px solid rgba(107, 107, 107, 0.3);
+	text-decoration: none;
+	font-size: 1rem;
+	cursor: pointer;
+	font-family: 'Lucida Grande', Helvetica, Arial, sans-serif;
 }
 
 #addToolbox:hover {
-    background-color: rgb(156, 156, 156);
-    color: rgb(58, 58, 58);
+	background-color: rgb(156, 156, 156);
+	color: rgb(58, 58, 58);
 }
 
 #ext_website {
-    color: blue;
+	color: blue;
+	text-decoration: none;
 }
 
 #description {
-    line-height: 25px;
+	line-height: 25px;
+	font-family: 'Spectral SC', serif;
+	font-size: large;
 }
 
 #ext_website:hover {
-    color: rgb(137, 137, 255);
+	font-weight: bold;
 }
 
 #review_container {
-    width: 70%;
-    margin: 20px auto;
-
+	width: 70%;
+	margin: 20px auto;
 }
 
 .review_text {
-    font-size: 13px;
-    font-weight: 100;
+	font-size: 13px;
+	font-weight: 100;
+	font-family: 'Spectral SC', serif;
 }
 
 .user_review {
-    border-bottom: 1px solid rgba(107, 107, 107, .3);
-    padding: 20px 8px;
+	border-bottom: 1px solid rgba(107, 107, 107, 0.3);
+	padding: 20px 8px;
 }
 
-.user_name, .user_rating  {
-    font-weight: 800;
+.user_name,
+.user_rating {
+	font-weight: 800;
 }
 
 .user_rating {
-    padding-left: 4px;
+	padding-left: 4px;
 }
 
 h2 {
-    font-size: 30px;
+	font-size: 30px;
 }
 
 #add_review {
-    background-color: rgb(226, 226, 226);
-    width: fit-content;
-    padding: 5px;
-    margin-top: 15px;
-    border: 1px solid rgba(107, 107, 107, .3);
+	background-color: rgb(226, 226, 226);
+	width: fit-content;
+	padding: 5px;
+	margin-top: 15px;
+	border: 1px solid rgba(107, 107, 107, 0.3);
 }
 
 #add_review a {
-    text-decoration: none;
+	text-decoration: none;
 }
 
 #add_review:hover {
-    background-color: rgb(156, 156, 156);
-    color: rgb(58, 58, 58);
+	background-color: rgb(156, 156, 156);
+	color: rgb(58, 58, 58);
 }
 
 #no_reviews {
-    margin-top: 30px;
+	margin-top: 30px;
 }
 
 .top_row {
-    display: flex;
-    align-items: center;
-    width: 100%;
-    justify-content: space-between;
-
+	display: flex;
+	align-items: center;
+	width: 100%;
+	justify-content: space-between;
 }
 
 .add_edit_buttons {
-    display: flex;
+	display: flex;
 }
 
 .add_edit_buttons * {
-    padding: 0 5px;
+	padding: 0 5px;
 }
 
 .edit_buttons a {
-    text-decoration: none;
+	text-decoration: none;
 }
 
-.edit_buttons, .delete_buttons {
-    background-color: rgb(226, 226, 226);
-    width: fit-content;
-    padding: 5px;
-    margin-top: 15px;
-    border: 1px solid rgba(107, 107, 107, .3);
-    margin-left: 5px;
+.edit_buttons,
+.delete_buttons {
+	background-color: rgb(226, 226, 226);
+	width: fit-content;
+	padding: 5px;
+	margin-top: 15px;
+	border: 1px solid rgba(107, 107, 107, 0.3);
+	margin-left: 5px;
 }
 
-.edit_buttons:hover, .delete_buttons:hover {
-    background-color: rgb(156, 156, 156);
-    color: rgb(58, 58, 58);
-    cursor: pointer;
+.edit_buttons:hover,
+.delete_buttons:hover {
+	background-color: rgb(156, 156, 156);
+	color: rgb(58, 58, 58);
+	cursor: pointer;
 }
 
 #update_implementation {
-    margin-top: 10px;
+	margin-top: 10px;
 }
 
 #toolbox_selection {
-    margin-top: 20px;
-    max-width: 160px;
+	margin-top: 20px;
+	max-width: 200px;
 }
 
 #addToolbox {
-   margin-top: 5px;
+	margin: 5px 15px;
 }
 
 #toolbox_div {
-    font-weight: bold;
-    font-size: 20px;
-    margin-top: 10px;
+	font-weight: bold;
+	font-size: 20px;
+	margin-top: 10px;
 }
 
 #updated_status {
-
 }
 
 #toolbox_div_2 {
-    font-weight: bold;
-    font-size: 20px;
+	font-weight: bold;
+	font-size: 20px;
 }
