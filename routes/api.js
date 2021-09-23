@@ -26,13 +26,37 @@ router.get('/:id(\\d+)', asyncHandler( async (req, res, next) => {
             where: {
                 user_id
             },
-            include: Implementation
+            include: db.Api
         })
     } else {
         toolboxes = [];
     }
 
-    
+    let inToolbox = false;
+    let toolboxId;
+    let toolboxName;
+    //Search through the users toolboxes
+    //Find if the api is already in a toolbox
+    //If so, we pass that to pug to render an update form
+    //Instead of an add form
+
+    for (const box of toolboxes) {
+        if (!inToolbox) {
+            const apis = box.Apis
+            for (const api of apis) {
+                if (!inToolbox) {
+                    if (api.id === Number(api_id)) {
+                        inToolbox = true;
+                        toolboxId = box.id
+                        toolboxName = box.name;
+                        break;
+                    }
+                }
+            }
+        }
+    }
+
+    const toolboxInfo = {inToolbox, toolboxId, toolboxName}
 
     //Get the reviews for the API
     const reviews = await db.Review.findAll({
@@ -47,7 +71,8 @@ router.get('/:id(\\d+)', asyncHandler( async (req, res, next) => {
 
     //Render the page if it exists
     if (api) {
-        return res.render('api', {title: `Ace API - ${api.name}`, api, toolboxes, avgRating: avgNumber, reviews, user_id})
+        // return res.render('api', {title: `Ace API - ${api.name}`, api, toolboxes, avgRating: avgNumber, reviews, user_id})
+        res.send(toolboxes)
     } else {
         next()
     }
@@ -58,7 +83,7 @@ router.get('/:id(\\d+)/create_review', requireAuth, csrfProtection, asyncHandler
     const api = await db.Api.findByPk(req.params.id)
     let user_id = req.session.auth
     if(user_id){
-        res.render('reviews', { title:"AceAPI Submit Review", csrfToken: req.csrfToken(), api })
+        res.render('reviews', { title:"AceAPI Submit Review", csrfToken: req.csrfToken(), api, toolboxInfo })
     } else {
         return res.render('login')
     }
