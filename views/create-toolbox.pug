@@ -2,7 +2,13 @@ extends layout.pug
 
 block content
     link(rel='stylesheet' href='/stylesheets/create-toolbox.css')
+
     h1(id="create-toolbox") Create a New Toolbox
+
+    if errors
+        ul 
+            each error in errors
+                li= error
     div
         form(action="/toolboxes/create-toolbox" method="post" id= "toolbox-name")
             input(type='hidden', name='_csrf', value=csrfToken)

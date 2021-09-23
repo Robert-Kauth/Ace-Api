@@ -10,9 +10,18 @@ const router = express.Router();
 
 
 const toolboxValidators = [
-  check("new_toolbox")
+  check("implementation")
     .exists({ checkFalsy: true })
-    .withMessage("Please provide a value for Toolbox Name")
+    .withMessage("Please provide a name")
+    .custom((value) => {
+      return Toolbox.findOne({ where: { name: value } }).then((toolbox) => {
+        if (toolbox) {
+          return Promise.reject(
+            "Toolbox already exists"
+          );
+        }
+      });
+    })
 ];
 
 
@@ -96,19 +105,26 @@ router.post("/create-toolbox",
   toolboxValidators,
   asyncHandler(async (req, res, next) => {
 
+    console.log("INSIDE post /toolboxes/create-toolbox")
 
     const validatorErrors = validationResult(req);
+    const user_id = req.session.auth.userId
 
-    console.log("INSIDE post /toolboxes/create-toolbox")
     try {
 
-      const { implementation } = req.body
-      const user_id = req.session.auth.userId
-      const toolbox = await toolBuilder(user_id, implementation)
-      res.redirect("/toolboxes");
-      // next()
+      if (validatorErrors.isEmpty()) {
+        const { implementation } = req.body
+        const toolbox = await toolBuilder(user_id, implementation)
+        res.redirect("/toolboxes");
+      } else {
+        const errors = validatorErrors.array().map((error) => error.msg);
+        res.render("create-toolbox", {
+          title: "Ace API - Create Toolbox",
+          csrfToken: req.csrfToken(),
+          errors,
+        });
+      }
 
-      
     } catch (err) {
       next(err)
     }
