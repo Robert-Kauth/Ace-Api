@@ -40,9 +40,9 @@ router.get(`/:id(\\d+)/update`, requireAuth, asyncHandler( async (req, res, next
 
 router.post(`/:id(\\d+)/update`, requireAuth, asyncHandler( async (req, res, next) => {
   const { api_id, review, rating } = req.body;
-  console.log("************", rating);
-  console.log("************", review);
-  
+  // console.log("************", rating);
+  // console.log("************", review);
+
   const reviewId = req.params.id;
   const editedReview = await db.Review.findByPk(reviewId);
 

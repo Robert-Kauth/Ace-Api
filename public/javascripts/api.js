@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", (event)=>{
         if (e.target.classList.contains("delete_buttons")) {
             let reviewId = e.target.id;
             const reviewNumber = reviewId.split("_deletereview_")[1]
-            console.log(reviewNumber)
+            // console.log(reviewNumber)
             try {
                 const res = await fetch(`/reviews/${reviewNumber}`, {
                     method: "DELETE"

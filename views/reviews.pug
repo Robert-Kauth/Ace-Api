@@ -11,11 +11,18 @@ block content
         input(type="hidden" name="api_id" value=api.id)
         fieldset(name="ratings" id="rate")
             legend(name="rating" id="yourRating") Your Rating
-            input(type="radio" id="rating1" name="rating" value="1")
-            input(type="radio" id="rating2" name="rating" value="2")
-            input(type="radio" id="rating3" name="rating" value="3")
-            input(type="radio" id="rating4" name="rating" value="4")
-            input(type="radio" id="rating5" name="rating" value="5")
+            div(id="numbers")
+                label(for="rating1" class="number") 1
+                label(for="rating2" class="number") 2
+                label(for="rating3" class="number") 3
+                label(for="rating4" class="number") 4
+                label(for="rating5" class="number") 5
+            div(id="buttons")
+                input(type="radio" id="rating1" name="rating" value="1")
+                input(type="radio" id="rating2" name="rating" value="2")
+                input(type="radio" id="rating3" name="rating" value="3")
+                input(type="radio" id="rating4" name="rating" value="4")
+                input(type="radio" id="rating5" name="rating" value="5")
         fieldset(name="review" id="textReview")
             legend(name="text" id="yourReview") Your Review
             textarea(name="review", cols="70", rows="20" id="reviewArea")

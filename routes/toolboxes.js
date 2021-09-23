@@ -28,7 +28,7 @@ router.get("/",
             include: Tag
         }
     })
-    console.log(toolboxes)
+    // console.log(toolboxes)
     res.render("my_toolboxes", {
       title: "Ace API - My Toolboxes",
       csrfToken: req.csrfToken(),
@@ -56,7 +56,7 @@ router.get("/:id",
             include: Tag
         }
     })
-    console.log(toolboxes)
+    // console.log(toolboxes)
     res.render("my_toolboxes", {
       title: "Ace API - My Toolboxes",
       csrfToken: req.csrfToken(),
