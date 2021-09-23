@@ -3,7 +3,7 @@ const bcrypt = require("bcryptjs");
 const { check, validationResult } = require("express-validator");
 const { Op } = require("sequelize");
 const { csrfProtection, asyncHandler, toolBuilder } = require("../utils");
-const { User, Toolbox, Implementation, Api } = require("../db/models");
+const { User, Toolbox, Implementation, Api, Tag, Review} = require("../db/models");
 const { loginUser, logoutUser } = require("../auth");
 
 const router = express.Router();
@@ -78,7 +78,10 @@ router.get(
 
   console.log("INSIDE / ROUTER")
 
-  const apis = await Api.findAll();
+  const apis = await Api.findAll({
+      include: [Tag, Review]
+  });
+
   let toolboxes = await Toolbox.findAll({
     where: { id: { [Op.lt]: 4 } }
   });
