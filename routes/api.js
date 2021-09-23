@@ -45,7 +45,6 @@ router.get('/:id(\\d+)', asyncHandler( async (req, res, next) => {
     //Render the page if it exists
     if (api) {
         return res.render('api', {title: `Ace API - ${api.name}`, api, toolboxes, avgRating: avgNumber, reviews, user_id})
-        // res.send(rounded)
     } else {
         next()
     }
