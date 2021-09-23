@@ -12,11 +12,10 @@ block content
 	main.page_style
 		.tbc_ctrl_group
 			p.tbc_head
-				a(href="/toolboxes") My Toolboxes
+				a#tbc_head_title(href="/toolboxes") My Toolboxes
 			+toolbox_card
 
 		div.api_cards
 			each api in apis
 				div.card_container
 					+api_card(api, toolboxes)
-	

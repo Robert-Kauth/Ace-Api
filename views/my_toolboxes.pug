@@ -3,25 +3,24 @@ extends layout
 include utils
 
 block head
-    title= title
-    link(rel='stylesheet' href='/stylesheets/home.css')
-    link(rel='stylesheet' href='/stylesheets/toolbox_card.css')
-    link(rel='stylesheet' href='/stylesheets/index.css')
-    link(rel='stylesheet' href='/stylesheets/toolboxes.css')
+	title= title
+	link(rel='stylesheet', href='/stylesheets/home.css')
+	link(rel='stylesheet', href='/stylesheets/toolbox_card.css')
+	link(rel='stylesheet', href='/stylesheets/index.css')
+	link(rel='stylesheet', href='/stylesheets/toolboxes.css')
 
 block content
-    div
-        h1(id='my_toolboxes') My Toolboxes
-        div(id='myToolboxes_container')
-            main.page_style
-                .tbc_ctrl_group
-                    p.tbc_head
-                        a(href="/toolboxes") My Toolboxes
-                    +toolbox_card
-                div.main_api_container
-                    each toolbox in toolboxes
-                        h2= toolbox.name
-                        div.api_cards
-                            each api in toolbox.Apis
-                                div.card_container
-                                    +api_card_concat(api, toolboxes)
+	div
+		h1#my_toolboxes My Toolboxes
+		#myToolboxes_container
+			main.page_style
+				.tbc_ctrl_group
+					p.tbc_head: a#tbc_head_title(href='/toolboxes') My Toolboxes
+					+toolbox_card
+					.tbc_ctrl: a#tbc_link(href='/create-toolbox') Create a Toolbox
+				div
+					each toolbox in toolboxes
+						.api_cards
+							each api in toolbox.Apis
+								.card_container
+									+api_card_concat(api, toolboxes)
