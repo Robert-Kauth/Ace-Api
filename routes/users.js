@@ -6,11 +6,14 @@ const db = require("../db/models");
 const { csrfProtection, asyncHandler } = require("../utils");
 
 
+
+
 /* GET users home page. */
 router.get(
 	'/',
 	requireAuth,
 	asyncHandler(async (req, res, next) => {
+    console.log("INSIDE USERS/")
 		const { userId } = req.session.auth;
 		const userToolboxes = await Toolbox.findAll({ where: { user_id: userId } });
     const apis = await Api.findAll({ order: [['rating', 'DESC']]});
@@ -38,6 +41,32 @@ router.get(
   })
 );
 
+// router.get("/:id",
+//  requireAuth,
+//   csrfProtection,
+//    asyncHandler(async (req, res, next) => {
 
+//     if(req.session.auth) {
+//     const user_id = req.session.auth.userId
+//     const toolboxes = await Toolbox.findAll({
+//         where: {
+//             user_id: user_id,
+//         },
+//         include: {
+//             model: Api,
+//             include: Tag
+//         }
+//     })
+
+//     res.render("my_toolboxes", {
+//       title: "Ace API - My Toolboxes",
+//       csrfToken: req.csrfToken(),
+//       toolboxes
+//     });
+//     } else {
+//         res.redirect('/login', {csrfToken: req.csrfToken()});
+//     }
+
+//   }));
 
 module.exports = router;
