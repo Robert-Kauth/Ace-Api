@@ -49,10 +49,6 @@ mixin api_card(api, toolboxes)
 					else
 						.api_card_text Paid
 					div: a#ext_website(href=`${api.website}`, target='_blank') Website
-				span Implement this API
-				select
-					each toolbox in toolboxes
-						option(value=toolbox.id)= toolbox.name
 		section.api_description
 			p.api_card_text= api.description
 
