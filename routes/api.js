@@ -71,8 +71,8 @@ router.get('/:id(\\d+)', asyncHandler( async (req, res, next) => {
 
     //Render the page if it exists
     if (api) {
-        // return res.render('api', {title: `Ace API - ${api.name}`, api, toolboxes, avgRating: avgNumber, reviews, user_id})
-        res.send(toolboxes)
+        return res.render('api', {title: `Ace API - ${api.name}`, api, toolboxes, avgRating: avgNumber, reviews, user_id, toolboxInfo})
+        // res.send(toolboxes)
     } else {
         next()
     }
@@ -83,7 +83,7 @@ router.get('/:id(\\d+)/create_review', requireAuth, csrfProtection, asyncHandler
     const api = await db.Api.findByPk(req.params.id)
     let user_id = req.session.auth
     if(user_id){
-        res.render('reviews', { title:"AceAPI Submit Review", csrfToken: req.csrfToken(), api, toolboxInfo })
+        res.render('reviews', { title:"AceAPI Submit Review", csrfToken: req.csrfToken(), api })
     } else {
         return res.render('login')
     }
