@@ -2,8 +2,8 @@ extends layout.pug
 
 block content
     div
-        form(action="/create-toolbox" method="post")
+        form(action="/toolboxes/create-toolbox" method="post")
             input(type='hidden', name='_csrf', value=csrfToken)
-            label(for="implementation")
-            input(type="text", name="implementation")
+            label(for="new_toolbox")
+            input(type="text", name="new_toolbox" value="")
             button(type="submit") Create Toolbox

@@ -20,6 +20,7 @@ mixin field(labelText, fieldName, fieldValue, fieldType = 'text', required)
 mixin toolbox_card
 	each toolbox in toolboxes
 		.tbc_ctrl: a(href=`/toolboxes/${toolbox.id}`) #{toolbox.name}
+	a(href="/toolboxes/create-toolbox") Create a Toolbox
 
 mixin api_card(api, toolboxes)
 	div

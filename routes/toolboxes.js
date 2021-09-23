@@ -8,14 +8,14 @@ const { restoreUser, requireAuth, authorize } = require("../auth");
 
 const router = express.Router();
 
-// GET all toolboxes
+
 
 router.get(
   "/",
   requireAuth,
   csrfProtection,
   asyncHandler(async (req, res, next) => {
-    
+
     console.log("INSIDE toolboxes/ ROUTER");
 
     if (req.session.auth) {
@@ -42,7 +42,7 @@ router.get(
 );
 
 router.get(
-  "/:toolboxId",
+  "/:toolboxId(\\d+)",
   requireAuth,
   asyncHandler(async (req, res, next) => {
     console.log("INSIDE toolboxes/:toolboxId ROUTER");
@@ -69,5 +69,32 @@ router.get(
     }
   })
 );
+
+router.get("/create-toolbox",
+ requireAuth,
+  csrfProtection,
+   asyncHandler(async (req, res, next) => {
+
+    res.render("create-toolbox", {
+      title: "Ace API - Create Toolbox",
+      csrfToken: req.csrfToken(),
+    });
+
+  }));
+
+router.post("/create-toolbox",
+requireAuth,
+  csrfProtection,
+  asyncHandler(async (req, res, next) => {
+
+    console.log("INSIDE post /toolboxes/create-toolbox")
+
+    const { new_toolbox } = req.body
+    const user_id = req.session.auth.userId
+    const toolbox = await toolBuilder(user_id, new_toolbox)
+
+    res.redirect("/toolboxes");
+
+  }));
 
 module.exports = router;

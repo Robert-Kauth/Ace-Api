@@ -10,10 +10,8 @@ const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
 // Local imports
 const indexRouter = require('./routes/index');
-const usersRouter = require('./routes/users');
 const apiRouter = require('./routes/api');
 const reviewRouter = require('./routes/review')
-const implementationRouter = require('./routes/implementation');
 const toolboxesRouter = require('./routes/toolboxes');
 const { sessionSecret } = require('./config');
 const { restoreUser } = require('./auth.js');
@@ -48,10 +46,8 @@ store.sync();
 app.use(restoreUser);
 // Routers
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
 app.use('/apis', apiRouter);
 app.use('/reviews', reviewRouter);
-app.use('/create-toolbox', implementationRouter);
 app.use('/toolboxes', toolboxesRouter);
 
 // catch 404 and forward to error handler
