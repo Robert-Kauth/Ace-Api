@@ -19,7 +19,16 @@ mixin field(labelText, fieldName, fieldValue, fieldType = 'text', required)
 
 mixin toolbox_card
 	each toolbox in toolboxes
-		.tbc_ctrl: a#tbc_link(href=`/users/${toolbox.id}`) #{ toolbox.name }
+		.tbc_ctrl: a(href=`/toolboxes/${toolbox.id}`) #{toolbox.name}
+	.tbc_ctrl: a#tbc_link(href="/toolboxes/create-toolbox") Create a Toolbox
+
+	span(id='create_button') Create a Toolbox AJAX Test
+		form(action="/toolboxes/create-toolbox" method="post" style="display:none" id="create-toolbox-test-form")
+			input(type='hidden', name='_csrf', value=csrfToken)
+			label(for="new_toolbox") New Toolbox Name:
+			input(type="text" name="new_toolbox")
+			button(type="submit" id="create-toolbox-submit") Add New Toolbox
+			button cancel
 
 mixin api_card(api, toolboxes)
 	div
