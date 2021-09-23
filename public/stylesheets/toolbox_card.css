@@ -9,6 +9,11 @@
 	height: fit-content;
 	padding: 20px;
 	margin-top: 10px;
+	transition: box-shadow 0.5s;
+}
+
+.tbc_ctrl_group:hover {
+	box-shadow: 5px 5px lightseagreen;
 }
 
 .tbc_head {
