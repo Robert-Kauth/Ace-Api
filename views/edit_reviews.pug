@@ -1,0 +1,19 @@
+extends layout
+
+block content
+    link(rel='stylesheet' href='/stylesheets/reviews.css')
+    h1(id="title")= `Edit Your Review for ${review.Api.name}`
+    form(action=`/reviews/${review.id}/update` method='post' id="reviews")
+        input(type="hidden" name="_csrf" value=csrfToken)
+        input(type="hidden" name="api_id" value=review.Api.id)
+        fieldset(name="ratings" id="rate")
+            legend(name="rating" id="yourRating") Your Rating
+            input(type="radio" id="rating1" name="rating" value="1" checked=(review.rating === "1.0"))
+            input(type="radio" id="rating2" name="rating" value="2" checked=(review.rating === "2.0"))
+            input(type="radio" id="rating3" name="rating" value="3" checked=(review.rating === "3.0"))
+            input(type="radio" id="rating4" name="rating" value="4" checked=(review.rating === "4.0"))
+            input(type="radio" id="rating5" name="rating" value="5" checked=(review.rating === "5.0"))
+        fieldset(name="review" id="textReview")
+            legend(name="text" id="yourReview") Your Review
+            textarea(name="review", cols="70", rows="20" id="reviewArea")= review.review
+        button(type="submit" id="submit") Confirm Edit
