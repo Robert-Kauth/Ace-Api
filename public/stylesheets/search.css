@@ -1,6 +1,19 @@
 #Results{
-    color: crimson;
     display: flex;
     justify-content: center;
     align-items: center;
+}
+#search_nav{
+
+}
+#search_bar{
+
+}
+
+#search_box{
+
+}
+
+#search_button{
+    
 }

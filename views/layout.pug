@@ -4,6 +4,7 @@ html
       block head
         title= title
         link(rel='stylesheet' href='/stylesheets/index.css')
+        link(rel='stylesheet' href='/stylesheets/search.css')
   div(id="body_container")
     div(id="body_content")
       body
@@ -17,10 +18,11 @@ html
               a(class="nav_link" href="/") Home
               if locals.authenticated
                 a(class="nav_link" href="/toolboxes") My Toolboxes
-            div(id="search_nav")
-              form(action="/search" method="get" id="search_bar" autocomplete="off")
-                input(type="text" name="box" id="search_box" placeholder="Search")
-                button(type="submit" id="search") Search
+            div(id="wrap")
+              div(id="search_nav")
+                form(action="/search" method="get" id="search_bar" autocomplete="off")
+                  input(type="text" name="box" id="search_box" placeholder="Search")
+                  button(type="submit" id="search_button") Search
             div(id="right_nav")
               if locals.authenticated
                 span(id="welcome") Happy Coding, #{user.first_name}!
