@@ -12,6 +12,11 @@
 	border: 1px solid black;
 	border-radius: 10px;
 	box-shadow: 5px 5px lightgrey;
+	transition: box-shadow 0.5s;
+}
+
+.card_container:hover {
+	box-shadow: 5px 5px lightseagreen;
 }
 
 .api_cards {
