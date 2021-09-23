@@ -77,9 +77,13 @@ router.get(
         order: [["id"]],
       });
 
+      const apis = await Api.findAll({
+        include: [Tag, Review],
+      });
+
       const toolboxes = await Toolbox.findAll({ where: { user_id: userId } });
 
-      if ((toolbox.user_id = userId)) {
+      if (toolbox.user_id === req.session.auth.userId) {
         console.log("TOOLBOX ID:", toolbox.id);
         res.render("toolbox", {
           csrfToken: req.csrfToken(),
@@ -88,10 +92,11 @@ router.get(
         });
       } else {
         const deny_access = true;
-        res.render("my_toolboxes", {
+        res.render("home", {
           title: "Ace API - My Toolboxes",
           csrfToken: req.csrfToken(),
           toolboxes,
+          apis,
           deny_access,
         });
       }
