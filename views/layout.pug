@@ -17,6 +17,10 @@ html
               a(class="nav_link" href="/") Home
               if locals.authenticated
                 a(class="nav_link" href="/toolboxes") My Toolboxes
+            div(id="search_nav")
+              form(action="/" method="get")
+                input(type="text" id="search_bar" placeholder="Search")
+                button(type="submit") Search
             div(id="right_nav")
               if locals.authenticated
                 span(id="welcome") Happy Coding, #{user.first_name}!

@@ -61,5 +61,19 @@ router.get('/:id(\\d+)/create_review', requireAuth, csrfProtection, asyncHandler
     }
 }))
 
+router.get('/:id(\\d+)', csrfProtection,asyncHandler(async (req,res,next) => {
+    const name = document.getElementById("search_bar").value;
+    console.log(value);
+    const api = await db.Api.findAll({
+        where: {
+            name
+        }
+    })
+    if(api) {
+        return res.render('api', {title: `Ace API - ${api.name}`, api, toolboxes, avgRating: avgNumber, reviews, user_id})
+    } else {
+        next()
+    }
+}))
 
 module.exports = router;
