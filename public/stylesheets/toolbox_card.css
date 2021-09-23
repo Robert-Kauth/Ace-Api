@@ -5,10 +5,11 @@
 	border: 1px solid black;
 	background-color: #dfd9c2;
 	border-radius: 10px;
-	box-shadow: 5px 5px lightgray;
+	box-shadow: 0 0 10px lightgrey;
 	height: fit-content;
 	padding: 20px;
-	margin-top: 10px;
+	margin: 15px;
+	box-sizing: content-box;
 }
 
 .tbc_head {
@@ -19,9 +20,28 @@
 	font-size: x-large;
 }
 
+#tbc_head_title:hover {
+	background-color: black;
+	padding: 0 5px;
+	color: white;
+}
+
 .tbc_ctrl {
-	margin: 5px 10px;
-	font-size: large;
+	margin: 5px 20px;
+	font-size: x-large;
+}
+
+#tbc_ctrl:hover {
+	background-color: black;
+	margin: 0;
+	color: white;
+}
+#tbc_link {
+	padding: 0 5px;
+}
+#tbc_link:hover {
+	background-color: black;
+	color: white;
 }
 
 a {

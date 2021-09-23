@@ -1,5 +1,5 @@
 .page_style {
-	margin: 0 auto;
+	margin: 38px auto;
 	width: 1220px;
 	display: flex;
 	flex-direction: row;
@@ -8,14 +8,20 @@
 .card_container {
 	display: flex;
 	flex-direction: column;
-	margin: 10px;
+	margin: 15px;
 	border: 1px solid black;
 	border-radius: 10px;
-	box-shadow: 5px 5px lightgrey;
+	box-shadow: 0 0 10px lightgrey;
+	transition: box-shadow 0.5s;
+}
+
+.card_container:hover {
+	box-shadow: 0 0 10px 2px lightseagreen;
 }
 
 .api_cards {
 	width: 900px;
+	padding: 0 10px;
 }
 .api_card_top {
 	display: flex;
