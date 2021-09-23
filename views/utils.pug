@@ -20,7 +20,7 @@ mixin field(labelText, fieldName, fieldValue, fieldType = 'text', required)
 mixin toolbox_card
 	each toolbox in toolboxes
 		.tbc_ctrl: a(href=`/toolboxes/${toolbox.id}`) #{toolbox.name}
-	.tbc_ctrl: a#tbc_link(href="/create-toolbox") Create a Toolbox
+	.tbc_ctrl: a#tbc_link(href="/toolboxes/create-toolbox") Create a Toolbox
 
 	span(id='create_button') Create a Toolbox AJAX Test
 		form(action="/toolboxes/create-toolbox" method="post" style="display:none" id="create-toolbox-test-form")

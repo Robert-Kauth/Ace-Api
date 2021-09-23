@@ -96,23 +96,19 @@ router.post("/create-toolbox",
   toolboxValidators,
   asyncHandler(async (req, res, next) => {
 
-    console.log("INSIDE post /toolboxes/create-toolbox")
 
     const validatorErrors = validationResult(req);
 
+    console.log("INSIDE post /toolboxes/create-toolbox")
     try {
-      if (validatorErrors.isEmpty()) {
 
-      const { new_toolbox } = req.body
+      const { implementation } = req.body
       const user_id = req.session.auth.userId
-      const toolbox = await toolBuilder(user_id, new_toolbox)
+      const toolbox = await toolBuilder(user_id, implementation)
       res.redirect("/toolboxes");
       // next()
 
-      } else {
-        const errors = validatorErrors.array().map((err) => err.msg);
-        next(errors)
-      }
+      
     } catch (err) {
       next(err)
     }
