@@ -15,6 +15,7 @@ const apiRouter = require('./routes/api');
 const reviewRouter = require('./routes/review')
 const implementationRouter = require('./routes/implementation');
 const toolboxesRouter = require('./routes/toolboxes');
+const searchRouter = require('./routes/search')
 const { sessionSecret } = require('./config');
 const { restoreUser } = require('./auth.js');
 
@@ -53,6 +54,7 @@ app.use('/apis', apiRouter);
 app.use('/reviews', reviewRouter);
 app.use('/create-toolbox', implementationRouter);
 app.use('/toolboxes', toolboxesRouter);
+app.use('/search', searchRouter)
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
@@ -67,7 +69,8 @@ app.use(function (err, req, res, next) {
 
 	// render the error page
 	res.status(err.status || 500);
-	res.render('404');
+	// res.render('404');
+	res.render("error")
 });
 
 module.exports = app;
