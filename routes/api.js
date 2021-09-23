@@ -63,6 +63,7 @@ router.get('/:id(\\d+)', asyncHandler( async (req, res, next) => {
         where: {
             api_id
         },
+        order: [["updatedAt", "DESC"]],
         include: { model: db.User }
     })
 
