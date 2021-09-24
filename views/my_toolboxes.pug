@@ -19,6 +19,9 @@ block content
 					+toolbox_card
 				div
 					each toolbox in toolboxes
+						.toolbox_header
+							h2= toolbox.name
+							button(type="button" class="toolbox_delete_button" value=toolbox.id name=toolbox.name) Delete Toolbox
 						.api_cards
 							each api in toolbox.Apis
 								.card_container

@@ -33,6 +33,7 @@ router.get(
   requireAuth,
   csrfProtection,
   asyncHandler(async (req, res, next) => {
+
     console.log("INSIDE toolboxes/ ROUTER");
 
     if (req.session.auth) {
@@ -147,5 +148,6 @@ router.post(
     }
   })
 );
+
 
 module.exports = router;
