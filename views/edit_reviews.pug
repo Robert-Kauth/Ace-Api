@@ -18,11 +18,11 @@ block content
                 label(for="rating4" class="number") 4
                 label(for="rating5" class="number") 5
             div(id="buttons")
-                input(type="radio" id="rating1" name="rating" value="1")
-                input(type="radio" id="rating2" name="rating" value="2")
-                input(type="radio" id="rating3" name="rating" value="3")
-                input(type="radio" id="rating4" name="rating" value="4")
-                input(type="radio" id="rating5" name="rating" value="5")
+                input(type="radio" id="rating1" name="rating" value="1" checked=(editedReview.rating === "1.0"))
+                input(type="radio" id="rating2" name="rating" value="2" checked=(editedReview.rating === "2.0"))
+                input(type="radio" id="rating3" name="rating" value="3" checked=(editedReview.rating === "3.0"))
+                input(type="radio" id="rating4" name="rating" value="4" checked=(editedReview.rating === "4.0"))
+                input(type="radio" id="rating5" name="rating" value="5" checked=(editedReview.rating === "5.0"))
         fieldset(name="review" id="textReview")
             legend(name="text" id="yourReview") Your Review
             textarea(name="review", cols="70", rows="20" id="reviewArea" value=editedReview.review)= editedReview.review

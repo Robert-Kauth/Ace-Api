@@ -57,3 +57,12 @@ h1 {
 .number{
     padding: 5.8px;
 }
+
+.alert p, .alert ul li {
+    color: rgb(221, 0, 0);
+}
+
+.alert {
+    width: fit-content;
+    margin: auto;
+}
