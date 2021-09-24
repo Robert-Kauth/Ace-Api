@@ -3,27 +3,27 @@ extends layout
 include utils
 
 block content
-    link(rel='stylesheet' href='/stylesheets/reviews.css')
-    h1(id="title")= `Create Your Review for ${api.name}`
-    +validationErrorSummary(errors)
-    form(action="/reviews" method='post' id="reviews")
-        input(type="hidden" name="_csrf" value=csrfToken)
-        input(type="hidden" name="api_id" value=api.id)
-        fieldset(name="ratings" id="rate")
-            legend(name="rating" id="yourRating") Your Rating
-            div(id="numbers")
-                label(for="rating1" class="number") 1
-                label(for="rating2" class="number") 2
-                label(for="rating3" class="number") 3
-                label(for="rating4" class="number") 4
-                label(for="rating5" class="number") 5
-            div(id="buttons")
-                input(type="radio" id="rating1" name="rating" value="1")
-                input(type="radio" id="rating2" name="rating" value="2")
-                input(type="radio" id="rating3" name="rating" value="3")
-                input(type="radio" id="rating4" name="rating" value="4")
-                input(type="radio" id="rating5" name="rating" value="5")
-        fieldset(name="review" id="textReview")
-            legend(name="text" id="yourReview") Your Review
-            textarea(name="review", cols="70", rows="20" id="reviewArea")
-        button(type="submit" id="submit") Submit
+	link(rel='stylesheet', href='/stylesheets/reviews.css')
+	h1#title= `Create Your Review for ${api.name}`
+	+validationErrorSummary(errors)
+	form#reviews(action='/reviews', method='post')
+		input(type='hidden', name='_csrf', value=csrfToken)
+		input(type='hidden', name='api_id', value=api.id)
+		fieldset#rate(name='ratings')
+			legend#yourRating(name='rating') Your Rating
+			#numbers
+				label.number(for='rating1') 1
+				label.number(for='rating2') 2
+				label.number(for='rating3') 3
+				label.number(for='rating4') 4
+				label.number(for='rating5') 5
+			#buttons
+				input#rating1(type='radio', name='rating', value='1')
+				input#rating2(type='radio', name='rating', value='2')
+				input#rating3(type='radio', name='rating', value='3')
+				input#rating4(type='radio', name='rating', value='4')
+				input#rating5(type='radio', name='rating', value='5')
+		fieldset#textReview(name='review')
+			legend#yourReview(name='text') Your Review
+			textarea#reviewArea(name='review', cols='70', rows='20')
+		button#submit(type='submit') Submit
