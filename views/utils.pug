@@ -19,8 +19,8 @@ mixin field(labelText, fieldName, fieldValue, fieldType = 'text', required)
 
 mixin toolbox_card
 	each toolbox in toolboxes
-		.tbc_ctrl(id=`toolbox_delete_${toolbox.id}`): a#tbc_link(href=`/toolboxes/${toolbox.id}`) #{ toolbox.name }
-	.tbc_ctrl: a#tbc_link(href='/toolboxes/create-toolbox') Create a Toolbox
+		.tbc_ctrl(id=`toolbox_delete_${toolbox.id}`): a.tbc_link(href=`/toolboxes/${toolbox.id}`) #{ toolbox.name }
+	.tbc_ctrl(id="create_button"): a.tbc_link#create_link(href='/toolboxes/create-toolbox') Create a Toolbox
 
 mixin api_card(api, toolboxes)
 	div
