@@ -20,11 +20,13 @@ header {
 #body_container {
 	position: relative;
 	min-height: 100vh;
+	background-color: rgba(188, 184, 138, 0.3);
 }
 
 #body_content {
 	padding-bottom: 6.5em;
-	background-color: rgba(188, 184, 138, 0.3);
+	min-height: 80vh;
+
 }
 
 nav {
