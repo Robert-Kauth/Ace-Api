@@ -217,7 +217,7 @@ module.exports = {
 					website: 'https://serpmaster.com/',
 					free: false,
 					description:
-						'ScrapeUp API is a real time proxy API for web scraping. This API enables users to get the HTML from any web page with an API call and handles proxies, browsers, and CAPTCHAs.',
+						'SERPMaster is a fast and reliable large-scale Google data extraction tool that keeps your infrastructure costs low and predictable.',
 					logo_url:
 						'https://res.cloudinary.com/dt8q1ngxj/image/upload/v1631923868/Ace%20Api/serp_e9fc4o.jpg',
 					tags_id: 4,
@@ -434,7 +434,7 @@ module.exports = {
 					website: 'https://getstream.io/',
 					free: false,
 					description:
-						'The #1 Chat API for Custom Messaging Apps. Build real-time chat messaging in less time. Rapidly ship in-app messaging with our highly reliable chat infrastructure and feature-rich SDKs. Drive in-app conversion, engagement, and retention. Our enterprise-ready activity feed APIs are used by hundreds of large companies so they can grow without worrying about the scalability, maintenance and reliability of a complicated news feed infrastructure.',
+						'Stream is the #1 Chat API for Custom Messaging Apps. Build real-time chat messaging in less time. Rapidly ship in-app messaging with our highly reliable chat infrastructure and feature-rich SDKs. Drive in-app conversion, engagement, and retention. Our enterprise-ready activity feed APIs are used by hundreds of large companies so they can grow without worrying about the scalability, maintenance and reliability of a complicated news feed infrastructure.',
 					logo_url:
 						'https://res.cloudinary.com/dan-purcell-2021/image/upload/v1631913638/aceapi-assets/stream_aosgw7.png',
 					tags_id: '3',
