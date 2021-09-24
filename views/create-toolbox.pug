@@ -20,15 +20,17 @@ block content
                     +toolbox_card
     h2(id="create-toolbox") Create a New Toolbox
 
-    if errors
-        ul
-            each error in errors
-                li= error
-    div
-        form(action="/toolboxes/create-toolbox" method="post" id= "toolbox-name")
-            input(type='hidden', name='_csrf', value=csrfToken)
-            label(for="implementation")
-            input(type="text", name="implementation", id="implementation", placeholder="Toolbox Name")
-            button(type="submit" id="submit") Create Toolbox
+    #create_container
+        #errors_container
+            if errors
+                ul
+                    each error in errors
+                        li= error
+        #create_form_container
+            form(action="/toolboxes/create-toolbox" method="post" id= "toolbox-name")
+                input(type='hidden', name='_csrf', value=csrfToken)
+                label(for="implementation")
+                input(type="text", name="implementation", id="implementation", placeholder="Toolbox Name")
+                button(type="submit" id="submit") Create Toolbox
     script(src="/javascripts/implementations.js" type="module" defer)
     script(src="/javascripts/toolbox_frontend.js" type="module" defer)
