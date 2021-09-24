@@ -11,24 +11,20 @@ block head
     link(rel='stylesheet' href='/stylesheets/create-toolbox.css')
 
 block content
-    div
-        h1#create_title Create Toolbox
-        #myToolboxes_container
-            main.page_style
-                .tbc_ctrl_group
-                    p.tbc_head: a#tbc_head_title(href='/toolboxes') My Toolboxes
-                    +toolbox_card
+    h1#create_title Create Toolbox
+        #outer_box
+            #main_container
+                #myToolboxes_container
+                    .tbc_ctrl_group
+                        p.tbc_head: a#tbc_head_title(href='/toolboxes') My Toolboxes
+                        +toolbox_card
 
-    #create_container
-        h3(id="create-toolbox") Create a New Toolbox
-        #errors_container
-            if errors
-                ul
-                    each error in errors
-                        li= error
-        #create_form_container
-            form(action="/toolboxes/create-toolbox" method="post" id= "toolbox-name")
-                input(type='hidden', name='_csrf', value=csrfToken)
-                label(for="implementation")
-                input(type="text", name="implementation", id="implementation", placeholder="Toolbox Name")
-                button(type="submit" id="submit") Create Toolbox
+                #create_container
+                    h6(id="create-toolbox") Create a Custom Toolbox for your APIs
+                    +validationErrorSummary(errors)
+                    #create_form_container
+                        form(action="/toolboxes/create-toolbox" method="post" id= "toolbox-name")
+                            input(type='hidden', name='_csrf', value=csrfToken)
+                            label(for="implementation")
+                            input(type="text", name="implementation", id="implementation", placeholder="Toolbox Name")
+                            button(type="submit" id="submit") Create Toolbox
