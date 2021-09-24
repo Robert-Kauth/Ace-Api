@@ -2,7 +2,6 @@ document.addEventListener("DOMContentLoaded", (e) => {
   const toolboxes_container = document.querySelector("#toolbox_list_container");
 
   toolboxes_container.addEventListener("click", async (e) => {
-    e.preventDefault();
 
     if (e.target.classList.contains("toolbox_delete_button")) {
 
