@@ -15,7 +15,7 @@
 .tbc_head {
 	margin: 10px auto;
 	font-size: 18px;
-	border-bottom: 2px solid black;
+	border-bottom: 2px solid rgba(51, 153, 153, 0.3);
 }
 
 #tbc_head_title {
@@ -23,10 +23,9 @@
 }
 
 #tbc_head_title:hover {
-	background-color: black;
+	background-color: rgb(1, 68, 33);
 	padding: 0 5px;
-	color: white;
-	border-bottom: 2px solid white;
+	color: #dfd9c2;
 }
 
 .tbc_ctrl {
@@ -34,17 +33,12 @@
 	font-size: 18px;
 }
 
-#tbc_ctrl:hover {
-	background-color: black;
-	margin: 0;
-	color: white;
-}
 #tbc_link {
 	padding: 0 5px;
 }
 #tbc_link:hover {
-	background-color: black;
-	color: white;
+	background-color: rgb(1, 68, 33);
+	color: #dfd9c2;
 }
 
 a {
