@@ -12,6 +12,13 @@ block content
 	if deny_access
 		script.
 			alert('Bad! You tried to access a toolbox that is not yours.')
+	p#welcome_text Welcome to Ace API. You can browse APIs, organize APIs into Toolboxes, and rate and review APIs.
+		if !locals.authenticated
+			a(id="login_button_welcome" class="welcome_link" href="/login") Login
+			span or
+			a(id="signup_button_welcome" class="welcome_link"  href="/signup") Sign Up
+			span Today!
+	h1#welcome_header Browse All APIs
 	main.page_style
 		.tbc_ctrl_group
 			p.tbc_head
