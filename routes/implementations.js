@@ -20,13 +20,11 @@ router.post("/", asyncHandler(async (req, res, next) => {
         }
       })
 
-      //If one already exists, delete it
       if (impStatus) {
         const deletedImp = await impStatus.destroy();
       }
     }
 
-    //Create a new implementation status
     const newImp = await db.Implementation.create( {
       api_id, toolbox_id
     })
