@@ -9,6 +9,9 @@ block head
 	link(rel='stylesheet' href='/stylesheets/index.css')
 
 block content
+	if deny_access
+		script.
+			alert('Bad! You tried to access a toolbox that is not yours.')
 	main.page_style
 		.tbc_ctrl_group
 			p.tbc_head
