@@ -47,7 +47,7 @@
 }
 .api_card_text {
 	padding: 5px 0;
-	font-family: 'Spectral SC', serif;
+	font-family: 'Spectral', serif;
 	font-size: large;
 }
 
@@ -68,7 +68,7 @@
 
 #ext_website {
 	color: blue;
-	font-family: 'Spectral SC', serif;
+	font-family: 'Spectral', serif;
 	font-size: large;
 }
 
