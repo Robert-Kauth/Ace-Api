@@ -33,10 +33,11 @@
 	font-size: 18px;
 }
 
-#tbc_link {
+.tbc_link {
 	padding: 0 5px;
 }
-#tbc_link:hover {
+
+.tbc_link:hover {
 	background-color: rgb(1, 68, 33);
 	color: #dfd9c2;
 }
@@ -47,4 +48,31 @@ a {
 
 a:visited {
 	color: black;
+}
+
+#create_button {
+	background-color: rgb(226, 226, 226);
+	width: fit-content;
+	font-size: 14px;
+	font-weight: 700;
+	padding: 5px;
+	margin-top: 15px;
+	border: 1px solid rgba(107, 107, 107, 0.3);
+	border-radius: 5px;
+}
+
+#create_button:hover {
+	background-color: rgb(156, 156, 156);
+	color: rgb(58, 58, 58);
+	cursor: pointer;
+}
+
+
+#create_button a:hover {
+	text-decoration: none;
+}
+
+#create_link:hover {
+	background-color: rgb(156, 156, 156);
+	color: rgb(58, 58, 58);
 }

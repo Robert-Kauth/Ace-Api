@@ -45,6 +45,7 @@ h1 {
     background-color: rgb(226, 226, 226);
     border: 1px solid rgba(107, 107, 107, .3);
     font-size: 17px;
+    border-radius: 5px;
 }
 
 #signupButton {
