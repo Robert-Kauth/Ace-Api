@@ -50,7 +50,7 @@ app.use(restoreUser);
 // Routers
 app.use('/', indexRouter);
 app.use('/apis', apiRouter);
-app.use('/apis/toolboxes', apiToolboxRouter);
+app.use('/apis_toolboxes', apiToolboxRouter);
 app.use('/reviews', reviewRouter);
 app.use('/implementations', implementationRouter);
 app.use('/toolboxes', toolboxesRouter);

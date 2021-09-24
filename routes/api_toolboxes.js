@@ -60,7 +60,6 @@ router.patch(
 
 }));
 
-
 router.delete(
     "/",
     requireAuth,
@@ -68,6 +67,7 @@ router.delete(
         console.log("**INSIDE delete /api/toolboxes**")
         const { toolbox_id } = req.body
         const user_id = req.session.auth.userId
+        console.log(toolbox_id, user_id)
         try {
 
             const toolbox = await Toolbox.destroy(toolbox_id);
