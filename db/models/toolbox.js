@@ -23,6 +23,7 @@ module.exports = (sequelize, DataTypes) => {
 			otherKey: "api_id"
 		}
 		Toolbox.belongsToMany(models.Api, columnMapping)
+		Toolbox.hasMany(models.Implementation, {foreignKey: "toolbox_id", onDelete: "CASCADE", hooks: true})
 	};
 	return Toolbox;
 };
