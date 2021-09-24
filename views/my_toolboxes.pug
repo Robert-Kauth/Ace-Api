@@ -17,11 +17,14 @@ block content
 				.tbc_ctrl_group
 					p.tbc_head: a#tbc_head_title(href='/toolboxes') My Toolboxes
 					+toolbox_card
-				div
+				div#toolbox_list_container
 					each toolbox in toolboxes
-						.toolbox_header
+						div(id=`toolbox_header_${toolbox.id}`).toolbox_header
 							h2= toolbox.name
-							button(type="button" class="toolbox_delete_button" value=toolbox.id name=toolbox.name) Delete Toolbox
+							button(type="button" class="toolbox_delete_button" id=`delete_toolbox_submit_${toolbox.id}` value=toolbox.id name=toolbox.name) Delete Toolbox
+							button(type="button" class="toolbox_patch_button" id=`patch_toolbox_submit_${toolbox.id}` value=toolbox.id name=toolbox.name) Rename Toolbox
+
+
 						.api_cards
 							each api in toolbox.Apis
 								.card_container

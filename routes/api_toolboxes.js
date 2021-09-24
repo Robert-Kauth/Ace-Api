@@ -38,28 +38,6 @@ router.post(
     }));
 
 
-router.delete(
-    "/",
-    requireAuth,
-    asyncHandler(async (req, res, next) => {
-
-        const { toolbox_id, new_name } = req.body
-
-        try {
-            const toolbox = await Toolbox.update({
-                name: new_name,
-            }, {
-                where: {
-                  id: toolbox_id,
-                }
-            });
-            res.json(toolbox);
-        } catch (e) {
-            next(e)
-        }
-
-    }));
-
 router.patch(
     "/",
     requireAuth,
@@ -69,19 +47,36 @@ router.patch(
 
         try {
             const toolbox = await Toolbox.update({
-                name: new_name,
-            }, {
-                where: {
-                  id: toolbox_id,
-                }
-            });
+            name: new_name,
+        }, {
+            where: {
+                id: toolbox_id,
+            }
+        });
+        res.json(toolbox);
+    } catch (e) {
+        next(e)
+    }
+
+}));
+
+
+router.delete(
+    "/",
+    requireAuth,
+    asyncHandler(async (req, res, next) => {
+        console.log("**INSIDE delete /api/toolboxes**")
+        const { toolbox_id } = req.body
+        const user_id = req.session.auth.userId
+        try {
+
+            const toolbox = await Toolbox.destroy(toolbox_id);
             res.json(toolbox);
         } catch (e) {
             next(e)
         }
 
     }));
-
 
 
 module.exports = router;
