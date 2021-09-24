@@ -84,17 +84,9 @@ router.get(
   asyncHandler(async (req, res, next) => {
     console.log("INSIDE / ROUTER");
 
-<<<<<<< HEAD
-  // console.log("INSIDE / ROUTER")
-
-  const apis = await Api.findAll({
-      include: [Tag, Review]
-  });
-=======
     const apis = await Api.findAll({
       include: [Tag, Review],
     });
->>>>>>> main
 
     let toolboxes = await Toolbox.findAll({
       where: { id: { [Op.lt]: 4 } },
@@ -127,12 +119,7 @@ router.get(
 
 // GET login page
 router.get("/login", csrfProtection, async (req, res, next) => {
-<<<<<<< HEAD
-
-  // console.log("INSIDE /login ROUTER")
-=======
   console.log("INSIDE /login ROUTER");
->>>>>>> main
 
   res.render("login", {
     title: "Ace API - Login",
@@ -146,12 +133,7 @@ router.post(
   csrfProtection,
   loginValidators,
   asyncHandler(async (req, res, next) => {
-<<<<<<< HEAD
-
-    // console.log("INSIDE post /login ROUTER")
-=======
     console.log("INSIDE post /login ROUTER");
->>>>>>> main
 
     const { email, password } = req.body;
 
