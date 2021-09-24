@@ -20,15 +20,16 @@
 }
 
 #api_info * {
-	font-size: px;
+	font-size: 20px;
 }
 
 #api_info * {
+	justify-content: flex-start;
+	align-items: center;
 	margin-right: 60px;
 	margin-top: 30px;
 	margin-bottom: 30px;
-	font-family: 'Spectral SC', serif;
-	font-size: large;
+	font-family: 'Spectral', serif;
 }
 
 #api_name {
@@ -40,7 +41,7 @@
 }
 
 #logo {
-	width: 350px;
+	width: 300px;
 	height: auto;
 }
 
@@ -76,8 +77,8 @@
 
 #description {
 	line-height: 25px;
-	font-family: 'Spectral SC', serif;
-	font-size: large;
+	font-family: 'Spectral', serif;
+	font-size: 20px;
 }
 
 #ext_website:hover {
@@ -90,9 +91,9 @@
 }
 
 .review_text {
-	font-size: 13px;
+	font-size: 16px;
 	font-weight: 100;
-	font-family: 'Spectral SC', serif;
+	font-family: 'Spectral', serif;
 }
 
 .user_review {

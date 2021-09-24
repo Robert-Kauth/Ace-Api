@@ -73,7 +73,7 @@ router.get(
   requireAuth,
   csrfProtection,
   asyncHandler(async (req, res, next) => {
-    console.log("INSIDE toolboxes/:toolboxId ROUTER");
+    // console.log("INSIDE toolboxes/:toolboxId ROUTER");
 
     if (req.session.auth) {
       const { userId } = req.session.auth;
@@ -99,6 +99,7 @@ router.get(
           csrfToken: req.csrfToken(),
           toolbox,
           toolboxes,
+          title: `Ace API - ${toolbox.name}`
         });
       } else {
         const deny_access = true;

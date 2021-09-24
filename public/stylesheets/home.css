@@ -6,17 +6,18 @@
 }
 
 .card_container {
+	background-color: rgb(242, 243, 244);
 	display: flex;
 	flex-direction: column;
 	margin: 15px;
 	border: 1px solid black;
 	border-radius: 10px;
-	box-shadow: 0 0 10px lightgrey;
+	box-shadow: 0 0 10px grey;
 	transition: box-shadow 0.5s;
 }
 
 .card_container:hover {
-	box-shadow: 0 0 10px 2px lightseagreen;
+	box-shadow: 0 0 10px 2px rgba(51, 153, 153, 0.8);
 }
 
 .api_cards {
@@ -47,15 +48,36 @@
 }
 .api_card_text {
 	padding: 5px 0;
-	font-family: 'Spectral SC', serif;
+	font-family: 'Spectral', serif;
 	font-size: large;
 }
+
+.delete_imp_status {
+	background-color: rgb(226, 226, 226);
+	width: fit-content;
+	font-size: 14px;
+	padding: 5px;
+	margin-top: 15px;
+	border: 1px solid rgba(107, 107, 107, 0.3);
+}
+
+.delete_imp_status:hover {
+	background-color: rgb(156, 156, 156);
+	color: rgb(58, 58, 58);
+	cursor: pointer;
+}
+
 #ext_website {
 	color: blue;
-	font-family: 'Spectral SC', serif;
+	font-family: 'Spectral', serif;
 	font-size: large;
 }
 
 #ext_website:hover {
 	font-weight: bold;
+}
+
+.removeToolboxButton {
+	margin-left: 5px;
+	font-weight: 700;
 }

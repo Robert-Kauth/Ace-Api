@@ -58,14 +58,14 @@ app.use('/search', searchRouter)
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
-	// next(createError(404));
-	next()
+	next(createError(404));
+	// next()
 });
 
 // error handler
 app.use(function (err, req, res, next) {
 
-	console.log("INSIDE **error handler** ")
+	// console.log("INSIDE **error handler** ")
 
 	// set locals, only providing error in development
 	res.locals.message = err.message;
@@ -74,7 +74,7 @@ app.use(function (err, req, res, next) {
 	// render the error page
 	res.status(err.status || 500);
 
-	// res.render('404');
+	// res.render('404', {title: "Ace API - Page Not Found"});
 	res.render("error")
 
 });
