@@ -21,5 +21,6 @@ block content
 					each toolbox in toolboxes
 						.api_cards
 							each api in toolbox.Apis
-								.card_container
-									+api_card_concat(api, toolboxes)
+								div(class="card_container" id=`api_${api.id}toolbox`)
+									+api_card_concat(api, toolbox)
+	script(src="/javascripts/implementations.js" type="module" defer)
