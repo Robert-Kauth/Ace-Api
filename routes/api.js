@@ -84,7 +84,7 @@ router.get('/:id(\\d+)/create_review', requireAuth, csrfProtection, asyncHandler
     const api = await db.Api.findByPk(req.params.id)
     let user_id = req.session.auth
     if(user_id){
-        res.render('reviews', { title:"AceAPI Submit Review", csrfToken: req.csrfToken(), api })
+        res.render('reviews', { title:"Ace API - Submit Review", csrfToken: req.csrfToken(), api })
     } else {
         return res.render('login')
     }

@@ -30,7 +30,7 @@ router.get('/', async (req, res) => {
     res.render('search',{
         toolboxes,
         apis,
-        title: "Search Results"
+        title: "Ace API - Search Results"
     });
 });
 

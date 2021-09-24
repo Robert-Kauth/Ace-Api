@@ -50,6 +50,22 @@
 	font-family: 'Spectral SC', serif;
 	font-size: large;
 }
+
+.delete_imp_status {
+	background-color: rgb(226, 226, 226);
+	width: fit-content;
+	font-size: 14px;
+	padding: 5px;
+	margin-top: 15px;
+	border: 1px solid rgba(107, 107, 107, 0.3);
+}
+
+.delete_imp_status:hover {
+	background-color: rgb(156, 156, 156);
+	color: rgb(58, 58, 58);
+	cursor: pointer;
+}
+
 #ext_website {
 	color: blue;
 	font-family: 'Spectral SC', serif;
@@ -58,4 +74,9 @@
 
 #ext_website:hover {
 	font-weight: bold;
+}
+
+.removeToolboxButton {
+	margin-left: 5px;
+	font-weight: 700;
 }
