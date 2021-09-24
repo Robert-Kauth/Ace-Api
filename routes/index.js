@@ -3,7 +3,14 @@ const bcrypt = require("bcryptjs");
 const { check, validationResult } = require("express-validator");
 const { Op } = require("sequelize");
 const { csrfProtection, asyncHandler, toolBuilder } = require("../utils");
-const { User, Toolbox, Implementation, Api, Tag, Review} = require("../db/models");
+const {
+  User,
+  Toolbox,
+  Implementation,
+  Api,
+  Tag,
+  Review,
+} = require("../db/models");
 const { loginUser, logoutUser } = require("../auth");
 
 const router = express.Router();
@@ -75,20 +82,31 @@ router.get(
   "/",
   csrfProtection,
   asyncHandler(async (req, res, next) => {
+    console.log("INSIDE / ROUTER");
 
+<<<<<<< HEAD
   // console.log("INSIDE / ROUTER")
 
   const apis = await Api.findAll({
       include: [Tag, Review]
   });
+=======
+    const apis = await Api.findAll({
+      include: [Tag, Review],
+    });
+>>>>>>> main
 
-  let toolboxes = await Toolbox.findAll({
-    where: { id: { [Op.lt]: 4 } }
-  });
+    let toolboxes = await Toolbox.findAll({
+      where: { id: { [Op.lt]: 4 } },
+      order: [["id"]],
+    });
 
-  if (req.session.auth) {
-    const { userId } = req.session.auth;
-      toolboxes = await Toolbox.findAll({ where: { user_id: userId } });
+    if (req.session.auth) {
+      const { userId } = req.session.auth;
+      toolboxes = await Toolbox.findAll({
+        where: { user_id: userId },
+        order: [["id"]],
+      });
       res.render("home", {
         csrfToken: req.csrfToken(),
         title: "ACE API",
@@ -109,8 +127,12 @@ router.get(
 
 // GET login page
 router.get("/login", csrfProtection, async (req, res, next) => {
+<<<<<<< HEAD
 
   // console.log("INSIDE /login ROUTER")
+=======
+  console.log("INSIDE /login ROUTER");
+>>>>>>> main
 
   res.render("login", {
     title: "Ace API - Login",
@@ -124,8 +146,12 @@ router.post(
   csrfProtection,
   loginValidators,
   asyncHandler(async (req, res, next) => {
+<<<<<<< HEAD
 
     // console.log("INSIDE post /login ROUTER")
+=======
+    console.log("INSIDE post /login ROUTER");
+>>>>>>> main
 
     const { email, password } = req.body;
 
@@ -168,8 +194,7 @@ router.post(
 
 // GET signup page
 router.get("/signup", csrfProtection, async (req, res, next) => {
-
-  // console.log("INSIDE /signup ROUTER")
+  console.log("INSIDE /signup ROUTER");
 
   const user = User.build();
   res.render("signup", {
@@ -185,8 +210,7 @@ router.post(
   csrfProtection,
   userValidators,
   asyncHandler(async (req, res, next) => {
-
-    // console.log("INSIDE post /signup ROUTER")
+    console.log("INSIDE post /signup ROUTER");
 
     const { first_name, last_name, email, password } = req.body;
 
@@ -212,7 +236,7 @@ router.post(
         if (err) {
           next(err);
         } else {
-          return res.redirect('/');
+          return res.redirect("/");
         }
       });
     } else {
@@ -227,40 +251,40 @@ router.post(
   })
 );
 
+router.post(
+  "/demo",
+  asyncHandler(async (req, res, next) => {
+    console.log("INSIDE /demo ROUTER");
 
-router.post('/demo', asyncHandler(async (req,res,next) => {
+    const user = await User.findOne({
+      where: {
+        email: "demo@demo.com",
+      },
+    });
+    loginUser(req, res, user);
+    // Race conditions handler
+    return req.session.save((err) => {
+      if (err) {
+        next(err);
+      } else {
+        return res.redirect("/");
+      }
+    });
+  })
+);
 
-  // console.log("INSIDE /demo ROUTER")
+router.post("/logout", (req, res) => {
+  console.log("INSIDE post /logout ROUTER");
 
-	const user  = await User.findOne({
-		where: {
-			email:"demo@demo.com"
-		}
-	})
-	loginUser(req, res, user);
-	// Race conditions handler
-	return req.session.save((err) => {
-		if (err) {
-			next(err);
-		} else {
-			return res.redirect('/');
-		}
-	});
-}))
-
-router.post('/logout', (req, res) => {
-
-  // console.log("INSIDE post /logout ROUTER")
-
-	logoutUser(req, res);
-	// Race conditions handler
-	return req.session.save((err) => {
-		if (err) {
-			next(err);
-		} else {
-			return res.redirect('/login');
-		}
-	});
+  logoutUser(req, res);
+  // Race conditions handler
+  return req.session.save((err) => {
+    if (err) {
+      next(err);
+    } else {
+      return res.redirect("/login");
+    }
   });
+});
 
 module.exports = router;

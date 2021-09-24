@@ -6,6 +6,14 @@ const Sequelize = require("sequelize");
 const {Op} = require("sequelize")
 const { requireAuth } = require('../auth');
 const router = express.Router();
+const {
+  User,
+  Toolbox,
+  Implementation,
+  Api,
+  Tag,
+  Review,
+} = require("../db/models");
 
 
 router.get('/', async (req, res) => {
