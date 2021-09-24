@@ -154,22 +154,29 @@ router.post(
 
     const validatorErrors = validationResult(req);
     const user_id = req.session.auth.userId;
+    const toolboxes = await Toolbox.findAll({
+      where: {
+        user_id: user_id,
+      },
+      include: {
+        model: Api,
+        include: [Tag, Review],
+      },
+      order: [["id"]],
+    });
 
-    try {
-      if (validatorErrors.isEmpty()) {
-        const { implementation } = req.body;
-        const toolbox = await toolBuilder(user_id, implementation);
-        res.redirect("/toolboxes");
-      } else {
-        const errors = validatorErrors.array().map((error) => error.msg);
-        res.render("create-toolbox", {
-          title: "Ace API - Create Toolbox",
-          csrfToken: req.csrfToken(),
-          errors,
-        });
-      }
-    } catch (err) {
-      next(err);
+    if (validatorErrors.isEmpty()) {
+      const { implementation } = req.body;
+      const toolbox = await toolBuilder(user_id, implementation);
+      res.redirect("/toolboxes");
+    } else {
+      const errors = validatorErrors.array().map((error) => error.msg);
+      res.render("create-toolbox", {
+        title: "Ace API - Create Toolbox",
+        csrfToken: req.csrfToken(),
+        errors,
+        toolboxes
+      });
     }
   })
 );
