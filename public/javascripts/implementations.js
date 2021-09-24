@@ -26,7 +26,12 @@ document.addEventListener("DOMContentLoaded", (event)=>{
                     throw res;
                 } else {
                     const card = document.getElementById(`api_${api_id}toolbox`);
+                    const container = card.parentElement;
+
+                    const newElement = document.createElement("p");
+                    newElement.innerText = "Removed API";
                     card.remove();
+                    container.appendChild(newElement)
                 }
 
             } catch (err) {
