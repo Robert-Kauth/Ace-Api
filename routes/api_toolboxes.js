@@ -65,11 +65,8 @@ router.delete(
     "/",
     requireAuth,
     asyncHandler(async (req, res, next) => {
-
-        console.log("**INSIDE delete /api/toolboxes**")
         const { toolbox_id } = req.body
         const user_id = req.session.auth.userId
-        console.log(toolbox_id, user_id)
         try {
             const find_toolbox = await Toolbox.findByPk(toolbox_id);
             find_toolbox.destroy();

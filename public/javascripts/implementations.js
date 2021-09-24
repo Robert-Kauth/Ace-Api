@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", (event)=>{
             const toolbox_id = impStatus[3];
 
             const body = { api_id, toolbox_id };
-            console.log(body)
+
 
             try {
                 const res = await fetch(`/implementations`, {
