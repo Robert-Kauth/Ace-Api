@@ -63,7 +63,7 @@ router.get(
   requireAuth,
   csrfProtection,
   asyncHandler(async (req, res, next) => {
-    console.log("INSIDE toolboxes/:toolboxId ROUTER");
+    // console.log("INSIDE toolboxes/:toolboxId ROUTER");
 
     if (req.session.auth) {
       const { userId } = req.session.auth;

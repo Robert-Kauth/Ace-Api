@@ -54,12 +54,6 @@ h1 {
     padding: 0px;
     margin: 1px;
 }
-
-.alert p, .alert ul li {
-    color: rgb(221, 0, 0);
-}
-
-.alert {
-    width: fit-content;
-    margin: auto;
+.number{
+    padding: 5.8px;
 }
