@@ -34,8 +34,6 @@ router.get(
   csrfProtection,
   asyncHandler(async (req, res, next) => {
 
-    console.log("INSIDE toolboxes/ ROUTER");
-
     if (req.session.auth) {
       const user_id = req.session.auth.userId;
       const toolboxes = await Toolbox.findAll({
@@ -55,7 +53,6 @@ router.get(
       })
       const default_toolboxes = []
       user_default_toolboxes.map((toolbox) => default_toolboxes.push(toolbox.id))
-      console.log(default_toolboxes)
       res.render("my_toolboxes", {
         title: "Ace API - My Toolboxes",
         csrfToken: req.csrfToken(),
@@ -73,7 +70,6 @@ router.get(
   requireAuth,
   csrfProtection,
   asyncHandler(async (req, res, next) => {
-    // console.log("INSIDE toolboxes/:toolboxId ROUTER");
 
     if (req.session.auth) {
       const { userId } = req.session.auth;
@@ -94,7 +90,6 @@ router.get(
       const toolboxes = await Toolbox.findAll({ where: { user_id: userId } });
 
       if (toolbox.user_id === req.session.auth.userId) {
-        console.log("TOOLBOX ID:", toolbox.id);
         res.render("toolbox", {
           csrfToken: req.csrfToken(),
           toolbox,
@@ -135,7 +130,6 @@ router.post(
   csrfProtection,
   toolboxValidators,
   asyncHandler(async (req, res, next) => {
-    console.log("INSIDE post /toolboxes/create-toolbox");
 
     const validatorErrors = validationResult(req);
     const user_id = req.session.auth.userId;

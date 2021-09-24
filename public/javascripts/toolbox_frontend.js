@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", (e) => {
 
       const toolbox_id = e.target.value;
 
-      try {
+
         await fetch("/api_toolboxes", {
           method: "DELETE",
           headers: { "Content-Type": "application/json" },
@@ -22,9 +22,6 @@ document.addEventListener("DOMContentLoaded", (e) => {
 
         toolbox.remove();
         toolbox_menu.remove();
-      } catch (e) {
-        console.log(e);
-      }
     }
   });
 
