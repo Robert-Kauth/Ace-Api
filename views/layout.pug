@@ -28,9 +28,10 @@ html
 								a.nav_link(href='/toolboxes') My Toolboxes
 						#wrap
 							#search_nav
-								form#search_bar(action='/search', method='get', autocomplete='off')
-									input#search_box(type='text', name='box', placeholder='Search')
-									button#search_button(type='submit') 🔍
+								#search_overlay
+									form#search_bar(action='/search', method='get', autocomplete='off')
+										input#search_box(type='text', name='box', placeholder='Search')
+										button#search_button(type='submit') 🔍
 						#right_nav
 							if locals.authenticated
 								span#welcome Happy Coding, #{ user.first_name }!

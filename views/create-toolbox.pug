@@ -1,9 +1,24 @@
-extends layout.pug
+extends layout
 
-block content
+include utils
+
+block head
+    title= title
+    link(rel='stylesheet', href='/stylesheets/home.css')
+    link(rel='stylesheet', href='/stylesheets/toolbox_card.css')
+    link(rel='stylesheet', href='/stylesheets/index.css')
+    link(rel='stylesheet', href='/stylesheets/toolboxes.css')
     link(rel='stylesheet' href='/stylesheets/create-toolbox.css')
 
-    h1(id="create-toolbox") Create a New Toolbox
+block content
+    div
+        h1#my_toolboxes Create Toolbox
+        #myToolboxes_container
+            main.page_style
+                .tbc_ctrl_group
+                    p.tbc_head: a#tbc_head_title(href='/toolboxes') My Toolboxes
+                    +toolbox_card
+    h2(id="create-toolbox") Create a New Toolbox
 
     if errors
         ul
@@ -15,3 +30,5 @@ block content
             label(for="implementation")
             input(type="text", name="implementation", id="implementation", placeholder="Toolbox Name")
             button(type="submit" id="submit") Create Toolbox
+    script(src="/javascripts/implementations.js" type="module" defer)
+    script(src="/javascripts/toolbox_frontend.js" type="module" defer)
