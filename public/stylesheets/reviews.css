@@ -30,14 +30,21 @@
     padding: 5px 5px 5px;
 }
 #submit{
-    align-items: flex-end;
-    padding: 10px 10px;
-    margin: 10px 10px;
-    color: white;
-    background-color: black;
-    border-radius: 5px;
-    font-size: large;
+    background-color: rgb(226, 226, 226);
+	width: fit-content;
+	font-size: 20px;
+	padding: 9px;
+	margin-top: 15px;
+	border: 1px solid rgba(107, 107, 107, 0.3);
+	border-radius: 5px;
 }
+
+#submit:hover {
+    background-color: rgb(156, 156, 156);
+	color: rgb(58, 58, 58);
+	cursor: pointer;
+}
+
 h1 {
     margin: 10px auto;
     width: fit-content
