@@ -9,7 +9,6 @@ document.addEventListener("DOMContentLoaded", (e) => {
   //append new shelf to .new_shelf as child
   // make template for card of shelf
   //pass in variables to create card
-
   toolboxes_container.addEventListener("click", async (e) => {
     e.preventDefault();
 
@@ -20,15 +19,28 @@ document.addEventListener("DOMContentLoaded", (e) => {
 
       console.log(toolbox_id);
 
-      await fetch("/api_toolboxes", {
-        method: "DELETE",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ toolbox_id: toolbox_id }),
-      })
-        .then((response) => response.json())
-        .then((data) => console.log(data));
+      try {
+        await fetch("/api_toolboxes", {
+          method: "DELETE",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ toolbox_id: toolbox_id }),
+        });
+
+        const toolbox = document.getElementById(`toolbox_header_${toolbox_id}`);
+        const toolbox_menu = document.getElementById(
+          `toolbox_delete_${toolbox_id}`
+        );
+
+        console.log(toolbox_menu);
+
+        toolbox.remove();
+        toolbox_menu.remove();
+      } catch (e) {
+        console.log(e);
+      }
     }
   });
 
- 
+
+
 });

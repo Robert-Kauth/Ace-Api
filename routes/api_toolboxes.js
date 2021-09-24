@@ -46,12 +46,13 @@ router.patch(
         const { toolbox_id, new_name } = req.body
 
         try {
-            const toolbox = await Toolbox.update({
+            const toolbox = await Toolbox.update(
+            {
             name: new_name,
-        }, {
-            where: {
-                id: toolbox_id,
-            }
+            },            {
+                where: {
+                    id: toolbox_id,
+                }
         });
         res.json(toolbox);
     } catch (e) {
@@ -64,14 +65,15 @@ router.delete(
     "/",
     requireAuth,
     asyncHandler(async (req, res, next) => {
+
         console.log("**INSIDE delete /api/toolboxes**")
         const { toolbox_id } = req.body
         const user_id = req.session.auth.userId
         console.log(toolbox_id, user_id)
         try {
-
-            const toolbox = await Toolbox.destroy(toolbox_id);
-            res.json(toolbox);
+            const find_toolbox = await Toolbox.findByPk(toolbox_id);
+            find_toolbox.destroy();
+            res.status(204).end();
         } catch (e) {
             next(e)
         }

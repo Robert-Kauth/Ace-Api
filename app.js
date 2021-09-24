@@ -50,7 +50,7 @@ app.use(restoreUser);
 // Routers
 app.use('/', indexRouter);
 app.use('/apis', apiRouter);
-app.use('/apis_toolboxes', apiToolboxRouter);
+app.use('/api_toolboxes', apiToolboxRouter);
 app.use('/reviews', reviewRouter);
 app.use('/implementations', implementationRouter);
 app.use('/toolboxes', toolboxesRouter);
@@ -58,8 +58,8 @@ app.use('/search', searchRouter)
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
-	next(createError(404));
-	// next()
+	// next(createError(404));
+	next()
 });
 
 // error handler
