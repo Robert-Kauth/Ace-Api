@@ -35,4 +35,22 @@ router.post("/", asyncHandler(async (req, res, next) => {
   })
 );
 
+router.delete('/', asyncHandler(async (req,res,next) => {
+  const { api_id, toolbox_id } = req.body;
+
+  const impStatus = await db.Implementation.findOne({
+        where: {
+          api_id,
+          toolbox_id
+        }
+  })
+
+  if (impStatus) {
+      const imp = await impStatus.destroy();
+      res.status(204).end();
+    } else {
+      next();
+    }
+}))
+
 module.exports = router;
