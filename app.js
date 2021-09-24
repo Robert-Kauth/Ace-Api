@@ -11,6 +11,7 @@ const SequelizeStore = require('connect-session-sequelize')(session.Store);
 // Local imports
 const indexRouter = require('./routes/index');
 const apiRouter = require('./routes/api');
+const apiToolboxRouter = require('./routes/api_toolboxes');
 const reviewRouter = require('./routes/review')
 const implementationRouter = require('./routes/implementations');
 const toolboxesRouter = require('./routes/toolboxes');
@@ -49,6 +50,7 @@ app.use(restoreUser);
 // Routers
 app.use('/', indexRouter);
 app.use('/apis', apiRouter);
+app.use('/api_toolboxes', apiToolboxRouter);
 app.use('/reviews', reviewRouter);
 app.use('/implementations', implementationRouter);
 app.use('/toolboxes', toolboxesRouter);
@@ -56,8 +58,8 @@ app.use('/search', searchRouter)
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
-	next(createError(404));
-	// next()
+	// next(createError(404));
+	next()
 });
 
 // error handler

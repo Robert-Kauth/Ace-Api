@@ -33,6 +33,7 @@ router.get(
   requireAuth,
   csrfProtection,
   asyncHandler(async (req, res, next) => {
+
     console.log("INSIDE toolboxes/ ROUTER");
 
     if (req.session.auth) {
@@ -47,10 +48,19 @@ router.get(
         },
         order: [["id"]],
       });
+      const user_default_toolboxes = await Toolbox.findAll({
+        where: { user_id: user_id},
+        order: ["id"],
+        limit: 3
+      })
+      const default_toolboxes = []
+      user_default_toolboxes.map((toolbox) => default_toolboxes.push(toolbox.id))
+      console.log(default_toolboxes)
       res.render("my_toolboxes", {
         title: "Ace API - My Toolboxes",
         csrfToken: req.csrfToken(),
         toolboxes,
+        default_toolboxes
       });
     } else {
       res.redirect("/login", { csrfToken: req.csrfToken() });
@@ -148,5 +158,6 @@ router.post(
     }
   })
 );
+
 
 module.exports = router;
