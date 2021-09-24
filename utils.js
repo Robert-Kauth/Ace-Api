@@ -2,6 +2,14 @@ const csrf = require('csurf');
 const db = require('./db/models');
 const Sequelize = require("sequelize");
 const {Op} = require("sequelize")
+const {
+  User,
+  Toolbox,
+  Implementation,
+  Api,
+  Tag,
+  Review,
+} = require("./db/models");
 
 const csrfProtection = csrf({ cookie: true });
 
@@ -51,12 +59,15 @@ const reviewAvgRating = async (api_id) => {
 }
 
 async function searchApis(box) {
-  const results = await db.Api.findAll({
+  const results = await Api.findAll({
     where: {
       name : {
         [Op.iLike]:`%${box}%`
       }
-    }
+    },
+    include: {
+      model: Tag,
+    },
   })
   return results;
 }
