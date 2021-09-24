@@ -20,7 +20,10 @@ block content
 					+toolbox_card
 				.main_api_container
 					.api_cards
-						each api in toolbox.Apis
-							.card_container(id=`api_${api.id}toolbox`)
-								+api_card_concat(api, toolbox)
+						if toolbox.Apis.length > 0
+							each api in toolbox.Apis
+								.card_container(id=`api_${api.id}toolbox`)
+									+api_card_concat(api, toolbox)
+						else
+							p No APIs in Toolbox
 	script(src='/javascripts/implementations.js', type='module', defer)

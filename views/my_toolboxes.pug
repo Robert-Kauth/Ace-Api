@@ -26,8 +26,11 @@ block content
 									div.crud_buttons(name=toolbox.name)
 										button(type="button" class="toolbox_delete_button" id=`delete_toolbox_submit_${toolbox.id}` value=toolbox.id name=toolbox.name) Delete Toolbox
 							.api_cards
-								each api in toolbox.Apis
-									div(class="card_container" id=`api_${api.id}toolbox`)
-										+api_card_concat(api, toolbox)
+								if toolbox.Apis.length > 0
+									each api in toolbox.Apis
+										div(class="card_container" id=`api_${api.id}toolbox`)
+											+api_card_concat(api, toolbox)
+								else
+									p No APIs in Toolbox
 	script(src="/javascripts/implementations.js" type="module" defer)
 	script(src="/javascripts/toolbox_frontend.js" type="module" defer)
