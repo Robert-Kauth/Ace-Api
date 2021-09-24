@@ -19,42 +19,50 @@ mixin field(labelText, fieldName, fieldValue, fieldType = 'text', required)
 
 mixin toolbox_card
 	each toolbox in toolboxes
-		.tbc_ctrl: a(href=`/toolboxes/${toolbox.id}`) #{toolbox.name}
-	.tbc_ctrl: a#tbc_link(href="/toolboxes/create-toolbox") Create a Toolbox
+		.tbc_ctrl: a#tbc_link(href=`/toolboxes/${toolbox.id}`) #{ toolbox.name }
+	.tbc_ctrl: a#tbc_link(href='/toolboxes/create-toolbox') Create a Toolbox
 
-	span(id='create_button') Create a Toolbox AJAX Test
-		form(action="/toolboxes/create-toolbox" method="post" style="display:none" id="create-toolbox-test-form")
+	span#create_button Create a Toolbox AJAX Test
+		form#create-toolbox-test-form(
+			action='/toolboxes/create-toolbox',
+			method='post',
+			style='display: none'
+		)
 			input(type='hidden', name='_csrf', value=csrfToken)
-			label(for="new_toolbox") New Toolbox Name:
-			input(type="text" name="new_toolbox")
-			button(type="submit" id="create-toolbox-submit") Add New Toolbox
+			label(for='new_toolbox') New Toolbox Name:
+			input(type='text', name='new_toolbox')
+			button#create-toolbox-submit(type='submit') Add New Toolbox
 			button cancel
 
 mixin api_card(api, toolboxes)
 	div
-		div.api_card_top
+		.api_card_top
 			span.card_logo_container
 				a(href=`/apis/${api.id}`)
 					img.card_logo_img(src=`${api.logo_url}`, alt=`${api.name}`)
 			span.api_card_content
 				a(href=`/apis/${api.id}`)
 					h2= api.name
-				span Implement this API
-				select
-					each toolbox in toolboxes
-						option(value=toolbox.id)= toolbox.name
+				.api_card_text Category: #{ api.Tag.name }
+					if api.free
+						.api_card_text Free to Use
+					else
+						.api_card_text Paid
+					div: a#ext_website(href=`${api.website}`, target='_blank') Website
 		section.api_description
-			p= api.description
+			p.api_card_text= api.description
 
 mixin api_card_concat(api, toolboxes)
 	div
-		#logoImp_container
-			img#logo(src=`${api.logo_url}`, alt=`${api.name}`)
-		a(href=`/apis/${api.id}`)
-			h2#api_name= api.name
-		div Category: #{ api.Tag.name }
-		if api.free
-			div Free to Use
-		else
-			div Paid
-		div: a#ext_website(href=`${api.website}`, target='_blank') Website
+		.api_card_top
+			span.card_logo_container
+				a(href=`/apis/${api.id}`)
+					img.card_logo_img(src=`${api.logo_url}`, alt=`${api.name}`)
+			span.api_card_content
+				h2= api.name
+				.api_card_text Category: #{ api.Tag.name }
+					if api.free
+						.api_card_text Free to Use
+					else
+						.api_card_text Paid
+					div: a#ext_website(href=`${api.website}`, target='_blank') Website
