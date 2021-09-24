@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", (event)=>{
             const toolbox_id = impStatus[3];
 
             const body = { api_id, toolbox_id };
-            console.log(body)
+
 
             try {
                 const res = await fetch(`/implementations`, {
@@ -26,7 +26,12 @@ document.addEventListener("DOMContentLoaded", (event)=>{
                     throw res;
                 } else {
                     const card = document.getElementById(`api_${api_id}toolbox`);
+                    const container = card.parentElement;
+
+                    const newElement = document.createElement("p");
+                    newElement.innerText = "Removed API";
                     card.remove();
+                    container.appendChild(newElement)
                 }
 
             } catch (err) {
