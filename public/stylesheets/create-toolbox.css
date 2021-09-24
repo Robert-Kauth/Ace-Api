@@ -29,6 +29,7 @@
     width: 500px;
     margin: 15px;
     border-radius: 10px;
+    box-shadow: 0 0 10px gray;
 }
 
 #submit {
@@ -65,6 +66,7 @@
     align-items: center;
     padding-left: 6px;
     padding-right: 6px;
+    background-color: ;
 }
 
 .alert p, .alert ul li {
