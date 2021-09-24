@@ -61,7 +61,7 @@ const reviewAvgRating = async (api_id) => {
 async function searchApis(box) {
   const results = await Api.findAll({
     where: {
-      name : {
+      description: {
         [Op.iLike]:`%${box}%`
       }
     },

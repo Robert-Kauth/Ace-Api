@@ -47,7 +47,8 @@ mixin api_card_concat(api, toolboxes)
 				a(href=`/apis/${api.id}`)
 					img.card_logo_img(src=`${api.logo_url}`, alt=`${api.name}`)
 			span.api_card_content
-				h2= api.name
+				a(href=`/apis/${api.id}`)
+					h2= api.name
 				.api_card_text Category: #{ api.Tag.name }
 					if api.free
 						.api_card_text Free to Use
