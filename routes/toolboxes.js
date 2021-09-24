@@ -122,10 +122,31 @@ router.get(
   requireAuth,
   csrfProtection,
   asyncHandler(async (req, res, next) => {
-    res.render("create-toolbox", {
-      title: "Ace API - Create Toolbox",
-      csrfToken: req.csrfToken(),
-    });
+
+    if (req.session.auth) {
+      const user_id = req.session.auth.userId;
+      const toolboxes = await Toolbox.findAll({
+        where: {
+          user_id: user_id,
+        },
+        include: {
+          model: Api,
+          include: [Tag, Review],
+        },
+        order: [["id"]],
+      });
+
+      res.render("create-toolbox", {
+        title: "Ace API - Create Toolbox",
+        csrfToken: req.csrfToken(),
+        toolboxes,
+      });
+
+    } else {
+      res.redirect('/login', {
+        csrfToken: req.csrfToken(),
+      })
+    }
   })
 );
 
