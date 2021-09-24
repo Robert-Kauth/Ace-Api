@@ -11,7 +11,7 @@ block head
 
 block content
     div
-        h1(id='my_toolboxes' data-toolboxId=toolbox.id)= toolbox.name
+        h1(id='my_toolboxes')= toolbox.name
         div(id='myToolboxes_container')
             main.page_style
                 .tbc_ctrl_group
@@ -21,6 +21,6 @@ block content
                 div.main_api_container
                     div.api_cards
                         each api in toolbox.Apis
-                            div.card_container
-                                +api_card_concat(api, toolboxes)
+                            div(class="card_container" id=`api_${api.id}toolbox`)
+                                +api_card_concat(api, toolbox)
     script(src="/javascripts/implementations.js" type="module" defer)

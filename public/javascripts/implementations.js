@@ -1,30 +1,36 @@
 document.addEventListener("DOMContentLoaded", (event)=>{
-    console.log("hello")
+    
     const deleteButtons = document.getElementById("myToolboxes_container")
 
     deleteButtons.addEventListener("click", async (e) => {
         if (e.target.classList.contains("delete_imp_status")) {
-            console.log("clicked")
-            // let impStatus = e.target.id;
-            // const reviewNumber = reviewId.split("_")[0];
 
-            // console.log(reviewNumber)
+            let impStatus = e.target.id;
+            impStatus = impStatus.split("_")
+            const api_id = impStatus[1];
+            const toolbox_id = impStatus[3];
 
-            // try {
-            //     const res = await fetch(`/implementations`, {
-            //         method: "DELETE"
-            //     })
+            const body = { api_id, toolbox_id };
 
-            //     if (!res.ok) {
-            //         throw res;
-            //     } else {
-            //         const review = document.getElementById(`review_${reviewNumber}`);
-            //         review.remove();
-            //     }
+            try {
+                const res = await fetch(`/implementations`, {
+                    method: "DELETE",
+                    body: JSON.stringify(body),
+                    headers: {
+                    "Content-Type": "application/json"
+                    }
+                })
 
-            // } catch (err) {
-            //     alert("Error Occured. Refresh the page and try again")
-            // }
+                if (!res.ok) {
+                    throw res;
+                } else {
+                    const card = document.getElementById(`api_${api_id}toolbox`);
+                    card.remove();
+                }
+
+            } catch (err) {
+                alert("Error Occured. Refresh the page and try again")
+            }
         }
     });
 
