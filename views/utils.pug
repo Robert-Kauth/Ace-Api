@@ -54,7 +54,7 @@ mixin api_card(api, toolboxes)
 
 mixin api_card_concat(api, toolboxes)
 	div
-		.api_card_top
+		div(class="api_card_top" id=`api_${api.id}toolbox`)
 			span.card_logo_container
 				a(href=`/apis/${api.id}`)
 					img.card_logo_img(src=`${api.logo_url}`, alt=`${api.name}`)
@@ -66,3 +66,4 @@ mixin api_card_concat(api, toolboxes)
 					else
 						.api_card_text Paid
 					div: a#ext_website(href=`${api.website}`, target='_blank') Website
+					div.delete_imp_status Delete
