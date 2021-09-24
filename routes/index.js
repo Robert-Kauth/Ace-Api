@@ -103,7 +103,7 @@ router.get(
       });
       res.render("home", {
         csrfToken: req.csrfToken(),
-        title: "ACE API",
+        title: "Ace API",
         userId,
         toolboxes,
         apis,
@@ -111,7 +111,7 @@ router.get(
     } else {
       res.render("home", {
         csrfToken: req.csrfToken(),
-        title: "ACE API",
+        title: "Ace API",
         toolboxes,
         apis,
       });

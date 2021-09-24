@@ -89,6 +89,7 @@ router.get(
           csrfToken: req.csrfToken(),
           toolbox,
           toolboxes,
+          title: `Ace API - ${toolbox.name}`
         });
       } else {
         const deny_access = true;
