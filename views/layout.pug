@@ -1,65 +1,68 @@
 doctype html
 html
-  head
-      block head
-        title= title
-        link(rel='stylesheet' href='/stylesheets/index.css')
-        link(rel='stylesheet' href='/stylesheets/search.css')
-  div(id="body_container")
-    div(id="body_content")
-      body
-        nav
-          div(id="nav_container")
-            div(id="left_nav")
-              a(href="/" )
-                div(id="logo_div")
-                  img(id="ace_logo" src="https://res.cloudinary.com/dt8q1ngxj/image/upload/v1632286717/Ace%20Api/ace_eobkk1.png")
-                  span(id="ace_api") Ace API
-              a(class="nav_link" href="/") Home
-              if locals.authenticated
-                a(class="nav_link" href="/toolboxes") My Toolboxes
-            div(id="wrap")
-              div(id="search_nav")
-                form(action="/search" method="get" id="search_bar" autocomplete="off")
-                  input(type="text" name="box" id="search_box" placeholder="Search")
-                  button(type="submit" id="search_button") 🔍
-            div(id="right_nav")
-              if locals.authenticated
-                span(id="welcome") Happy Coding, #{user.first_name}!
-                form(class='form-inline pr-4' action='/logout' method='post')
-                  button(id='logout_button' type='submit') Logout
-              else
-                  a(class="nav_link" href='/login') Login
-                  a(class="nav_link" href='/signup') Sign Up
-        block content
-    div(id="footer")
-      div(class="dev_container")
-        div(class="dev_info")
-          p Robert Kauth
-          div(class="logo_container")
-            a(href="https://www.linkedin.com/in/robert-kauth-043370133/" target="_blank")
-              img(src="https://res.cloudinary.com/dt8q1ngxj/image/upload/v1632282583/Ace%20Api/linkedin_htgro5.png" alt="LinkedIn logo")
-            a(href="https://github.com/Robert-Kauth" target="_blank")
-              img(src="https://res.cloudinary.com/dt8q1ngxj/image/upload/v1632282570/Ace%20Api/github_vecaio.png" alt="GitHub logo")
-        div(class="dev_info")
-          p Max Koerner
-          div(class="logo_container")
-            a(href="https://www.linkedin.com/in/max-koerner-49119664/" target="_blank")
-              img(src="https://res.cloudinary.com/dt8q1ngxj/image/upload/v1632282583/Ace%20Api/linkedin_htgro5.png" alt="LinkedIn logo")
-            a(href="https://github.com/mkoerner570" target="_blank")
-              img(src="https://res.cloudinary.com/dt8q1ngxj/image/upload/v1632282570/Ace%20Api/github_vecaio.png" alt="GitHub logo")
-        div(class="dev_info")
-          p Jack Percival
-          div(class="logo_container")
-            a(href="https://www.linkedin.com/in/jack-percival-900973a8/" target="_blank")
-              img(src="https://res.cloudinary.com/dt8q1ngxj/image/upload/v1632282583/Ace%20Api/linkedin_htgro5.png" alt="LinkedIn logo")
-            a(href="https://github.com/JackPercival" target="_blank")
-              img(src="https://res.cloudinary.com/dt8q1ngxj/image/upload/v1632282570/Ace%20Api/github_vecaio.png" alt="GitHub logo")
-        div(class="dev_info")
-          p Dan Purcell
-          div(class="logo_container")
-            a(href="https://www.linkedin.com/in/jack-percival-900973a8/" target="_blank")
-              img(src="https://res.cloudinary.com/dt8q1ngxj/image/upload/v1632282583/Ace%20Api/linkedin_htgro5.png" alt="LinkedIn logo")
-            a(href="https://github.com/flow-state-15" target="_blank")
-              img(src="https://res.cloudinary.com/dt8q1ngxj/image/upload/v1632282570/Ace%20Api/github_vecaio.png" alt="GitHub logo")
+	head
+		block head
+			title= title
+			link(rel='stylesheet' href='/stylesheets/index.css')
+			link(rel='stylesheet' href='/stylesheets/search.css')
+			link(rel="preconnect" href="https://fonts.googleapis.com")
+			link(rel="preconnect" href="https://fonts.gstatic.com" crossorigin)
+			link(href="https://fonts.googleapis.com/css2?family=Spectral+SC&display=swap" rel="stylesheet")
+	div(id="body_container")
+		div(id="body_content")
+			body
+				nav
+					div(id="nav_container")
+						div(id="left_nav")
+							a(href="/" )
+								div(id="logo_div")
+									img(id="ace_logo" src="https://res.cloudinary.com/dt8q1ngxj/image/upload/v1632286717/Ace%20Api/ace_eobkk1.png")
+									span(id="ace_api") Ace API
+							a(class="nav_link" href="/") Home
+							if locals.authenticated
+								a(class="nav_link" href="/toolboxes") My Toolboxes
+						div(id="wrap")
+							div(id="search_nav")
+								form(action="/search" method="get" id="search_bar" autocomplete="off")
+									input(type="text" name="box" id="search_box" placeholder="Search")
+									button(type="submit" id="search_button") 🔍
+						div(id="right_nav")
+							if locals.authenticated
+								span(id="welcome") Happy Coding, #{user.first_name}!
+								form(class='form-inline pr-4' action='/logout' method='post')
+									button(id='logout_button' type='submit') Logout
+							else
+								a(class="nav_link" href='/login') Login
+								a(class="nav_link" href='/signup') Sign Up
+				block content
+		div(id="footer")
+			div(class="dev_container")
+				div(class="dev_info")
+					p Robert Kauth
+					div(class="logo_container")
+						a(href="https://www.linkedin.com/in/robert-kauth-043370133/" target="_blank")
+							img(src="https://res.cloudinary.com/dt8q1ngxj/image/upload/v1632282583/Ace%20Api/linkedin_htgro5.png" alt="LinkedIn logo")
+						a(href="https://github.com/Robert-Kauth" target="_blank")
+							img(src="https://res.cloudinary.com/dt8q1ngxj/image/upload/v1632282570/Ace%20Api/github_vecaio.png" alt="GitHub logo")
+				div(class="dev_info")
+					p Max Koerner
+					div(class="logo_container")
+						a(href="https://www.linkedin.com/in/max-koerner-49119664/" target="_blank")
+							img(src="https://res.cloudinary.com/dt8q1ngxj/image/upload/v1632282583/Ace%20Api/linkedin_htgro5.png" alt="LinkedIn logo")
+						a(href="https://github.com/mkoerner570" target="_blank")
+							img(src="https://res.cloudinary.com/dt8q1ngxj/image/upload/v1632282570/Ace%20Api/github_vecaio.png" alt="GitHub logo")
+				div(class="dev_info")
+					p Jack Percival
+					div(class="logo_container")
+						a(href="https://www.linkedin.com/in/jack-percival-900973a8/" target="_blank")
+							img(src="https://res.cloudinary.com/dt8q1ngxj/image/upload/v1632282583/Ace%20Api/linkedin_htgro5.png" alt="LinkedIn logo")
+						a(href="https://github.com/JackPercival" target="_blank")
+							img(src="https://res.cloudinary.com/dt8q1ngxj/image/upload/v1632282570/Ace%20Api/github_vecaio.png" alt="GitHub logo")
+				div(class="dev_info")
+					p Dan Purcell
+					div(class="logo_container")
+						a(href="https://www.linkedin.com/in/jack-percival-900973a8/" target="_blank")
+							img(src="https://res.cloudinary.com/dt8q1ngxj/image/upload/v1632282583/Ace%20Api/linkedin_htgro5.png" alt="LinkedIn logo")
+						a(href="https://github.com/flow-state-15" target="_blank")
+							img(src="https://res.cloudinary.com/dt8q1ngxj/image/upload/v1632282570/Ace%20Api/github_vecaio.png" alt="GitHub logo")
 script(src="/javascripts/create-toolbox.js" type="module" defer)
