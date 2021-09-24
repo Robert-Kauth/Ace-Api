@@ -66,4 +66,5 @@ mixin api_card_concat(api, toolboxes)
 					else
 						.api_card_text Paid
 					div: a#ext_website(href=`${api.website}`, target='_blank') Website
-					div(class="delete_imp_status" id=`api_${api.id}_toolbox_${toolboxes.id}`)= `Remove from ${toolboxes.name}`
+					div(class="delete_imp_status" id=`api_${api.id}_toolbox_${toolboxes.id}`) Remove from
+						span(class="removeToolboxButton")=toolboxes.name
