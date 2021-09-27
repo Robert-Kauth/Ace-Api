@@ -9,7 +9,12 @@
 
 * Discussion of technologies used: The backbone of Ace Api is [Javascript](https://developer.mozilla.org/en-US/docs/Web/javascript), a lightweight, interpreted, object-oriented programming language. Express, a fast, unopinionated, minimalist web framework for Node.js, integrated with Pug, an HTML template engine, is used along side of Javascript to produce a dynamic and responsive web application. All web application styling is created with barebones CSS.
 * Discussion of two features that show off the team's technical abilities:
+*   We are especially proud of our content search feature, crud features and error handling.
 
 * Discussion of both challenges faced and the way the team solved them:
+*   One of the challenges of this site was the ajax features for reviews and toolboxes, as well as the crud relationships between toolboxes and their api's. 
 
 * Code snippets to highlight the best code
+  --mixins pug
+  --ajax frontend
+  --index error handling.. etc
