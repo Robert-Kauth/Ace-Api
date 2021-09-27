@@ -12,6 +12,7 @@ const {
 } = require('../db/models');
 const { restoreUser, requireAuth, authorize } = require('../auth');
 
+// Not currently implemented on website.
 router.post(
 	'/',
 	requireAuth,
@@ -36,6 +37,7 @@ router.post(
 	})
 );
 
+// Not currently implemented on website.
 router.patch(
 	'/',
 	requireAuth,
