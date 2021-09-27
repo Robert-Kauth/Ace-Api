@@ -3,28 +3,32 @@ extends layout
 include utils
 
 block head
-    title= title
-    link(rel='stylesheet', href='/stylesheets/home.css')
-    link(rel='stylesheet', href='/stylesheets/toolbox_card.css')
-    link(rel='stylesheet', href='/stylesheets/index.css')
-    link(rel='stylesheet', href='/stylesheets/toolboxes.css')
-    link(rel='stylesheet' href='/stylesheets/create-toolbox.css')
+	title= title
+	link(rel='stylesheet', href='/stylesheets/home.css')
+	link(rel='stylesheet', href='/stylesheets/toolbox_card.css')
+	link(rel='stylesheet', href='/stylesheets/index.css')
+	link(rel='stylesheet', href='/stylesheets/toolboxes.css')
+	link(rel='stylesheet', href='/stylesheets/create-toolbox.css')
 
 block content
-    h1#create_title Create Toolbox
-        #outer_box
-            #main_container
-                #myToolboxes_container
-                    .tbc_ctrl_group
-                        p.tbc_head: a#tbc_head_title(href='/toolboxes') My Toolboxes
-                        +toolbox_card
+	h1#create_title Create Toolbox
+		#outer_box
+			#main_container
+				#myToolboxes_container
+					.tbc_ctrl_group
+						p.tbc_head: a#tbc_head_title(href='/toolboxes') My Toolboxes
+						+toolbox_card
 
-                #create_container
-                    h6(id="create-toolbox") Create a Custom Toolbox for your APIs
-                    +validationErrorSummary(errors)
-                    #create_form_container
-                        form(action="/toolboxes/create-toolbox" method="post" id= "toolbox-name")
-                            input(type='hidden', name='_csrf', value=csrfToken)
-                            label(for="implementation")
-                            input(type="text", name="implementation", id="implementation", placeholder="Toolbox Name")
-                            button(type="submit" id="submit") Create Toolbox
+				#create_container
+					h6#create-toolbox Create a Custom Toolbox for your APIs
+					+validationErrorSummary(errors)
+					#create_form_container
+						form#toolbox-name(action='/toolboxes/create-toolbox', method='post')
+							input(type='hidden', name='_csrf', value=csrfToken)
+							label(for='implementation')
+							input#implementation(
+								type='text',
+								name='implementation',
+								placeholder='Toolbox Name'
+							)
+							button#submit(type='submit') Create Toolbox

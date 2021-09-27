@@ -19,8 +19,12 @@ mixin field(labelText, fieldName, fieldValue, fieldType = 'text', required)
 
 mixin toolbox_card
 	each toolbox in toolboxes
-		.tbc_ctrl(id=`toolbox_delete_${toolbox.id}`): a.tbc_link(href=`/toolboxes/${toolbox.id}`) #{ toolbox.name }
-	.tbc_ctrl(id="create_button"): a.tbc_link#create_link(href='/toolboxes/create-toolbox') Create a Toolbox
+		.tbc_ctrl(id=`toolbox_delete_${toolbox.id}`): a.tbc_link(
+			href=`/toolboxes/${toolbox.id}`
+		) #{ toolbox.name }
+	#create_button.tbc_ctrl: a#create_link.tbc_link(
+		href='/toolboxes/create-toolbox'
+	) Create a Toolbox
 
 mixin api_card(api, toolboxes)
 	div
@@ -42,7 +46,7 @@ mixin api_card(api, toolboxes)
 
 mixin api_card_concat(api, toolboxes)
 	div
-		div(class="api_card_top")
+		.api_card_top
 			span.card_logo_container
 				a(href=`/apis/${api.id}`)
 					img.card_logo_img(src=`${api.logo_url}`, alt=`${api.name}`)
@@ -55,4 +59,4 @@ mixin api_card_concat(api, toolboxes)
 					else
 						.api_card_text Paid
 					div: a#ext_website(href=`${api.website}`, target='_blank') Website
-					div(class="delete_imp_status" id=`api_${api.id}_toolbox_${toolboxes.id}`)= `Remove from ${toolboxes.name}`
+					.delete_imp_status(id=`api_${api.id}_toolbox_${toolboxes.id}`)= `Remove from ${toolboxes.name}`
