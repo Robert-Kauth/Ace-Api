@@ -1,60 +1,67 @@
 extends layout.pug
 
 block content
-    link(rel='stylesheet' href='/stylesheets/api.css')
-    script()
-    div(id="api_container")
-        div(id="logoImp_container")
-            img(id="logo" src=`${api.logo_url}` alt=`${api.name}`)
-            if locals.authenticated
-                form(action="/implementations/update" method="post" id="update_implementation")
-                    input(type='hidden', name='_csrf', value=csrfToken)
-                    input(type='hidden', name="old_toolbox" value=toolboxInfo.toolboxId)
-                    input(name="api_id" value=`${api.id}` type="hidden")
-                    if toolboxInfo.inToolbox
-                        label(for="toolbox_selection") Current Toolbox:
-                        div(id="toolbox_div")=toolboxInfo.toolboxName
-                    else
-                        label(for="toolbox_selection") Current Toolbox:
-                        div(id="toolbox_div") None
-                    select(name="toolbox_id" id="toolbox_selection")
-                        each box in toolboxes
-                            option(value=`${box.id}_${box.name}` id=box.name selected=(box.id === toolboxInfo.toolboxId))=box.name
-                    if toolboxInfo.inToolbox
-                        button(id="addToolbox") Update Toolbox
-                    else
-                        button(id="addToolbox") Add to Toolbox
+	link(rel='stylesheet', href='/stylesheets/api.css')
+	script
+	#api_container
+		#logoImp_container
+			img#logo(src=`${api.logo_url}`, alt=`${api.name}`)
+			if locals.authenticated
+				form#update_implementation(
+					action='/implementations/update',
+					method='post'
+				)
+					input(type='hidden', name='_csrf', value=csrfToken)
+					input(type='hidden', name='old_toolbox', value=toolboxInfo.toolboxId)
+					input(name='api_id', value=`${api.id}`, type='hidden')
+					if toolboxInfo.inToolbox
+						label(for='toolbox_selection') Current Toolbox:
+						#toolbox_div= toolboxInfo.toolboxName
+					else
+						label(for='toolbox_selection') Current Toolbox:
+						#toolbox_div None
+					select#toolbox_selection(name='toolbox_id')
+						each box in toolboxes
+							option(
+								value=`${box.id}_${box.name}`,
+								id=box.name,
+								selected=box.id === toolboxInfo.toolboxId
+							)= box.name
+					if toolboxInfo.inToolbox
+						button#addToolbox Update Toolbox
+					else
+						button#addToolbox Add to Toolbox
 
-        div(id="api_main")
-            h1(id="api_name")= api.name
-            div(id="api_info")
-                if avgRating > 0
-                    div Average Rating: #{avgRating}
-                else
-                    div Average Rating: No Rating
-                div Category: #{api.Tag.name}
-                if api.free
-                    div Free to Use
-                else
-                    div Paid
-                div: a(id="ext_website" href=`${api.website}` target="_blank") Website
-            div(id="description")= api.description
-    div(id="review_container")
-        h2 Reviews
-        if locals.authenticated
-            div(id="add_review"): a(href=`/apis/${api.id}/create_review`) Add a Review
-        each review in reviews
-            div(class="user_review" id=`review_${review.id}`)
-                div(class="top_row")
-                    p
-                        span(class="user_name") #{review.User.first_name} #{review.User.last_name}
-                        span  rated it a
-                        span(class="user_rating")= review.rating
-                    if review.User.id === user_id
-                        div(class="add_edit_buttons")
-                            div(class="edit_buttons"): a(href=`/reviews/${review.id}/update`) Edit
-                            div(class="delete_buttons" id=`${api.id}_deletereview_${review.id}`) Delete
-                p(class="review_text")= review.review
-        else
-            p(id="no_reviews") No reviews yet
-    script(src="/javascripts/api.js" type="module" defer)
+		#api_main
+			h1#api_name= api.name
+			#api_info
+				if avgRating > 0
+					div Average Rating: #{ avgRating }
+				else
+					div Average Rating: No Rating
+				div Category: #{ api.Tag.name }
+				if api.free
+					div Free to Use
+				else
+					div Paid
+				div: a#ext_website(href=`${api.website}`, target='_blank') Website
+			#description= api.description
+	#review_container
+		h2 Reviews
+		if locals.authenticated
+			#add_review: a(href=`/apis/${api.id}/create_review`) Add a Review
+		each review in reviews
+			.user_review(id=`review_${review.id}`)
+				.top_row
+					p
+						span.user_name #{ review.User.first_name } #{ review.User.last_name }
+						span rated it a
+						span.user_rating= review.rating
+					if review.User.id === user_id
+						.add_edit_buttons
+							.edit_buttons: a(href=`/reviews/${review.id}/update`) Edit
+							.delete_buttons(id=`${api.id}_deletereview_${review.id}`) Delete
+				p.review_text= review.review
+		else
+			p#no_reviews No reviews yet
+	script(src='/javascripts/api.js', type='module', defer)

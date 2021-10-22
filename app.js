@@ -12,10 +12,10 @@ const SequelizeStore = require('connect-session-sequelize')(session.Store);
 const indexRouter = require('./routes/index');
 const apiRouter = require('./routes/api');
 const apiToolboxRouter = require('./routes/api_toolboxes');
-const reviewRouter = require('./routes/review')
+const reviewRouter = require('./routes/review');
 const implementationRouter = require('./routes/implementations');
 const toolboxesRouter = require('./routes/toolboxes');
-const searchRouter = require('./routes/search')
+const searchRouter = require('./routes/search');
 const { sessionSecret } = require('./config');
 const { restoreUser } = require('./auth.js');
 
@@ -54,18 +54,15 @@ app.use('/api_toolboxes', apiToolboxRouter);
 app.use('/reviews', reviewRouter);
 app.use('/implementations', implementationRouter);
 app.use('/toolboxes', toolboxesRouter);
-app.use('/search', searchRouter)
+app.use('/search', searchRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
 	next(createError(404));
-
 });
 
 // error handler
 app.use(function (err, req, res, next) {
-
-
 	// set locals, only providing error in development
 	res.locals.message = err.message;
 	res.locals.error = req.app.get('env') === 'development' ? err : {};
@@ -73,9 +70,8 @@ app.use(function (err, req, res, next) {
 	// render the error page
 	res.status(err.status || 500);
 
-	res.render('404', {title: "Ace API - Page Not Found"});
+	res.render('404', { title: 'Ace API - Page Not Found' });
 	// res.render("error")
-
 });
 
 module.exports = app;

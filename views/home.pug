@@ -4,28 +4,34 @@ include utils
 
 block head
 	title= title
-	link(rel='stylesheet' href='/stylesheets/home.css')
-	link(rel='stylesheet' href='/stylesheets/toolbox_card.css')
-	link(rel='stylesheet' href='/stylesheets/index.css')
+	link(rel='stylesheet', href='/stylesheets/home.css')
+	link(rel='stylesheet', href='/stylesheets/toolbox_card.css')
+	link(rel='stylesheet', href='/stylesheets/index.css')
+	meta(name="description" content="Ace API")
+	meta(name="title" property="og:title" content="Ace API")
+	meta(property="og:type" content="Ace API")
+	meta(name="image" property="og:image" content="https://res.cloudinary.com/dt8q1ngxj/image/upload/v1634776261/Ace%20Api/AceAPI_ks7kfr.png")
+	meta(name="description" property="og:description" content="Ace API")
+	meta(name="author" content="Robert Kauth, Max Koerner, Jack Percival, Dan Purcell")
 
 block content
 	if deny_access
 		script.
-			alert('Bad! You tried to access a toolbox that is not yours.')
+			alert("Bad! You tried to access a toolbox that is not yours.");
 	p#welcome_text Welcome to Ace API. You can browse APIs, organize APIs into Toolboxes, and rate and review APIs.
 		if !locals.authenticated
-			a(id="login_button_welcome" class="welcome_link" href="/login") Login
+			a#login_button_welcome.welcome_link(href='/login') Login
 			span or
-			a(id="signup_button_welcome" class="welcome_link"  href="/signup") Sign Up
+			a#signup_button_welcome.welcome_link(href='/signup') Sign Up
 			span Today!
 	h1#welcome_header Browse All APIs
 	main.page_style
 		.tbc_ctrl_group
 			p.tbc_head
-				a#tbc_head_title(href="/toolboxes") My Toolboxes
+				a#tbc_head_title(href='/toolboxes') My Toolboxes
 			+toolbox_card
 
-		div.api_cards
+		.api_cards
 			each api in apis
-				div.card_container
+				.card_container
 					+api_card(api, toolboxes)
