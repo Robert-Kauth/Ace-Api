@@ -1,5 +1,5 @@
 .page_style {
-	margin: 38px auto;
+	margin: 5px auto;
 	width: 1220px;
 	display: flex;
 	flex-direction: row;
@@ -102,4 +102,8 @@
 #login_button_welcome:hover,
 #signup_button_welcome:hover {
 	text-decoration: underline;
+}
+
+#homeToolBoxContainer {
+	margin-top: 65px;
 }
