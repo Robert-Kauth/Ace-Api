@@ -1,36 +1,36 @@
 #reviews {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	align-items: center;
 }
 #rate {
-    display: flex;
-    width: 400px;
-    height: 10%;
-    justify-content: center;
-    padding: 0px 0px 15px 0px;
-    margin: 20px 20px;
-    align-items: center;
-    flex-direction: column;
+	display: flex;
+	width: 400px;
+	height: 10%;
+	justify-content: center;
+	padding: 0px 0px 15px 0px;
+	margin: 20px 20px;
+	align-items: center;
+	flex-direction: column;
 }
-#reviewArea{
-    border-color: rgba(255, 255, 255, 0);
+#reviewArea {
+	border-color: rgba(255, 255, 255, 0);
 }
 #yourRating {
-    background-color: black;
-    color: white;
-    border-radius: 5px;
-    padding: 5px 5px 5px;
+	background-color: black;
+	color: white;
+	border-radius: 5px;
+	padding: 5px 5px 5px;
 }
 #yourReview {
-    background-color: black;
-    color: white;
-    border-radius: 5px;
-    padding: 5px 5px 5px;
+	background-color: black;
+	color: white;
+	border-radius: 5px;
+	padding: 5px 5px 5px;
 }
-#submit{
-    background-color: rgb(226, 226, 226);
+#submit {
+	background-color: rgb(226, 226, 226);
 	width: fit-content;
 	font-size: 20px;
 	padding: 9px;
@@ -40,36 +40,37 @@
 }
 
 #submit:hover {
-    background-color: rgb(156, 156, 156);
+	background-color: rgb(156, 156, 156);
 	color: rgb(58, 58, 58);
 	cursor: pointer;
 }
 
 h1 {
-    margin: 10px auto;
-    width: fit-content
+	margin: 10px auto;
+	width: fit-content;
 }
-.innerRating{
-    border-color: rgba(255, 255, 255, 0);
-    padding: 0 0px 0 0px;
+.innerRating {
+	border-color: rgba(255, 255, 255, 0);
+	padding: 0 0px 0 0px;
 }
-.ratings{
-    position: sticky;
-    padding: 0 6px 0 6px;
+.ratings {
+	position: sticky;
+	padding: 0 6px 0 6px;
 }
-#textReview{
-    padding: 0px;
-    margin: 1px;
+#textReview {
+	padding: 0px;
+	margin: 1px;
 }
-.number{
-    padding: 5.8px;
+.number {
+	padding: 5.8px;
 }
 
-.alert p, .alert ul li {
-    color: rgb(221, 0, 0);
+.alert p,
+.alert ul li {
+	color: rgb(221, 0, 0);
 }
 
 .alert {
-    width: fit-content;
-    margin: auto;
+	width: fit-content;
+	margin: auto;
 }

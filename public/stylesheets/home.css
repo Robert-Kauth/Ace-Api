@@ -60,7 +60,6 @@
 	margin-top: 15px;
 	border: 1px solid rgba(107, 107, 107, 0.3);
 	border-radius: 5px;
-
 }
 
 .delete_imp_status:hover {
@@ -92,13 +91,15 @@
 	padding: 10px 0;
 }
 
-#login_button_welcome, #signup_button_welcome {
+#login_button_welcome,
+#signup_button_welcome {
 	margin: 0 5px;
 	text-decoration: none;
 	color: rgb(0, 0, 165);
 	font-size: 20px;
 }
 
-#login_button_welcome:hover, #signup_button_welcome:hover {
+#login_button_welcome:hover,
+#signup_button_welcome:hover {
 	text-decoration: underline;
 }

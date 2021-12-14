@@ -3,16 +3,16 @@ extends layout.pug
 include utils.pug
 
 block content
-	link(rel='stylesheet' href='/stylesheets/login.css')
-	div(id="login_body")
-		div(id="login_form")
+	link(rel='stylesheet', href='/stylesheets/login.css')
+	#login_body
+		#login_form
 			h1 Login to Ace API
 			+validationErrorSummary(errors)
 			form(action='/login', method='post')
 				input(type='hidden', name='_csrf', value=csrfToken)
 				+field('Email', 'email', email, 'email')
 				+field('Password', 'password', null, 'password')
-				button(id="loginButton") Login
+				button#loginButton Login
 			form(action='/demo', method='post')
-				button(id="demoLogin") Demo Login
+				button#demoLogin Demo Login
 			.btn-ctrl: a(href='/signup') Don't have an account? Click to Sign Up!

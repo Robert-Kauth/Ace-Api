@@ -3,9 +3,9 @@ extends layout.pug
 include utils.pug
 
 block content
-	link(rel='stylesheet' href='/stylesheets/signup.css')
-	div(id="signup_body")
-		div(id="signup_form")
+	link(rel='stylesheet', href='/stylesheets/signup.css')
+	#signup_body
+		#signup_form
 			h1 Sign Up for Ace API
 			+validationErrorSummary(errors)
 			form(action='/signup', method='post')
@@ -15,7 +15,7 @@ block content
 				+field('Email', 'email', user.email, 'email')
 				+field('Password', 'password', null, 'password')
 				+field('Confirm Password', 'confirm_password', null, 'password')
-				button(id="signupButton") Sign Up
+				button#signupButton Sign Up
 			form(action='/demo', method='post')
-				button(id="demoLogin") Demo Sign Up
+				button#demoLogin Demo Sign Up
 			.btn-ctrl: a(href='/login') Already have an account? Click to Login!

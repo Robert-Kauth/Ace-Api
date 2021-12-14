@@ -1,35 +1,35 @@
 #create-toolbox {
-    margin: 20px;
+	margin: 20px;
 }
 #toolbox-name {
-    margin: 20px;
-    display: flex;
-    flex-direction: column;
+	margin: 20px;
+	display: flex;
+	flex-direction: column;
 }
 #submit {
-    width: 70px;
-    margin: 10px 0px;
-    border-radius: 5px;
+	width: 70px;
+	margin: 10px 0px;
+	border-radius: 5px;
 }
-#implementation{
-    width: 300px;
-    height: 30px;
-    border-radius: 7px;
+#implementation {
+	width: 300px;
+	height: 30px;
+	border-radius: 7px;
 }
 
 #create_title {
-    text-align: center;
-    width: auto;
-    margin: 10px;
+	text-align: center;
+	width: auto;
+	margin: 10px;
 }
 
 #create_container {
-    border: 1px solid black;
-    text-align: center;
-    width: 500px;
-    margin: 15px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px gray;
+	border: 1px solid black;
+	text-align: center;
+	width: 500px;
+	margin: 15px;
+	border-radius: 10px;
+	box-shadow: 0 0 10px gray;
 }
 
 #submit {
@@ -50,29 +50,30 @@
 }
 
 #main_container {
-    display: flex;
-    width: fit-content;
-    justify-content: center;
+	display: flex;
+	width: fit-content;
+	justify-content: center;
 }
 
 #outer_box {
-    display: flex;
-    justify-content: center;
-
+	display: flex;
+	justify-content: center;
 }
 
 #toolbox-name {
-    display: flex;
-    align-items: center;
-    padding-left: 6px;
-    padding-right: 6px;
+	display: flex;
+	align-items: center;
+	padding-left: 6px;
+	padding-right: 6px;
 }
 
-.alert p, .alert ul li {
-    color: rgb(221, 0, 0);
-    font-size: 15px;
+.alert p,
+.alert ul li {
+	color: rgb(221, 0, 0);
+	font-size: 15px;
 }
 
-ul, li {
-    list-style: none;
+ul,
+li {
+	list-style: none;
 }
