@@ -24,14 +24,14 @@ block content
 			span or
 			a#signup_button_welcome.welcome_link(href='/signup') Sign Up
 			span Today!
-	h1#welcome_header Browse All APIs
 	main.page_style
-		.tbc_ctrl_group
+		.tbc_ctrl_group#homeToolBoxContainer
 			p.tbc_head
 				a#tbc_head_title(href='/toolboxes') My Toolboxes
 			+toolbox_card
 
 		.api_cards
+			h1#welcome_header Browse All APIs
 			each api in apis
 				.card_container
 					+api_card(api, toolboxes)

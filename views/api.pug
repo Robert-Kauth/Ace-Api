@@ -55,7 +55,7 @@ block content
 				.top_row
 					p
 						span.user_name #{ review.User.first_name } #{ review.User.last_name }
-						span rated it a
+						span  rated it a
 						span.user_rating= review.rating
 					if review.User.id === user_id
 						.add_edit_buttons

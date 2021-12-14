@@ -10,10 +10,8 @@ block head
 	link(rel='stylesheet', href='/stylesheets/search.css')
 
 block content
-	#Results
-		h2 Search Results
 	main.page_style
-		.tbc_ctrl_group
+		.tbc_ctrl_group#searchToolBoxContainer
 			p.tbc_head
 				a#tbc_head_title(href='/toolboxes') My Toolboxes
 			+toolbox_card
@@ -21,6 +19,8 @@ block content
 			#noResults No results found
 		else
 			.api_cards
+				#Results
+					h2 Search Results
 				each api in apis
 					.card_container
 						+api_card(api, toolboxes)
