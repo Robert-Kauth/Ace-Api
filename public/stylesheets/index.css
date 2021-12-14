@@ -54,10 +54,12 @@ nav {
 .nav_link {
 	font-size: 1.25rem;
 	padding: 7px;
+	transition: all .3s ease-in;
+	border-radius: 5px;
 }
 
 .nav_link:hover {
-	background-color: rgb(1, 68, 33);
+	background-color: rgb(145, 145, 145);
 	color: #dfd9c2;
 }
 
@@ -102,6 +104,8 @@ nav a {
 	border: none;
 	font-size: 1.25rem;
 	padding: 7px;
+	transition: all .3s ease-in;
+	border-radius: 5px;
 }
 
 #welcome {
@@ -115,7 +119,7 @@ nav a {
 
 #logout_button:hover {
 	cursor: pointer;
-	background-color: rgb(1, 68, 33);
+	background-color: rgb(145, 145, 145);
 	color: #dfd9c2;
 }
 
