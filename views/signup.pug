@@ -15,7 +15,7 @@ block content
 				+field('Email', 'email', user.email, 'email')
 				+field('Password', 'password', null, 'password')
 				+field('Confirm Password', 'confirm_password', null, 'password')
-				button#signupButton Sign Up
+				button#signupButton.auth-btn Sign Up
 			form(action='/demo', method='post')
-				button#demoLogin Demo Sign Up
+				button#demoLogin.auth-btn Demo User
 			.btn-ctrl: a(href='/login') Already have an account? Click to Login!

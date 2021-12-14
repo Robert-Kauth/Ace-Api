@@ -9,7 +9,7 @@ mixin validationErrorSummary(errors)
 mixin field(labelText, fieldName, fieldValue, fieldType = 'text', required)
 	.form-group
 		label(for=fieldName)= labelText
-		input.form-ctrl(
+		input.form-ctrl.auth-input(
 			type=fieldType,
 			required,
 			id=fieldName,
