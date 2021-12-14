@@ -52,6 +52,10 @@
 	font-size: large;
 }
 
+.apiDescription {
+	padding: 5px 25px;
+}
+
 .delete_imp_status {
 	background-color: rgb(226, 226, 226);
 	width: fit-content;

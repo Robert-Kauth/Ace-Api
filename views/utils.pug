@@ -42,7 +42,7 @@ mixin api_card(api, toolboxes)
 						.api_card_text Paid
 					div: a#ext_website(href=`${api.website}`, target='_blank') Website
 		section.api_description
-			p.api_card_text= api.description
+			p.api_card_text.apiDescription= api.description
 
 mixin api_card_concat(api, toolboxes)
 	div
