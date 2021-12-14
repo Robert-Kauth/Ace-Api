@@ -75,7 +75,7 @@
 }
 
 #ext_website:hover {
-	font-weight: bold;
+	text-decoration: underline;
 }
 
 #welcome_header {
