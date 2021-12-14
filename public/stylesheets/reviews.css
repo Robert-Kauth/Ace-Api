@@ -3,6 +3,11 @@
 	justify-content: center;
 	flex-direction: column;
 	align-items: center;
+	border: 1px solid black;
+	width: 500px;
+	margin: 10px auto;
+	border-radius: 10px;
+	box-shadow: 0 0 10px gray
 }
 #rate {
 	display: flex;
@@ -13,34 +18,37 @@
 	margin: 20px 20px;
 	align-items: center;
 	flex-direction: column;
+	border: none;
 }
 #reviewArea {
-	border-color: rgba(255, 255, 255, 0);
-}
-#yourRating {
-	background-color: black;
-	color: white;
+	border: 1px solid rgb(201, 201, 201);
+	width: 400px;
+	height: 200px;
+	outline: none;
+	padding: 10px;
 	border-radius: 5px;
-	padding: 5px 5px 5px;
 }
+
+#reviewArea:focus {
+	border: 1px solid rgb(78, 108, 207)
+}
+
 #yourReview {
-	background-color: black;
-	color: white;
-	border-radius: 5px;
-	padding: 5px 5px 5px;
+	margin-bottom: 5px;
 }
-#submit {
+#submitReview {
 	background-color: rgb(226, 226, 226);
 	width: fit-content;
 	font-size: 20px;
 	padding: 9px;
 	margin-top: 15px;
+	margin-bottom: 10px;
 	border: 1px solid rgba(107, 107, 107, 0.3);
 	border-radius: 5px;
 	transition: all .3s ease-in;
 }
 
-#submit:hover {
+#submitReview:hover {
 	background-color: rgb(156, 156, 156);
 	color: rgb(58, 58, 58);
 	cursor: pointer;
@@ -61,6 +69,7 @@ h1 {
 #textReview {
 	padding: 0px;
 	margin: 1px;
+	border: none;
 }
 .number {
 	padding: 5.8px;
