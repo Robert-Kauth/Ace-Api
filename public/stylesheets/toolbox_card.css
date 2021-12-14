@@ -20,12 +20,15 @@
 
 #tbc_head_title {
 	font-size: 25px;
+	transition: all .3s ease-in;
+	padding: 3px 5px;
+	border-radius: 5px;
 }
 
 #tbc_head_title:hover {
-	background-color: rgb(1, 68, 33);
-	padding: 0 5px;
-	color: #dfd9c2;
+	background-color: rgb(177, 177, 177);
+	/* padding: 0 5px; */
+	/* color: #dfd9c2; */
 }
 
 .tbc_ctrl {
@@ -35,11 +38,13 @@
 
 .tbc_link {
 	padding: 0 5px;
+	transition: all .3s ease-in;
+	padding: 3px 5px;
+	border-radius: 5px;
 }
 
 .tbc_link:hover {
-	background-color: rgb(1, 68, 33);
-	color: #dfd9c2;
+	background-color: rgb(177, 177, 177);
 }
 
 a {
@@ -59,6 +64,7 @@ a:visited {
 	margin-top: 15px;
 	border: 1px solid rgba(107, 107, 107, 0.3);
 	border-radius: 5px;
+	transition: all .3s ease-in;
 }
 
 #create_button:hover {

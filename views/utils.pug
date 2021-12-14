@@ -22,7 +22,7 @@ mixin toolbox_card
 		.tbc_ctrl(id=`toolbox_delete_${toolbox.id}`): a.tbc_link(
 			href=`/toolboxes/${toolbox.id}`
 		) #{ toolbox.name }
-	#create_button.tbc_ctrl: a#create_link.tbc_link(
+	#create_button.tbc_ctrl: a(
 		href='/toolboxes/create-toolbox'
 	) Create a Toolbox
 
