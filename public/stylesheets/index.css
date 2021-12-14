@@ -83,6 +83,11 @@ nav a {
 	height: 50px;
 	margin: 0 5px;
 	padding: 2px;
+	transition: transform .2s ease-in;
+}
+
+.logo_container a img:hover {
+	transform: scale(1.1);
 }
 
 .dev_container {
