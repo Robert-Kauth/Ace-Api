@@ -189,3 +189,26 @@ nav a {
 	background-color: rgba(255, 255, 255, 0);
 	border-color: rgba(255, 255, 255, 0);
 }
+
+.auth-input {
+	border-radius: 4px;
+	height: 30px;
+	border: 2px solid #ddddda !important;
+	width: 100%;
+}
+
+.form-group {
+	gap: 3px !important;
+	margin-top: 10px !important;
+}
+
+.auth-btn {
+	text-align: center;
+	width: 96.3%;
+	margin-top: 5px !important;
+	margin-left: 6px !important;
+}
+
+.auth-form {
+	width: 100%;
+}
