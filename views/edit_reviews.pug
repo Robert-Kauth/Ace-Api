@@ -10,7 +10,7 @@ block content
 		input(type='hidden', name='_csrf', value=csrfToken)
 		input(type='hidden', name='api_id', value=editedReview.Api.id)
 		fieldset#rate(name='ratings')
-			legend#yourRating(name='rating') Your Rating
+			legend#yourRating(name='rating') Rating
 			#numbers
 				label.number(for='rating1') 1
 				label.number(for='rating2') 2
@@ -49,11 +49,11 @@ block content
 					checked=editedReview.rating === "5.0"
 				)
 		fieldset#textReview(name='review')
-			legend#yourReview(name='text') Your Review
+			legend#yourReview(name='text') Review
 			textarea#reviewArea(
 				name='review',
 				cols='70',
 				rows='20',
 				value=editedReview.review
 			)= editedReview.review
-		button#submit(type='submit') Confirm Edit
+		button#submitReview(type='submit') Confirm Edit

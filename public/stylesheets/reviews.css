@@ -7,7 +7,7 @@
 	width: 500px;
 	margin: 10px auto;
 	border-radius: 10px;
-	box-shadow: 0 0 10px gray
+	box-shadow: 0 0 5px gray
 }
 #rate {
 	display: flex;
@@ -16,10 +16,16 @@
 	justify-content: center;
 	padding: 0px 0px 15px 0px;
 	margin: 20px 20px;
-	align-items: center;
+	margin-bottom: 10px;
 	flex-direction: column;
 	border: none;
 }
+
+#yourRating {
+	margin-bottom: 10px;
+	font-weight: 600;
+}
+
 #reviewArea {
 	border: 1px solid rgb(201, 201, 201);
 	width: 400px;
@@ -35,6 +41,7 @@
 
 #yourReview {
 	margin-bottom: 5px;
+	font-weight: 600;
 }
 #submitReview {
 	background-color: rgb(226, 226, 226);
@@ -72,7 +79,7 @@ h1 {
 	border: none;
 }
 .number {
-	padding: 5.8px;
+	padding: 6.2px;
 }
 
 .alert p,

@@ -10,7 +10,7 @@ block content
 		input(type='hidden', name='_csrf', value=csrfToken)
 		input(type='hidden', name='api_id', value=api.id)
 		fieldset#rate(name='ratings')
-			legend#yourRating(name='rating') Your Rating
+			legend#yourRating(name='rating') Rating
 			#numbers
 				label.number(for='rating1') 1
 				label.number(for='rating2') 2
@@ -24,6 +24,6 @@ block content
 				input#rating4(type='radio', name='rating', value='4')
 				input#rating5(type='radio', name='rating', value='5')
 		fieldset#textReview(name='review')
-			legend#yourReview(name='text') Your Review
+			legend#yourReview(name='text') Review
 			textarea#reviewArea(name='review', cols='70', rows='20')
 		button#submitReview(type='submit') Submit
