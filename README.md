@@ -3,7 +3,7 @@ Are you tired of wondering if there is the prefect Api for your project? Are you
 
 Ace Api (a goodreads clone) is designed to help developers find the perfect Api for their project. Ace Api allows one to quickly search, read reviews, rate, and organize Api's into custom toolboxes. Ace Api also provides an easy way to access Api documentation, description, and average review rating.
 
-- Visit [Ace Api](https://aa-aceapi.herokuapp.com/) to start implementing Api's today!
+- Visit [Ace Api](https://ace--api.herokuapp.com) to start implementing Api's today!
 - For more information please visit our [wiki](https://github.com/mkoerner570/goodreads-express-project/wiki).
 
 - Ace Api utilizes [Javascript](https://developer.mozilla.org/en-US/docs/Web/javascript) along with [Express](https://expressjs.com/) and [Pug](https://pugjs.org/api/getting-started.html) to generate a dynamic and responsive web application. All UI design was created using [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS).
